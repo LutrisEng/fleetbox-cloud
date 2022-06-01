@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aspect_ratio: 9.99
+  base_miles: 9.99
+  breakin: 9.99
+  construction: MyText
+  diameter: 9.99
+  hidden: false
+  load_index: 9.99
+  make: MyText
+  model: MyText
+  speed_rating: MyText
+  tin: MyText
+  user_display_name: MyText
+  vehicle_type: MyText
+  width: 9.99
+
+two:
+  aspect_ratio: 9.99
+  base_miles: 9.99
+  breakin: 9.99
+  construction: MyText
+  diameter: 9.99
+  hidden: false
+  load_index: 9.99
+  make: MyText
+  model: MyText
+  speed_rating: MyText
+  tin: MyText
+  user_display_name: MyText
+  vehicle_type: MyText
+  width: 9.99

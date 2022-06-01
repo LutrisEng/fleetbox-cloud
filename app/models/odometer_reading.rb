@@ -1,0 +1,2 @@
+class OdometerReading < ApplicationRecord
+end

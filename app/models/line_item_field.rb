@@ -1,0 +1,2 @@
+class LineItemField < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyText
+  sort_order: 9.99
+  type_id: MyText
+
+two:
+  notes: MyText
+  sort_order: 9.99
+  type_id: MyText
