@@ -13,3 +13,10 @@ pipers_car_breakin:
   performed_at: 2022-01-24T01:03:03-06:00
   shop: bmw_dealer
   odometer_reading: pipers_car_breakin
+
+pipers_car_summer_tires:
+  display_name: Mounted summer tires
+  vehicle: pipers_car
+  performed_at: 2022-03-30T05:00:00-06:00
+  shop: discount_tire
+  odometer_reading: pipers_car_summer_tires

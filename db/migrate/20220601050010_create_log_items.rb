@@ -6,6 +6,8 @@ class CreateLogItems < ActiveRecord::Migration[7.0]
       t.datetime :performed_at
 
       t.timestamps
+
+      t.index :performed_at
     end
   end
 end

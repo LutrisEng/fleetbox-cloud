@@ -6,6 +6,8 @@ class CreateLineItemFields < ActiveRecord::Migration[7.0]
       t.text :type_id
 
       t.timestamps
+
+      t.index :type_id
     end
   end
 end

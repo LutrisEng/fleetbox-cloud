@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.bigint "tire_set_value_id"
     t.index ["line_item_id"], name: "index_line_item_fields_on_line_item_id"
     t.index ["tire_set_value_id"], name: "index_line_item_fields_on_tire_set_value_id"
+    t.index ["type_id"], name: "index_line_item_fields_on_type_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.datetime "updated_at", null: false
     t.bigint "log_item_id", null: false
     t.index ["log_item_id"], name: "index_line_items_on_log_item_id"
+    t.index ["type_id"], name: "index_line_items_on_type_id"
   end
 
   create_table "log_items", force: :cascade do |t|
@@ -46,17 +48,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.bigint "shop_id"
     t.bigint "odometer_reading_id"
     t.index ["odometer_reading_id"], name: "index_log_items_on_odometer_reading_id"
+    t.index ["performed_at"], name: "index_log_items_on_performed_at"
     t.index ["shop_id"], name: "index_log_items_on_shop_id"
+    t.index ["vehicle_id", "performed_at"], name: "index_log_items_on_vehicle_id_and_performed_at"
     t.index ["vehicle_id"], name: "index_log_items_on_vehicle_id"
   end
 
   create_table "odometer_readings", force: :cascade do |t|
-    t.datetime "at"
+    t.datetime "performed_at"
     t.boolean "include_time"
     t.decimal "reading"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "vehicle_id", null: false
+    t.index ["performed_at"], name: "index_odometer_readings_on_performed_at"
+    t.index ["vehicle_id", "performed_at"], name: "index_odometer_readings_on_vehicle_id_and_performed_at"
     t.index ["vehicle_id"], name: "index_odometer_readings_on_vehicle_id"
   end
 
@@ -100,6 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.text "model_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["vin"], name: "index_vehicles_on_vin"
   end
 
   create_table "warranties", force: :cascade do |t|

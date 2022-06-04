@@ -3,7 +3,7 @@
 pipers_car_factory_tires:
   line_item: pipers_car_factory_tires
   type_id: tireSet
-  tire_set_value: pipers_tires
+  tire_set_value: pipers_factory_tires
 
 pipers_car_breakin_oil_viscosity:
   line_item: pipers_car_breakin_oil
@@ -29,3 +29,13 @@ pipers_car_breakin_oil_filter_part_number:
   line_item: pipers_car_breakin_oil_filter
   type_id: partNumber
   string_value: 11-42-8-583-898
+
+pipers_car_summer_tires_dismount:
+  line_item: pipers_car_summer_tires_dismount
+  type_id: tireSet
+  tire_set_value: pipers_factory_tires
+
+pipers_car_summer_tires_mount:
+  line_item: pipers_car_summer_tires_mount
+  type_id: tireSet
+  tire_set_value: pipers_summer_tires

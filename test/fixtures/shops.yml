@@ -5,3 +5,6 @@ bmw_factory:
 
 bmw_dealer:
   name: BMW of West Houston
+
+discount_tire:
+  name: Discount Tire of Brenham, Texas

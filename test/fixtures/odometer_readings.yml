@@ -2,15 +2,20 @@
 
 pipers_car_factory:
   reading: 0
-  at: 2022-01-06T01:03:03-06:00
+  performed_at: 2022-01-06T01:03:03-06:00
   vehicle: pipers_car
 
 pipers_car_breakin:
   reading: 1452
-  at: 2022-01-24T01:03:03-06:00
+  performed_at: 2022-01-24T01:03:03-06:00
   vehicle: pipers_car
 
 pipers_car:
   reading: 6871
-  at: 2022-03-06T01:03:03-06:00
+  performed_at: 2022-03-06T01:03:03-06:00
+  vehicle: pipers_car
+
+pipers_car_summer_tires:
+  reading: 7557
+  performed_at: 2022-03-30T05:00:00-06:00
   vehicle: pipers_car

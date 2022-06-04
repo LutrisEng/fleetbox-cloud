@@ -10,6 +10,8 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
       t.text :model_year
 
       t.timestamps
+
+      t.index :vin
     end
   end
 end

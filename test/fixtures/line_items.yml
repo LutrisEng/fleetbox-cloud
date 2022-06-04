@@ -47,3 +47,11 @@ pipers_car_breakin_oil:
 pipers_car_breakin_oil_filter:
   log_item: pipers_car_breakin
   type_id: engineOilFilterChange
+
+pipers_car_summer_tires_dismount:
+  log_item: pipers_car_summer_tires
+  type_id: dismountedTires
+
+pipers_car_summer_tires_mount:
+  log_item: pipers_car_summer_tires
+  type_id: mountedTires
