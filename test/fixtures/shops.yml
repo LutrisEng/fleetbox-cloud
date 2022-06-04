@@ -1,17 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyText
-  location: MyText
-  name: MyText
-  notes: MyText
-  phone_number: MyText
-  url: MyText
+bmw_factory:
+  name: BMW
 
-two:
-  email: MyText
-  location: MyText
-  name: MyText
-  notes: MyText
-  phone_number: MyText
-  url: MyText
+bmw_dealer:
+  name: BMW of West Houston

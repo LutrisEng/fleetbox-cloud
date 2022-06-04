@@ -1,11 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  display_name: MyText
-  include_time: false
-  performed_at: 2022-06-01 00:00:10
+pipers_car_factory:
+  display_name: Vehicle manufactured
+  vehicle: pipers_car
+  performed_at: 2022-01-06T01:03:03-06:00
+  shop: bmw_factory
+  odometer_reading: pipers_car_factory
 
-two:
-  display_name: MyText
-  include_time: false
-  performed_at: 2022-06-01 00:00:10
+pipers_car_breakin:
+  display_name: Break-in oil change
+  vehicle: pipers_car
+  performed_at: 2022-01-24T01:03:03-06:00
+  shop: bmw_dealer
+  odometer_reading: pipers_car_breakin

@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "line_item_id", null: false
-    t.bigint "tire_set_value_id", null: false
+    t.bigint "tire_set_value_id"
     t.index ["line_item_id"], name: "index_line_item_fields_on_line_item_id"
     t.index ["tire_set_value_id"], name: "index_line_item_fields_on_tire_set_value_id"
   end
@@ -43,8 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "vehicle_id", null: false
-    t.bigint "shop_id", null: false
-    t.bigint "odometer_reading_id", null: false
+    t.bigint "shop_id"
+    t.bigint "odometer_reading_id"
     t.index ["odometer_reading_id"], name: "index_log_items_on_odometer_reading_id"
     t.index ["shop_id"], name: "index_log_items_on_shop_id"
     t.index ["vehicle_id"], name: "index_log_items_on_vehicle_id"
@@ -108,8 +108,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
     t.text "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "vehicle_id", null: false
-    t.bigint "tire_set_id", null: false
+    t.bigint "vehicle_id"
+    t.bigint "tire_set_id"
     t.index ["tire_set_id"], name: "index_warranties_on_tire_set_id"
     t.index ["vehicle_id"], name: "index_warranties_on_vehicle_id"
   end

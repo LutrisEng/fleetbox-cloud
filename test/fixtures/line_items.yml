@@ -1,11 +1,49 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  notes: MyText
-  sort_order: 9.99
-  type_id: MyText
+pipers_car_factory_tires:
+  log_item: pipers_car_factory
+  type_id: mountedTires
 
-two:
-  notes: MyText
-  sort_order: 9.99
-  type_id: MyText
+pipers_car_factory_oil:
+  log_item: pipers_car_factory
+  type_id: engineOilChange
+
+pipers_car_factory_oil_filter:
+  log_item: pipers_car_factory
+  type_id: engineOilFilterChange
+
+pipers_car_factory_transmission_fluid:
+  log_item: pipers_car_factory
+  type_id: transmissionFluidChange
+
+pipers_car_factory_transmission_fluid_filter:
+  log_item: pipers_car_factory
+  type_id: transmissionFluidFilterChange
+
+pipers_car_factory_coolant:
+  log_item: pipers_car_factory
+  type_id: coolantChange
+
+pipers_car_factory_brake_fluid:
+  log_item: pipers_car_factory
+  type_id: brakeFluidChange
+
+pipers_car_factory_engine_air_filter:
+  log_item: pipers_car_factory
+  type_id: engineAirFilterChange
+
+pipers_car_factory_cabin_air_filter:
+  log_item: pipers_car_factory
+  type_id: cabinAirFilterChange
+
+pipers_car_factory_battery_replacement:
+  log_item: pipers_car_factory
+  type_id: batteryReplacement
+
+pipers_car_breakin_oil:
+  log_item: pipers_car_breakin
+  type_id: engineOilChange
+
+pipers_car_breakin_oil_filter:
+  log_item: pipers_car_breakin
+  type_id: engineOilFilterChange

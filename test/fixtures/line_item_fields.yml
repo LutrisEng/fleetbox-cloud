@@ -1,11 +1,31 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  decimal_value: 9.99
-  string_value: MyText
-  type_id: MyText
+pipers_car_factory_tires:
+  line_item: pipers_car_factory_tires
+  type_id: tireSet
+  tire_set_value: pipers_tires
 
-two:
-  decimal_value: 9.99
-  string_value: MyText
-  type_id: MyText
+pipers_car_breakin_oil_viscosity:
+  line_item: pipers_car_breakin_oil
+  type_id: viscosity
+  string_value: 0W-20
+
+pipers_car_breakin_oil_brand:
+  line_item: pipers_car_breakin_oil
+  type_id: brand
+  string_value: BMW
+
+pipers_car_breakin_oil_part_number:
+  line_item: pipers_car_breakin_oil
+  type_id: partNumber
+  string_value: 83-21-2-463-673
+
+pipers_car_breakin_oil_filter_brand:
+  line_item: pipers_car_breakin_oil_filter
+  type_id: brand
+  string_value: BMW
+
+pipers_car_breakin_oil_filter_part_number:
+  line_item: pipers_car_breakin_oil_filter
+  type_id: partNumber
+  string_value: 11-42-8-583-898
