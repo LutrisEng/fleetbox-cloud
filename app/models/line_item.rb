@@ -58,4 +58,8 @@ class LineItem < ApplicationRecord
   def performed_at
     log_item.performed_at
   end
+
+  def odometer_reading
+    log_item.odometer_reading
+  end
 end

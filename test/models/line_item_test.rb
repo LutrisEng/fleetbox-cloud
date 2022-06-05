@@ -82,7 +82,7 @@ class LineItemTest < ActiveSupport::TestCase
   test "gets odometer from log item properly" do
     log_item = log_items(:pipers_car_breakin)
     log_item.line_items.each do |line_item|
-      assert_equal(log_item.odometer, line_item.odometer)
+      assert_equal(log_item.odometer_reading.reading, line_item.odometer_reading.reading)
     end
   end
 end

@@ -63,7 +63,7 @@ class TireSet < ApplicationRecord
           counter += mounted_on.odometer
         end
 
-        mounted_at = log_item.odometer_reading&.reading || log_item.vehicle.odometer_readings.closest_to(log_item.performed_at)
+        mounted_at = log_item.odometer_reading&.reading || log_item.vehicle.odometer_readings.closest_to(log_item.performed_at)&.reading || 0
         mounted_on = log_item.vehicle
       end
     end
