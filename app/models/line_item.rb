@@ -35,12 +35,19 @@ class LineItem < ApplicationRecord
     get_field(field_type)&.tire_set_value
   end
 
+  def get_field_value_boolean(field_type)
+    get_field(field_type)&.boolean_value
+  end
+
   def set_field_value!(field_type, value)
     field = get_field!(field_type)
-    if value.is_a? String
+    case value
+    when String
       field.string_value = value
-    elsif value.is_a? TireSet
+    when TireSet
       field.tire_set_value = value
+    when true, false
+      field.boolean_value = value
     else
       raise StandardError.new "Invalid type for field value"
     end

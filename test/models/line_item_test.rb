@@ -49,6 +49,13 @@ class LineItemTest < ActiveSupport::TestCase
     assert_equal(tire_sets(:pipers_summer_tires), line_item.get_field_value_tire_set("tireSet"))
   end
 
+  test "can roundtrip boolean field values" do
+    line_item = LineItem::new(log_item: log_items(:pipers_car_breakin), type_id: "mountedTires")
+    assert_nil(line_item.get_field_value_boolean("someBooleanField"))
+    line_item.set_field_value!("someBooleanField", true)
+    assert_equal(true, line_item.get_field_value_boolean("someBooleanField"))
+  end
+
   test "can create field if doesn't exist" do
     line_item = line_items(:pipers_car_factory_oil)
     assert_nil(line_item.get_field_value_string("brand"))

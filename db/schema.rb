@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_050619) do
   create_table "line_item_fields", force: :cascade do |t|
     t.decimal "decimal_value"
     t.text "string_value"
+    t.boolean "boolean_value"
     t.text "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
