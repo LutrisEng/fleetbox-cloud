@@ -125,6 +125,9 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.15.0)
+    minitest-junit (1.1.0)
+      builder (~> 3.2)
+      minitest (~> 5.11)
     msgpack (1.5.2)
     net-imap (0.2.3)
       digest
@@ -285,6 +288,7 @@ DEPENDENCIES
   fixture_validation
   importmap-rails
   jbuilder
+  minitest-junit
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler

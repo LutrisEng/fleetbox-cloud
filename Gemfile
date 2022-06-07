@@ -75,4 +75,6 @@ group :test do
   gem "benchmark"
 
   gem "fixture_validation"
+
+  gem "minitest-junit"
 end
