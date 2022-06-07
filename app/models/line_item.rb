@@ -2,6 +2,8 @@ class LineItem < ApplicationRecord
   belongs_to :log_item
   has_many :line_item_fields
 
+  validate :type_exists
+
   scope :chrono, -> { includes(:log_item).order("log_items.performed_at asc") }
   scope :inverse_chrono, -> { includes(:log_item).order("log_items.performed_at desc") }
   scope :with_type, ->(type_id) { where(type_id: type_id) }
@@ -18,6 +20,12 @@ class LineItem < ApplicationRecord
   }
   scope :where_vehicle, ->(vehicle) { includes(:log_item).where("log_items.vehicle_id = ?", vehicle.id) }
   scope :where_after, ->(date) { includes(:log_item).where("log_items.performed_at > ?", date) }
+
+  def type_exists
+    unless type
+      errors.add(:type_id, "Type #{type_id} doesn't exist")
+    end
+  end
 
   def get_field(field_type)
     line_item_fields.with_type(field_type).first
@@ -68,5 +76,13 @@ class LineItem < ApplicationRecord
 
   def odometer_reading
     log_item.odometer_reading
+  end
+
+  def type
+    LineItemTypes::GLOBAL.get_type(type_id)
+  end
+
+  def type=(t)
+    type_id = t.id
   end
 end

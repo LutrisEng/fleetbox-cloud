@@ -9,6 +9,10 @@ class LineItemTypes
       @miles_life = yaml["milesLife"]
       @months_life = yaml["monthsLife"]
     end
+
+    def inspect
+      "<Component #{id}>"
+    end
   end
 
   class Category
@@ -46,6 +50,10 @@ class LineItemTypes
     def display_name
       I18n.t display_name_key
     end
+
+    def inspect
+      "<Category #{id}>"
+    end
   end
 
   class Type
@@ -81,6 +89,10 @@ class LineItemTypes
       @fields_by_id ||= fields_by_id!
     end
 
+    def get_field(id)
+      fields_by_id[id]
+    end
+
     def display_name_key
       "line_item_types.types.#{id}.name"
     end
@@ -97,6 +109,10 @@ class LineItemTypes
       if I18n.exists? description_key then
         I18n.t description_key
       end
+    end
+
+    def inspect
+      "<Type #{id}>"
     end
   end
 
@@ -129,6 +145,10 @@ class LineItemTypes
 
     def display_name
       I18n.t display_name_key, fallback: short_display_name
+    end
+
+    def inspect
+      "<Field #{id}>"
     end
   end
 
