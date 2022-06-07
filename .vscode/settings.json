@@ -1,6 +1,5 @@
 {
     "editor.tabSize": 2,
-    "yaml.schemas": {
-        "file:///Users/pmc/go/src/github.com/lutriseng/fleetbox-cloud/app/models/line_item_types/line_item_types.schema.json": "file:///Users/pmc/go/src/github.com/lutriseng/fleetbox-cloud/app/models/line_item_types/line_item_types.yml"
-    }
+    "ruby.useBundler": true,
+    "ruby.useLanguageServer": true,
 }
