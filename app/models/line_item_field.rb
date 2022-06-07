@@ -14,6 +14,23 @@ class LineItemField < ApplicationRecord
     type.type
   end
 
+  def self.value_data_type(value)
+    case value
+    when String
+      :string
+    when TireSet
+      :tire_set
+    when true, false
+      :boolean
+    when Numeric
+      :decimal
+    when nil
+      nil
+    else
+      raise StandardError.new "Invalid type for field value: #{new_value.inspect}"
+    end
+  end
+
   def value
     case data_type
     when "string", "enum"
@@ -28,24 +45,23 @@ class LineItemField < ApplicationRecord
   end
 
   def value=(new_value)
-    string_value = new_value
-    case new_value
-    when String
+    case LineItemField::value_data_type(new_value)
+    when :string
       if data_type != "string" && data_type != "enum"
         raise StandardError.new "Invalid value for #{data_type.inspect} field: #{new_value.inspect}"
       end
       self.string_value = new_value
-    when TireSet
+    when :tire_set
       if data_type != "tireSet"
         raise StandardError.new "Invalid value for tire set field: #{new_value.inspect}"
       end
       self.tire_set_value = new_value
-    when true, false
+    when :boolean
       if data_type != "boolean"
         raise StandardError.new "Invalid value for boolean field: #{new_value.inspect}"
       end
       self.boolean_value = new_value
-    when Numeric
+    when :decimal
       if data_type != "decimal"
         raise StandardError.new "Invalid value for decimal field: #{new_value.inspect}"
       end
@@ -55,8 +71,6 @@ class LineItemField < ApplicationRecord
       self.tire_set_value = nil
       self.boolean_value = nil
       self.decimal_value = nil
-    else
-      raise StandardError.new "Invalid type for field value: #{new_value.inspect}"
     end
   end
 

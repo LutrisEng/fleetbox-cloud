@@ -14,17 +14,17 @@ class LineItem < ApplicationRecord
   }
   scope :where_field_value, ->(field_type, value) {
     q = includes(:line_item_fields).where("line_item_fields.type_id = ?", field_type)
-    case value
-    when String
+    case LineItemField::value_data_type(value)
+    when :string
       q = q.where("line_item_fields.string_value = ?", value)
-    when TireSet
+    when :tire_set
       q = q.where("line_item_fields.tire_set_value_id = ?", value.id)
-    when true, false
+    when :boolean
       q = q.where("line_item_fields.boolean_value = ?", value)
-    when Numeric
+    when :decimal
       q = q.where("line_item_fields.decimal_value = ?", value)
-    else
-      raise StandardError.new "Invalid type for field value"
+    when nil
+      q = q.where("line_item_fields.string_value IS NULL AND line_item_fields.tire_set_value IS NULL AND line_item_fields.boolean_value IS NULL AND line_item_fields.decimal_value IS NULL")
     end
     q.distinct(:id)
   }
