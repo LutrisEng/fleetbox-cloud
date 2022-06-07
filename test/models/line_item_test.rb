@@ -92,4 +92,12 @@ class LineItemTest < ActiveSupport::TestCase
       assert_equal(log_item.odometer_reading.reading, line_item.odometer_reading.reading)
     end
   end
+
+  test "invalid type id fails validation" do
+    line_item = line_items(:pipers_car_breakin_oil)
+    assert line_item.valid?
+    line_item.type_id = "THIS DOESN'T EXIST"
+    refute line_item.valid?
+    assert_not_nil line_item.errors[:type_id]
+  end
 end

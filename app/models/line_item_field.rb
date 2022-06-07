@@ -9,6 +9,10 @@ class LineItemField < ApplicationRecord
   def type
     line_item.type.get_field(type_id)
   end
+  
+  def data_type
+    type.type
+  end
 
   def field_exists_for_line_item_type
     unless type
@@ -32,7 +36,7 @@ class LineItemField < ApplicationRecord
 
   def value_is_correct_type
     if type && value_is_set
-      case type.type
+      case data_type
       when "string"
         if decimal_value != nil
           errors.add(:decimal_value, "decimal value set on string field")
