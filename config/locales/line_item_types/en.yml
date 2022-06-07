@@ -291,6 +291,7 @@ en:
             name: What is the new belt's part number?
       engineOilChange:
         name: Engine oil changed
+        description: Engine oil was drained and refilled.
         fields:
           viscosity:
             short_name: Viscosity
@@ -303,6 +304,7 @@ en:
             name: What is the new oil's part number?
       transmissionFluidChange:
         name: Transmission fluid changed
+        description: Transmission fluid was drained and refilled.
         fields:
           brand:
             short_name: Brand
@@ -312,6 +314,7 @@ en:
             name: What is the new fluid's part number?
       frontDiffFluidChange:
         name: Front differential fluid changed
+        description: Front differential fluid was drained and refilled.
         fields:
           brand:
             short_name: Brand
@@ -321,6 +324,7 @@ en:
             name: What is the new fluid's part number?
       rearDiffFluidChange:
         name: Rear differential fluid changed
+        description: Rear differential fluid was drained and refilled.
         fields:
           brand:
             short_name: Brand
@@ -330,6 +334,7 @@ en:
             name: What is the new fluid's part number?
       brakeFluidChange:
         name: Brake fluid changed
+        description: Brake fluid was drained and refilled.
         fields:
           brand:
             short_name: Brand
@@ -339,6 +344,7 @@ en:
             name: What is the new fluid's part number?
       coolantChange:
         name: Coolant flushed
+        description: Engine coolant was drained and refilled.
         fields:
           brand:
             short_name: Brand
@@ -378,6 +384,7 @@ en:
             name: What is the new spark plug(s)' part number?
       batteryReplacement:
         name: Battery replaced
+        description: Main 12V battery was replaced.
         fields:
           brand:
             short_name: Brand
@@ -390,6 +397,7 @@ en:
             name: What is the new battery's serial number?
       hvBatteryReplacement:
         name: HV battery replaced
+        description: High-voltage (e.g. hybrid/traction) battery was replaced.
         fields:
           brand:
             short_name: Brand
@@ -474,18 +482,21 @@ en:
         fields: {}
       safetyInspection:
         name: Safety inspection completed
+        description: A mandatory state safety inspection was performed.
         fields:
           state:
             short_name: State
             name: Which state was this inspection for?
       emissionsInspection:
         name: Emissions inspection completed
+        description: A mandatory state emissions inspection was performed.
         fields:
           state:
             short_name: State
             name: Which state was this inspection for?
       basicPreDrive:
         name: Basic pre-drive inspection completed
+        description: A basic inspection intended to be completed in a couple minutes was completed.
         fields:
           lowBeams:
             short_name: Low beams

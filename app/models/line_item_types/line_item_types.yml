@@ -104,9 +104,6 @@ categories:
           sfsymbols: car
         types:
           - id: basicPreDrive
-            description:
-              A basic inspection intended to be completed in a couple minutes
-              was completed.
             fields:
               - id: lowBeams
                 type: boolean
@@ -188,14 +185,12 @@ categories:
           sfsymbols: building.columns
         types:
           - id: safetyInspection
-            description: A mandatory state safety inspection was performed.
             fields:
               - id: state
                 type: string
                 example: Texas
                 defaultValueFrom: vehicle.registrationState
           - id: emissionsInspection
-            description: A mandatory state emissions inspection was performed.
             fields:
               - id: state
                 type: string
@@ -254,7 +249,6 @@ categories:
               - id: partNumber
                 type: string
           - id: batteryReplacement
-            description: Main 12V battery was replaced.
             replaces: battery
             icon:
               sfsymbols: minus.plus.batteryblock
@@ -268,8 +262,6 @@ categories:
               - id: serialNumber
                 type: string
           - id: hvBatteryReplacement
-            description:
-              High-voltage (e.g. hybrid/traction) battery was replaced.
             replaces: hvBattery
             icon:
               sfsymbols: minus.plus.batteryblock
@@ -328,7 +320,6 @@ categories:
           sfsymbols: drop.triangle
         types:
           - id: engineOilChange
-            description: Engine oil was drained and refilled.
             replaces: engineOil
             fields:
               - id: viscosity
@@ -342,7 +333,6 @@ categories:
               - id: partNumber
                 type: string
           - id: transmissionFluidChange
-            description: Transmission fluid was drained and refilled.
             replaces: transmissionFluid
             fields:
               - id: brand
@@ -352,7 +342,6 @@ categories:
               - id: partNumber
                 type: string
           - id: frontDiffFluidChange
-            description: Front differential fluid was drained and refilled.
             replaces: frontDiffFluid
             fields:
               - id: brand
@@ -362,7 +351,6 @@ categories:
               - id: partNumber
                 type: string
           - id: rearDiffFluidChange
-            description: Rear differential fluid was drained and refilled.
             replaces: rearDiffFluid
             fields:
               - id: brand
@@ -372,7 +360,6 @@ categories:
               - id: partNumber
                 type: string
           - id: brakeFluidChange
-            description: Brake fluid was drained and refilled.
             replaces: brakeFluid
             fields:
               - id: brand
@@ -382,7 +369,6 @@ categories:
               - id: partNumber
                 type: string
           - id: coolantChange
-            description: Engine coolant was drained and refilled.
             replaces: coolant
             fields:
               - id: brand

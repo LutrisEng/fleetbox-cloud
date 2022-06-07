@@ -49,7 +49,7 @@ class LineItemTypes
   end
 
   class Type
-    attr_reader :id, :display_name, :category, :replaces, :icon
+    attr_reader :id, :category, :replaces, :icon
 
     def initialize(yaml, category)
       @yaml = yaml
@@ -87,6 +87,16 @@ class LineItemTypes
 
     def display_name
       I18n.t display_name_key
+    end
+
+    def description_key
+      "line_item_types.types.#{id}.description"
+    end
+
+    def description
+      if I18n.exists? description_key then
+        I18n.t description_key
+      end
     end
   end
 

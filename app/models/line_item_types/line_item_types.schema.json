@@ -42,9 +42,6 @@
         "id": {
           "type": "string"
         },
-        "description": {
-          "type": "string"
-        },
         "icon": {
           "$ref": "#/definitions/icon"
         },

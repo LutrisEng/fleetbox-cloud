@@ -77,6 +77,13 @@ class LineItemTypesTest < ActiveSupport::TestCase
     end
   end
 
+  test "type description translations work" do
+    I18n.with_locale(:en) do
+      assert_equal("Engine oil was drained and refilled.", LineItemTypes::GLOBAL.get_type("engineOilChange").description)
+      assert_nil(LineItemTypes::GLOBAL.get_type("cabinAirFilterChange").description, "LineItemTypes::Type#description returns non-nil for missing description")
+    end
+  end
+
   test "english translations exist for every category" do
     I18n.with_locale(:en) do
       LineItemTypes::GLOBAL.all_categories.each do |category|
