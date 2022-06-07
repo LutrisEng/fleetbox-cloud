@@ -37,4 +37,30 @@ class LineItemTypesTest < ActiveSupport::TestCase
       assert_not_nil(lit.get_component(component.id))
     end
   end
+
+  test "all subcategories are accounted for" do
+    def check_category(category)
+      assert_equal(category, LineItemTypes::GLOBAL.get_category(category.id))
+      category.subcategories.each do |subcategory|
+        check_category(subcategory)
+      end
+    end
+    LineItemTypes::GLOBAL.top_level_categories.each do |category|
+      check_category(category)
+    end
+  end
+
+  test "all types are accounted for" do
+    def check_category(category)
+      category.types.each do |type|
+        assert_equal(type, LineItemTypes::GLOBAL.get_type(type.id))
+      end
+      category.subcategories.each do |subcategory|
+        check_category(subcategory)
+      end
+    end
+    LineItemTypes::GLOBAL.top_level_categories.each do |category|
+      check_category(category)
+    end
+  end
 end
