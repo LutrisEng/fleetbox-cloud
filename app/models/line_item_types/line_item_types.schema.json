@@ -1,0 +1,180 @@
+{
+  "$comment": "SPDX-License-Identifier: ISC",
+  "type": "object",
+  "definitions": {
+    "icon": {
+      "type": "object",
+      "properties": {
+        "sfsymbols": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/definitions/icon"
+        },
+        "subcategories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/category"
+          }
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/type"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": ["id", "displayName"]
+    },
+    "type": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/definitions/icon"
+        },
+        "replaces": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/field"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": ["id", "displayName"]
+    },
+    "field": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "shortDisplayName": {
+          "type": "string"
+        },
+        "longDisplayName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "tireSet", "enum", "boolean", "integer"]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "exampleInteger": {
+          "type": "number"
+        },
+        "booleanFormat": {
+          "type": "object",
+          "properties": {
+            "true": {
+              "type": "string"
+            },
+            "false": {
+              "type": "string"
+            }
+          },
+          "required": ["true", "false"]
+        },
+        "enumValues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": ["id", "displayName"],
+            "additionalProperties": false
+          }
+        },
+        "example": {
+          "type": "string"
+        },
+        "defaultValue": {
+          "type": "string"
+        },
+        "defaultValueFrom": {
+          "type": "string",
+          "enum": [
+            "vehicle.make",
+            "vehicle.registrationState",
+            "vehicle.oilViscosity",
+            "vehicle.currentTires"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": ["id", "shortDisplayName", "type"]
+    },
+    "component": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "milesLife": {
+          "type": "number"
+        },
+        "monthsLife": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "properties": {
+    "components": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/component"
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/category"
+      }
+    }
+  },
+  "required": ["categories"],
+  "additionalProperties": false
+}
