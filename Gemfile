@@ -71,4 +71,6 @@ group :test do
   gem "webdrivers"
 
   gem "benchmark"
+
+  gem "fixture_validation"
 end

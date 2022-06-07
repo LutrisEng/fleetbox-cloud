@@ -66,7 +66,7 @@
         },
         "type": {
           "type": "string",
-          "enum": ["string", "tireSet", "enum", "boolean", "integer"]
+          "enum": ["string", "tireSet", "enum", "boolean", "decimal"]
         },
         "unit": {
           "type": "string"

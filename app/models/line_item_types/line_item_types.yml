@@ -607,7 +607,7 @@ categories:
                   - id: partNumber
                     type: string
                   - id: warranty
-                    type: integer
+                    type: decimal
                     unit: months
                     exampleInteger: 6
               - id: ceramicCoat
@@ -619,7 +619,7 @@ categories:
                   - id: partNumber
                     type: string
                   - id: warranty
-                    type: integer
+                    type: decimal
                     unit: years
                     exampleInteger: 4
           - id: windshieldCoatings
@@ -635,7 +635,7 @@ categories:
                   - id: partNumber
                     type: string
                   - id: warranty
-                    type: integer
+                    type: decimal
                     unit: months
                     exampleInteger: 6
               - id: windshieldCeramicCoat
@@ -647,7 +647,7 @@ categories:
                   - id: partNumber
                     type: string
                   - id: warranty
-                    type: integer
+                    type: decimal
                     unit: years
                     exampleInteger: 4
 
