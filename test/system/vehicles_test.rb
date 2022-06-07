@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class VehiclesTest < ApplicationSystemTestCase
   setup do
-    @vehicle = vehicles(:one)
+    @vehicle = vehicles(:pipers_car)
   end
 
   test "visiting the index" do
@@ -45,6 +45,8 @@ class VehiclesTest < ApplicationSystemTestCase
   end
 
   test "should destroy Vehicle" do
+    @vehicle = Vehicle.create
+
     visit vehicle_url(@vehicle)
     click_on "Destroy this vehicle", match: :first
 

@@ -101,4 +101,14 @@ class TireSet < ApplicationRecord
       :unmounted
     end
   end
+
+  def generate_display_name
+    dm_make = make || "Unknown Make"
+    dm_model = model || "Unknown Model"
+    "#{dm_make} #{dm_model} (#{specs})"
+  end
+
+  def display_name
+    user_display_name || generate_display_name
+  end
 end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tire sets</h1>
+
+<div id="tire_sets">
+  <% @tire_sets.each do |tire_set| %>
+    <%= render tire_set %>
+    <p>
+      <%= link_to "Show this tire set", tire_set %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tire set", new_tire_set_path %>

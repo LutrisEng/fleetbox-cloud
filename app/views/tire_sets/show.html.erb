@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tire_set %>
+
+<div>
+  <%= link_to "Edit this tire set", edit_tire_set_path(@tire_set) %> |
+  <%= link_to "Back to tire sets", tire_sets_path %>
+
+  <%= button_to "Destroy this tire set", @tire_set, method: :delete %>
+</div>

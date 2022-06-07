@@ -9,7 +9,8 @@ class LineItem < ApplicationRecord
   scope :with_type, ->(type_id) { where(type_id: type_id) }
   scope :with_field_value, ->(field_type) {
     includes(:line_item_fields)
-      .where("line_item_fields.type_id = ? && (line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL)", field_type)
+      .where("line_item_fields.type_id = ?", field_type)
+      .where("line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL")
       .distinct(:id)
   }
   scope :where_field_value, ->(field_type, value) {
