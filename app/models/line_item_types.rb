@@ -12,10 +12,11 @@ class LineItemTypes
   end
 
   class Category
-    attr_reader :id, :icon
+    attr_reader :parent, :id, :icon
 
-    def initialize(yaml)
+    def initialize(yaml, parent = nil)
       @yaml = yaml
+      @parent = parent
       @id = yaml["id"]
       @icon = yaml["icon"]
       @subcategories_yaml = yaml["subcategories"]
@@ -23,7 +24,7 @@ class LineItemTypes
     end
 
     def subcategories!
-      (@subcategories_yaml || []).map { |yaml| LineItemTypes::Category.new yaml }
+      (@subcategories_yaml || []).map { |yaml| LineItemTypes::Category.new(yaml, self) }
     end
 
     def subcategories
@@ -36,6 +37,14 @@ class LineItemTypes
 
     def types
       @types ||= types!
+    end
+
+    def display_name_key
+      "line_item_types.categories.#{id}.name"
+    end
+
+    def display_name
+      I18n.translate display_name_key
     end
   end
 

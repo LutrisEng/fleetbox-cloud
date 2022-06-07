@@ -63,4 +63,18 @@ class LineItemTypesTest < ActiveSupport::TestCase
       check_category(category)
     end
   end
+
+  test "category display name translations work" do
+    I18n.with_locale(:en) do
+      assert_equal("Window modifications", LineItemTypes::GLOBAL.get_category("windowMods").display_name)
+    end
+  end
+
+  test "english translations exist for every category" do
+    I18n.with_locale(:en) do
+      LineItemTypes::GLOBAL.all_categories.each do |category|
+        assert(I18n.exists?(category.display_name_key), "No translation for category #{category.id} (parent #{category.parent&.id})")
+      end
+    end
+  end
 end

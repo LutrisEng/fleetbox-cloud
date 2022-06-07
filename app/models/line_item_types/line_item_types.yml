@@ -96,12 +96,10 @@ components:
 
 categories:
   - id: inspection
-    displayName: Inspections
     icon:
       sfsymbols: magnifyingglass
     subcategories:
       - id: predrive
-        displayName: Pre-drive
         icon:
           sfsymbols: car
         types:
@@ -220,7 +218,6 @@ categories:
                   true: Pass
                   false: Fail
       - id: government
-        displayName: Government-mandated
         icon:
           sfsymbols: building.columns
         types:
@@ -245,7 +242,6 @@ categories:
                 example: Texas
                 defaultValueFrom: vehicle.registrationState
       - id: component
-        displayName: Components
         types:
           - id: fluidsCheck
             displayName: Fluid level checked
@@ -281,12 +277,10 @@ categories:
             displayName: Serpentine belt check
 
   - id: maintenance
-    displayName: Maintenance
     icon:
       sfsymbols: wrench.and.screwdriver
     subcategories:
       - id: mechanical
-        displayName: Mechanical
         icon:
           sfsymbols: wrench.and.screwdriver
         types:
@@ -370,7 +364,6 @@ categories:
                 type: string
         subcategories:
           - id: brakes
-            displayName: Brakes
             icon:
               sfsymbols: octagon
             types:
@@ -431,7 +424,6 @@ categories:
                     longDisplayName: What is the new brake rotors' part number?
                     type: string
       - id: fluids
-        displayName: Fluids
         icon:
           sfsymbols: drop.triangle
         types:
@@ -546,7 +538,6 @@ categories:
                 longDisplayName: What is the new washer fluid's part number?
                 type: string
       - id: belts
-        displayName: Belts
         types:
           - id: timingBeltChange
             displayName: Timing belt replaced
@@ -619,10 +610,8 @@ categories:
                 longDisplayName: What is the new belt's part number?
                 type: string
       - id: filters
-        displayName: Filters
         subcategories:
           - id: fluidFilters
-            displayName: Fluid filters
             icon:
               sfsymbols: drop.triangle
             types:
@@ -655,7 +644,6 @@ categories:
                     longDisplayName: What is the new filter's part number?
                     type: string
           - id: airFilters
-            displayName: Air filters
             icon:
               sfsymbols: wind
             types:
@@ -688,7 +676,6 @@ categories:
                     longDisplayName: What is the new air filter's part number?
                     type: string
       - id: tires
-        displayName: Tires
         icon:
           sfsymbols: circle.circle
         types:
@@ -741,12 +728,10 @@ categories:
                 type: tireSet
 
   - id: repair
-    displayName: Repairs
     icon:
       sfsymbols: screwdriver
     subcategories:
       - id: wheelRepair
-        displayName: Wheels & Tires
         icon:
           sfsymbols: circle.circle
         types:
@@ -779,7 +764,6 @@ categories:
         displayName: Miscellaneous repair
 
   - id: registration
-    displayName: Registration
     icon:
       sfsymbols: rectangle.and.paperclip
     types:
@@ -813,29 +797,24 @@ categories:
             example: ABC123
 
   - id: cosmetic
-    displayName: Cosmetic
     icon:
       sfsymbols: sparkles
     subcategories:
       - id: wash
-        displayName: Washing
         types:
           - id: washRinse
             displayName: Rinsed
           - id: washSoap
             displayName: Washed with soap
       - id: detailing
-        displayName: Detailing
         types:
           - id: interiorDetail
             displayName: Interior detailed
           - id: exteriorDetail
             displayName: Exterior detailed
       - id: coatings
-        displayName: Coatings
         subcategories:
           - id: paintCoatings
-            displayName: Paint coatings
             icon:
               sfsymbols: paintbrush
             types:
@@ -903,7 +882,6 @@ categories:
                     unit: years
                     exampleInteger: 4
           - id: windshieldCoatings
-            displayName: Windshield coatings
             icon:
               sfsymbols: eyeglasses
             types:
@@ -956,12 +934,10 @@ categories:
                     exampleInteger: 4
 
   - id: mods
-    displayName: Modifications
     icon:
       sfsymbols: pencil
     subcategories:
       - id: windowMods
-        displayName: Windows
         types:
           - id: tintApplied
             displayName: Window tint applied
@@ -980,7 +956,6 @@ categories:
                 type: string
 
   - id: misc
-    displayName: Miscellaneous
     icon:
       sfsymbols: questionmark.circle
     types:

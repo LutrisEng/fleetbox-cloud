@@ -17,9 +17,6 @@
         "id": {
           "type": "string"
         },
-        "displayName": {
-          "type": "string"
-        },
         "icon": {
           "$ref": "#/definitions/icon"
         },
@@ -37,7 +34,7 @@
         }
       },
       "additionalProperties": false,
-      "required": ["id", "displayName"]
+      "required": ["id"]
     },
     "type": {
       "type": "object",

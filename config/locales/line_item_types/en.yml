@@ -1,0 +1,53 @@
+en:
+  line_item_types:
+    categories:
+      inspection:
+        name: Inspections
+      predrive:
+        name: Pre-drive
+      government:
+        name: Government-mandated
+      component:
+        name: Components
+      maintenance:
+        name: Maintenance
+      mechanical:
+        name: Mechanical
+      fluids:
+        name: Fluids
+      belts:
+        name: Belts
+      filters:
+        name: Filters
+      fluidFilters:
+        name: Fluid filters
+      airFilters:
+        name: Air filters
+      tires:
+        name: Tires
+      brakes:
+        name: Brakes
+      repair:
+        name: Repairs
+      wheelRepair:
+        name: Wheels & tires
+      registration:
+        name: Registration
+      cosmetic:
+        name: Cosmetic
+      wash:
+        name: Washing
+      detailing:
+        name: Detailing
+      coatings:
+        name: Coatings
+      paintCoatings:
+        name: Paint coatings
+      windshieldCoatings:
+        name: Windshield coatings
+      mods:
+        name: Modifications
+      windowMods:
+        name: Window modifications
+      misc:
+        name: Miscellaneous
