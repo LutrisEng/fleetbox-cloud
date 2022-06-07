@@ -13,4 +13,13 @@ class Vehicle < ApplicationRecord
   def record_odometer_reading!(reading)
     OdometerReading::create(vehicle: self, performed_at: Time.now, reading: reading)
   end
+
+  def current_tires
+    line_items
+      .with_type("mountedTires")
+      .with_field_value("tireSet")
+      .inverse_chrono
+      .first
+      &.get_field_value("tireSet")
+  end
 end

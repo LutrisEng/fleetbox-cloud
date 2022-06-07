@@ -93,6 +93,10 @@ class LineItemTypes
       fields_by_id[id]
     end
 
+    def default_field_value(id, line_item)
+      get_field(id)&.default_value_with(line_item)
+    end
+
     def display_name_key
       "line_item_types.types.#{id}.name"
     end
@@ -129,6 +133,23 @@ class LineItemTypes
       @default_value = yaml["defaultValue"]
       @default_value_from = yaml["defaultValueFrom"]
       @unit = yaml["unit"]
+    end
+
+    def default_value_with(line_item)
+      if default_value
+        default_value
+      elsif default_value_from
+        case default_value_from
+        when "vehicle.make"
+          line_item.vehicle.make
+        when "vehicle.registrationState"
+          line_item.vehicle.registration_state
+        when "vehicle.oilViscosity"
+          line_item.vehicle.oil_viscosity
+        when "vehicle.currentTires"
+          line_item.vehicle.current_tires
+        end
+      end
     end
 
     def short_display_name_key

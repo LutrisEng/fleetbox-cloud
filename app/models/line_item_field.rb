@@ -14,6 +14,52 @@ class LineItemField < ApplicationRecord
     type.type
   end
 
+  def value
+    case data_type
+    when "string", "enum"
+      string_value
+    when "tireSet"
+      tire_set_value
+    when "boolean"
+      boolean_value
+    when "decimal"
+      decimal_value
+    end
+  end
+
+  def value=(new_value)
+    string_value = new_value
+    case new_value
+    when String
+      if data_type != "string" && data_type != "enum"
+        raise StandardError.new "Invalid value for #{data_type.inspect} field: #{new_value.inspect}"
+      end
+      self.string_value = new_value
+    when TireSet
+      if data_type != "tireSet"
+        raise StandardError.new "Invalid value for tire set field: #{new_value.inspect}"
+      end
+      self.tire_set_value = new_value
+    when true, false
+      if data_type != "boolean"
+        raise StandardError.new "Invalid value for boolean field: #{new_value.inspect}"
+      end
+      self.boolean_value = new_value
+    when Numeric
+      if data_type != "decimal"
+        raise StandardError.new "Invalid value for decimal field: #{new_value.inspect}"
+      end
+      self.decimal_value = new_value
+    when nil
+      self.string_value = nil
+      self.tire_set_value = nil
+      self.boolean_value = nil
+      self.decimal_value = nil
+    else
+      raise StandardError.new "Invalid type for field value: #{new_value.inspect}"
+    end
+  end
+
   def field_exists_for_line_item_type
     unless type
       errors.add(:type_id, "Field #{type_id} doesn't exist on line item type #{line_item.type.id}")

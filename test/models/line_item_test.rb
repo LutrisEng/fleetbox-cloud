@@ -28,53 +28,53 @@ class LineItemTest < ActiveSupport::TestCase
   end
 
   test "can get string field values" do
-    assert_equal("BMW", line_items(:pipers_car_breakin_oil).get_field_value_string("brand"))
+    assert_equal("BMW", line_items(:pipers_car_breakin_oil).get_field_value("brand"))
   end
 
   test "can get tire set field values" do
-    assert_equal(tire_sets(:pipers_factory_tires), line_items(:pipers_car_factory_tires).get_field_value_tire_set("tireSet"))
+    assert_equal(tire_sets(:pipers_factory_tires), line_items(:pipers_car_factory_tires).get_field_value("tireSet"))
   end
 
   test "can roundtrip string field values" do
     line_item = LineItem::new(log_item: log_items(:pipers_car_summer_tires), type_id: "engineOilChange")
-    assert_nil(line_item.get_field_value_string("brand"))
+    assert_nil(line_item.get_field_value("brand"))
     line_item.set_field_value!("brand", "BMW")
-    assert_equal("BMW", line_item.get_field_value_string("brand"))
+    assert_equal("BMW", line_item.get_field_value("brand"))
   end
 
   test "can roundtrip tire set field values" do
     line_item = LineItem::new(log_item: log_items(:pipers_car_breakin), type_id: "mountedTires")
-    assert_nil(line_item.get_field_value_tire_set("tireSet"))
+    assert_nil(line_item.get_field_value("tireSet"))
     line_item.set_field_value!("tireSet", tire_sets(:pipers_summer_tires))
-    assert_equal(tire_sets(:pipers_summer_tires), line_item.get_field_value_tire_set("tireSet"))
+    assert_equal(tire_sets(:pipers_summer_tires), line_item.get_field_value("tireSet"))
   end
 
   test "can roundtrip boolean field values" do
     line_item = LineItem::new(log_item: log_items(:pipers_car_breakin), type_id: "basicPreDrive")
-    assert_nil(line_item.get_field_value_boolean("lowBeams"))
+    assert_nil(line_item.get_field_value("lowBeams"))
     line_item.set_field_value!("lowBeams", true)
-    assert_equal(true, line_item.get_field_value_boolean("lowBeams"))
+    assert_equal(true, line_item.get_field_value("lowBeams"))
   end
 
   test "can create field if doesn't exist" do
     line_item = line_items(:pipers_car_factory_oil)
-    assert_nil(line_item.get_field_value_string("brand"))
+    assert_nil(line_item.get_field_value("brand"))
     assert_nil(line_item.get_field("brand"))
     field = line_item.get_field!("brand")
     assert_equal(field, line_item.get_field("brand"))
-    assert_nil(line_item.get_field_value_string("brand"))
+    assert_nil(line_item.get_field_value("brand"))
     field.string_value = "BMW"
     field.save!
     assert_equal(field, line_item.get_field("brand"))
-    assert_equal("BMW", line_item.get_field_value_string("brand"))
+    assert_equal("BMW", line_item.get_field_value("brand"))
   end
 
   test "can destroy field" do
     line_item = line_items(:pipers_car_breakin_oil)
-    assert_equal("BMW", line_item.get_field_value_string("brand"))
+    assert_equal("BMW", line_item.get_field_value("brand"))
     assert_not_nil(line_item.get_field("brand"))
     line_item.destroy_field!("brand")
-    assert_nil(line_item.get_field_value_string("brand"))
+    assert_nil(line_item.get_field_value("brand"))
     assert_nil(line_item.get_field("brand"))
   end
 
