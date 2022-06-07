@@ -2,7 +2,7 @@ class LineItemField < ApplicationRecord
   belongs_to :line_item
   belongs_to :tire_set_value, class_name: 'TireSet', foreign_key: :tire_set_value_id, optional: true
 
-  validate :field_exists_for_line_item_type, :only_one_value_is_set, :value_is_correct_type
+  validate :field_exists_for_line_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
 
   scope :with_type, ->(type_id) { where(type_id: type_id) }
 
@@ -22,6 +22,12 @@ class LineItemField < ApplicationRecord
 
   def only_one_value_is_set
     !value_is_set || ((decimal_value != nil) ^ (string_value != nil) ^ (boolean_value != nil) ^ (tire_set_value != nil))
+  end
+
+  def ensure_only_one_value_is_set
+    unless only_one_value_is_set
+      errors.add(:value, "more than one value field is set")
+    end
   end
 
   def value_is_correct_type
