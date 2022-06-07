@@ -40,7 +40,7 @@ jobs:
       - name: Run tests
         run: bin/rails test
       - name: Run system tests
-        run: bin/rails test:system
+        run: bin/rails 'test:system:with[headless_chrome]'
 
 #   lint:
 #     runs-on: ubuntu-latest
