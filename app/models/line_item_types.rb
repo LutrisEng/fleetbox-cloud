@@ -123,6 +123,10 @@ class LineItemTypes
     @components_by_id ||= components_by_id!
   end
 
+  def get_component(id)
+    components_by_id[id]
+  end
+
   def top_level_categories!
     file_contents["categories"].map { |yaml| LineItemTypes::Category.new yaml }
   end

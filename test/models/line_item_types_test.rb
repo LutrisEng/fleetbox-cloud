@@ -22,11 +22,19 @@ class LineItemTypesTest < ActiveSupport::TestCase
     end
   end
 
-  test "all categories appear in all_types_by_id" do
+  test "all categories appear in all_categories_by_id" do
     lit = LineItemTypes::GLOBAL
     lit.all_categories.each do |category|
       assert_not_nil(lit.all_categories_by_id[category.id])
       assert_not_nil(lit.get_category(category.id))
+    end
+  end
+
+  test "all components appear in components_by_id" do
+    lit = LineItemTypes::GLOBAL
+    lit.components.each do |component|
+      assert_not_nil(lit.components_by_id[component.id])
+      assert_not_nil(lit.get_component(component.id))
     end
   end
 end
