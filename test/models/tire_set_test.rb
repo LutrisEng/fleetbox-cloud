@@ -35,35 +35,35 @@ class TireSetTest < ActiveSupport::TestCase
     assert_equal(2443, tire_sets(:pipers_summer_tires).odometer)
   end
 
-  test "odometer stress test" do
-    COUNT = 1000
-    ActiveRecord::Base.transaction do
-      vehicle = Vehicle::create!
-      clock = Time.at(0)
-      odometer = 0
-      last_tire_set = nil
-      (1..COUNT).each do |x|
-        clock += 1.month
-        odometer += rand(5000..10000)
-        tire_set = TireSet::create!
-        log_item = LogItem::create!(vehicle: vehicle, performed_at: clock)
-        log_item.odometer_reading = OdometerReading::create!(vehicle: vehicle, performed_at: clock, reading: odometer)
-        mounted_line_item = LineItem::create!(log_item: log_item, type_id: 'mountedTires')
-        mounted_line_item.set_field_value!('tireSet', tire_set)
-        if last_tire_set
-          dismounted_line_item = LineItem::create!(log_item: log_item, type_id: 'dismountedTires')
-          dismounted_line_item.set_field_value!('tireSet', last_tire_set)
-        end
-        last_tire_set = tire_set
-      end
-      assert_equal(odometer, vehicle.odometer)
-    end
-    tire_sets = TireSet.all
-    assert_operator tire_sets.count, :>=, COUNT
-    tire_sets.each do |tire_set|
-      assert_not_nil(tire_set.odometer)
-    end
-  end
+  # test "odometer stress test" do
+  #   COUNT = 1000
+  #   ActiveRecord::Base.transaction do
+  #     vehicle = Vehicle::create!
+  #     clock = Time.at(0)
+  #     odometer = 0
+  #     last_tire_set = nil
+  #     (1..COUNT).each do |x|
+  #       clock += 1.month
+  #       odometer += rand(5000..10000)
+  #       tire_set = TireSet::create!
+  #       log_item = LogItem::create!(vehicle: vehicle, performed_at: clock)
+  #       log_item.odometer_reading = OdometerReading::create!(vehicle: vehicle, performed_at: clock, reading: odometer)
+  #       mounted_line_item = LineItem::create!(log_item: log_item, type_id: 'mountedTires')
+  #       mounted_line_item.set_field_value!('tireSet', tire_set)
+  #       if last_tire_set
+  #         dismounted_line_item = LineItem::create!(log_item: log_item, type_id: 'dismountedTires')
+  #         dismounted_line_item.set_field_value!('tireSet', last_tire_set)
+  #       end
+  #       last_tire_set = tire_set
+  #     end
+  #     assert_equal(odometer, vehicle.odometer)
+  #   end
+  #   tire_sets = TireSet.all
+  #   assert_operator tire_sets.count, :>=, COUNT
+  #   tire_sets.each do |tire_set|
+  #     assert_not_nil(tire_set.odometer)
+  #   end
+  # end
 
   test "specs generates correct format" do
     ts = tire_sets(:pipers_summer_tires)
