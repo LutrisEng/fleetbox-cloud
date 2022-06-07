@@ -42,9 +42,6 @@
         "id": {
           "type": "string"
         },
-        "displayName": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
         },
@@ -62,18 +59,12 @@
         }
       },
       "additionalProperties": false,
-      "required": ["id", "displayName"]
+      "required": ["id"]
     },
     "field": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
-        },
-        "shortDisplayName": {
-          "type": "string"
-        },
-        "longDisplayName": {
           "type": "string"
         },
         "type": {
@@ -134,7 +125,7 @@
         }
       },
       "additionalProperties": false,
-      "required": ["id", "shortDisplayName", "type"]
+      "required": ["id", "type"]
     },
     "component": {
       "type": "object",

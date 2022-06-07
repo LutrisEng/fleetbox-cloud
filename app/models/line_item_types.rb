@@ -44,12 +44,12 @@ class LineItemTypes
     end
 
     def display_name
-      I18n.translate display_name_key
+      I18n.t display_name_key
     end
   end
 
   class Type
-    attr_reader :id, :category, :replaces, :icon
+    attr_reader :id, :display_name, :category, :replaces, :icon
 
     def initialize(yaml, category)
       @yaml = yaml
@@ -58,10 +58,11 @@ class LineItemTypes
       @replaces = yaml["replaces"]
       @icon = yaml["icon"]
       @fields_yaml = yaml["fields"]
+      @display_name = yaml["displayName"]
     end
 
     def fields!
-      @fields_yaml.map { |yaml| LineItemTypes::Field.new yaml }
+      (@fields_yaml || []).map { |yaml| LineItemTypes::Field.new(yaml, self) }
     end
 
     def fields
@@ -79,20 +80,45 @@ class LineItemTypes
     def fields_by_id
       @fields_by_id ||= fields_by_id!
     end
+
+    def display_name_key
+      "line_item_types.types.#{id}.name"
+    end
+
+    def display_name
+      I18n.t display_name_key
+    end
   end
 
   class Field
-    attr_reader :id, :type, :enum_values, :example, :default_value, :default_value_from, :unit
+    attr_reader :parent, :id, :type, :enum_values, :example, :default_value, :default_value_from, :unit
 
-    def initialize(yaml)
+    def initialize(yaml, parent)
       @yaml = yaml
+      @parent = parent
       @id = yaml["id"]
       @type = yaml["type"]
-      @enum_values = yaml["enumValues"].map { |yaml| yaml["id"] }
+      @enum_values = yaml["enumValues"]&.map { |yaml| yaml["id"] }
       @example = yaml["example"]
       @default_value = yaml["defaultValue"]
       @default_value_from = yaml["defaultValueFrom"]
       @unit = yaml["unit"]
+    end
+
+    def short_display_name_key
+      "line_item_types.types.#{parent.id}.fields.#{id}.short_name"
+    end
+
+    def short_display_name
+      I18n.t short_display_name_key
+    end
+
+    def display_name_key
+      "line_item_types.types.#{parent.id}.fields.#{id}.name"
+    end
+
+    def display_name
+      I18n.t display_name_key, fallback: short_display_name
     end
   end
 

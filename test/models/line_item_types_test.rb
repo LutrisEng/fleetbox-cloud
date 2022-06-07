@@ -14,6 +14,13 @@ class LineItemTypesTest < ActiveSupport::TestCase
     lit.all_types_by_id
   end
 
+  test "can generate all fields without raising" do
+    lit = LineItemTypes::GLOBAL
+    lit.all_types.each do |type|
+      type.fields
+    end
+  end
+
   test "all types appear in all_types_by_id" do
     lit = LineItemTypes::GLOBAL
     lit.all_types.each do |type|
@@ -74,6 +81,24 @@ class LineItemTypesTest < ActiveSupport::TestCase
     I18n.with_locale(:en) do
       LineItemTypes::GLOBAL.all_categories.each do |category|
         assert(I18n.exists?(category.display_name_key), "No translation for category #{category.id} (parent #{category.parent&.id})")
+      end
+    end
+  end
+
+  test "english translations exist for every type" do
+    I18n.with_locale(:en) do
+      LineItemTypes::GLOBAL.all_types.each do |type|
+        assert(I18n.exists?(type.display_name_key), "No translation for type #{type.id} (category #{type.category&.id})")
+      end
+    end
+  end
+
+  test "english translations exist for every type field short name" do
+    I18n.with_locale(:en) do
+      LineItemTypes::GLOBAL.all_types.each do |type|
+        type.fields.each do |field|
+          assert(I18n.exists?(field.short_display_name_key), "No translation for type #{type.id} field #{field.id} (category #{type.category&.id})")
+        end
       end
     end
   end

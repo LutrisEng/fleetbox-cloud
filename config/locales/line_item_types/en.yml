@@ -51,3 +51,485 @@ en:
         name: Window modifications
       misc:
         name: Miscellaneous
+    types:
+      misc:
+        name: Miscellaneous
+        fields: {}
+      manufactured:
+        name: Vehicle manufactured
+        fields: {}
+      tintApplied:
+        name: Window tint applied
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the tint film?
+          vlt:
+            short_name: VLT
+            name: What is the VLT of the tint film?
+          windows:
+            short_name: Windows
+            name: Which windows were tinted?
+      windshieldSealant:
+        name: Windshield sealant applied
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the sealant?
+          productName:
+            short_name: Product
+            name: What is the name of the sealant?
+          partNumber:
+            short_name: Part number
+            name: What is the part number of the sealant?
+          warranty:
+            short_name: Warranty
+            name: How many months is the sealant warrantied for?
+      windshieldCeramicCoat:
+        name: Windshield ceramic coated
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the ceramic coat product?
+          productName:
+            short_name: Product
+            name: What is the name of the ceramic coat product?
+          partNumber:
+            short_name: Part number
+            name: What is the part number of the ceramic coat product?
+          warranty:
+            short_name: Warranty
+            name: How many years is the ceramic coat product warrantied for?
+      washWax:
+        name: Waxed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the wax product?
+          productName:
+            short_name: Product
+            name: What is the name of the wax product?
+          partNumber:
+            short_name: Part number
+            name: What is the part number of the ceramic wax product?
+      washSealant:
+        name: Sealant applied
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the sealant?
+          productName:
+            short_name: Product
+            name: What is the name of the sealant?
+          partNumber:
+            short_name: Part number
+            name: What is the part number of the sealant?
+          warranty:
+            short_name: Warranty
+            name: How many months is the sealant warrantied for?
+      ceramicCoat:
+        name: Ceramic coated
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the brand of the ceramic coat product?
+          productName:
+            short_name: Product
+            name: What is the name of the ceramic coat product?
+          partNumber:
+            short_name: Part number
+            name: What is the part number of the ceramic coat product?
+          warranty:
+            short_name: Warranty
+            name: How many years is the ceramic coat product warrantied for?
+      interiorDetail:
+        name: Interior detailed
+        fields: {}
+      exteriorDetail:
+        name: Exterior detailed
+        fields: {}
+      washRinse:
+        name: Rinsed
+        fields: {}
+      washSoap:
+        name: Washed with soap
+        fields: {}
+      stateRegistration:
+        name: Registered with state
+        fields:
+          state:
+            short_name: State
+            name: Which state was this vehicle registered with?
+          licensePlateNumber:
+            short_name: License plate
+            name: What is this vehicle's license plate number?
+      vanityPlateMounted:
+        name: Vanity plate mounted
+        fields:
+          state:
+            short_name: State
+            name: Which state is the vanity plate from?
+          licensePlateNumber:
+            short_name: License plate
+            name: What is the vanity plate's number?
+      miscellaneousRepair:
+        name: Miscellaneous repair
+        fields: {}
+      alignment:
+        name: Wheels aligned
+        fields: {}
+      patchedTire:
+        name: Tire patched
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was patched?
+          tire:
+            short_name: Tire
+            name: Which tire was patched?
+      tireRotation:
+        name: Tires rotated
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was rotated?
+          pattern:
+            short_name: Pattern
+            name: Which pattern was used to rotate the tires?
+      mountedTires:
+        name: Tire set mounted
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was mounted?
+      dismountedTires:
+        name: Tire set dismounted
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was dismounted?
+      engineAirFilterChange:
+        name: Engine air filter replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new air filter's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new air filter's part number?
+      cabinAirFilterChange:
+        name: Cabin air filter replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new air filter's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new air filter's part number?
+      engineOilFilterChange:
+        name: Engine oil filter replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new oil filter's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new oil filter's part number?
+      transmissionFluidFilterChange:
+        name: Transmission fluid filter replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new filter's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new filter's part number?
+      timingBeltChange:
+        name: Timing belt replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new belt's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new belt's part number?
+      serpentineBeltChange:
+        name: Serpentine belt replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new belt's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new belt's part number?
+      acBeltChange:
+        name: Air conditioning belt replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new belt's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new belt's part number?
+      alternatorBeltChange:
+        name: Alternator conditioning belt replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new belt's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new belt's part number?
+      psBeltChange:
+        name: Power steering pump belt replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new belt's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new belt's part number?
+      engineOilChange:
+        name: Engine oil changed
+        fields:
+          viscosity:
+            short_name: Viscosity
+            name: What is the new oil's viscosity?
+          brand:
+            short_name: Brand
+            name: What is the new oil's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new oil's part number?
+      transmissionFluidChange:
+        name: Transmission fluid changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new fluid's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new fluid's part number?
+      frontDiffFluidChange:
+        name: Front differential fluid changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new fluid's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new fluid's part number?
+      rearDiffFluidChange:
+        name: Rear differential fluid changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new fluid's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new fluid's part number?
+      brakeFluidChange:
+        name: Brake fluid changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new fluid's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new fluid's part number?
+      coolantChange:
+        name: Coolant flushed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new coolant's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new coolant's part number?
+      washerFluidTopOff:
+        name: Windshield washer fluid topped off
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new washer fluid's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new washer fluid's part number?
+      wiperBladeChange:
+        name: Wiper blades replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new wiper blades' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new wiper blades' part number?
+      sparkPlugReplacement:
+        name: Spark plug(s) replaced
+        fields:
+          cylinders:
+            short_name: Cylinder(s)
+            name: Which cylinder(s)' spark plug(s) were replaced?
+          brand:
+            short_name: Brand
+            name: What is the new spark plug(s)' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new spark plug(s)' part number?
+      batteryReplacement:
+        name: Battery replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new battery's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new battery's part number?
+          serialNumber:
+            short_name: Serial number
+            name: What is the new battery's serial number?
+      hvBatteryReplacement:
+        name: HV battery replaced
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new battery's brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new battery's part number?
+          serialNumber:
+            short_name: Serial number
+            name: What is the new battery's serial number?
+      frontBrakePadChange:
+        name: Front brake pads changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new brake pads' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new brake pads' part number?
+      rearBrakePadChange:
+        name: Rear brake pads changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new brake pads' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new brake pads' part number?
+      frontBrakeRotorChange:
+        name: Front brake rotors changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new brake rotors' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new brake rotors' part number?
+      rearBrakeRotorChange:
+        name: Rear brake pads changed
+        fields:
+          brand:
+            short_name: Brand
+            name: What is the new brake rotors' brand?
+          partNumber:
+            short_name: Part number
+            name: What is the new brake rotors' part number?
+      fluidsCheck:
+        name: Fluid level checked
+        fields: {}
+      engineOilCheck:
+        name: Engine oil level checked
+        fields: {}
+      transmissionFluidCheck:
+        name: Transmission fluid level checked
+        fields: {}
+      transferCaseFluidCheck:
+        name: Transfer case fluid level checked
+        fields: {}
+      treadCheck:
+        name: Tire tread checked
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was checked?
+      tirePressureChecked:
+        name: Tire pressure checked
+        fields:
+          tireSet:
+            short_name: Tire set
+            name: Which tire set was checked?
+      engineAirFilterCheck:
+        name: Engine air filter check
+        fields: {}
+      cabinAirFilterCheck:
+        name: Cabin air filter check
+        fields: {}
+      timingBeltCheck:
+        name: Timing belt check
+        fields: {}
+      serpentineBeltCheck:
+        name: Serpentine belt check
+        fields: {}
+      safetyInspection:
+        name: Safety inspection completed
+        fields:
+          state:
+            short_name: State
+            name: Which state was this inspection for?
+      emissionsInspection:
+        name: Emissions inspection completed
+        fields:
+          state:
+            short_name: State
+            name: Which state was this inspection for?
+      basicPreDrive:
+        name: Basic pre-drive inspection completed
+        fields:
+          lowBeams:
+            short_name: Low beams
+            name: Low beams are functional.
+          highBeams:
+            short_name: High beams
+            name: High beams are functional.
+          brakes:
+            short_name: Brakes
+            name: Brake pedal feels normal.
+          brakeLights:
+            short_name: Brake lights
+            name: Brake lights are functional.
+          tailLights:
+            short_name: Tail lights
+            name: Tail lights are functional.
+          hazards:
+            short_name: Hazards
+            name: Hazards are functional.
+          visibility:
+            short_name: Visibility
+            name: There is adequate visibility out of the windshield, front windows, and
+              mirrors.
+          wiperBlades:
+            short_name: Wiper blades
+            name: Wiper blades are in adequate condition.
+          washerFluid:
+            short_name: Washer fluid
+            name: Washer fluid sprayer is functional.
+          tireInflation:
+            short_name: Tire inflation
+            name: Tires are adequately inflated.
+          leaks:
+            short_name: Leaks
+            name: There are no leaks under the vehicle.
+          sound:
+            short_name: Sound
+            name: Vehicle does not make abnormal sounds while running.
+          steering:
+            short_name: Steering
+            name: Steering feels normal.
+          horn:
+            short_name: Horn
+            name: Horn is functional.
+          fuel:
+            short_name: Fuel
+            name: There is adequate fuel.
