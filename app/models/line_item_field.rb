@@ -4,7 +4,7 @@ class LineItemField < ApplicationRecord
   belongs_to :line_item
   belongs_to :tire_set_value, class_name: 'TireSet', optional: true
 
-  validate :field_exists_for_line_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
+  validate :field_exists_for_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
 
   scope :with_type, ->(type_id) { where(type_id:) }
 
@@ -43,6 +43,8 @@ class LineItemField < ApplicationRecord
       boolean_value
     when 'decimal'
       decimal_value
+    else
+      raise StandardError, 'Invalid data type for LineItemType'
     end
   end
 
@@ -71,10 +73,12 @@ class LineItemField < ApplicationRecord
       self.tire_set_value = nil
       self.boolean_value = nil
       self.decimal_value = nil
+    else
+      raise StandardError, 'Invalid data type for field value'
     end
   end
 
-  def field_exists_for_line_item_type
+  def field_exists_for_item_type
     errors.add(:type_id, "Field #{type_id} doesn't exist on line item type #{line_item.type.id}") unless type
   end
 
@@ -117,6 +121,8 @@ class LineItemField < ApplicationRecord
         errors.add(:boolean_value, 'boolean value set on decimal field') unless boolean_value.nil?
         errors.add(:tire_set_value, 'tire set value set on decimal field') unless tire_set_value.nil?
         errors.add(:string_value, 'string value set on decimal field') unless string_value.nil?
+      else
+        errors.add(:line_item, 'line item has invalid type')
       end
     end
   end

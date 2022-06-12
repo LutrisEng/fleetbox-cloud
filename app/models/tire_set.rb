@@ -71,7 +71,7 @@ class TireSet < ApplicationRecord
   end
 
   def specs
-    def maybe(x)
+    maybe = lambda { |x|
       if x.blank? || x.zero?
         '?'
       elsif x.is_a? Numeric
@@ -79,8 +79,8 @@ class TireSet < ApplicationRecord
       else
         x.to_s
       end
-    end
-    "#{maybe(vehicle_type)}#{maybe(width)}/#{maybe(aspect_ratio)}#{maybe(construction)}#{maybe(diameter)} #{maybe(load_index)}#{maybe(speed_rating)}"
+    }
+    "#{maybe.call(vehicle_type)}#{maybe.call(width)}/#{maybe.call(aspect_ratio)}#{maybe.call(construction)}#{maybe.call(diameter)} #{maybe.call(load_index)}#{maybe.call(speed_rating)}"
   end
 
   def origin

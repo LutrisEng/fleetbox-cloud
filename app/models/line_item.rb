@@ -28,6 +28,8 @@ class LineItem < ApplicationRecord
       q = q.where(line_item_fields: { decimal_value: value })
     when nil
       q = q.where('line_item_fields.string_value IS NULL AND line_item_fields.tire_set_value IS NULL AND line_item_fields.boolean_value IS NULL AND line_item_fields.decimal_value IS NULL')
+    else
+      raise StandardError, 'Invalid data type for field value'
     end
     q.distinct(:id)
   }
@@ -80,7 +82,7 @@ class LineItem < ApplicationRecord
     LineItemTypes::GLOBAL.get_type(type_id)
   end
 
-  def type=(t)
-    type_id = t.id
+  def type=(new_type)
+    self.type_id = new_type.id
   end
 end

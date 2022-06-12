@@ -96,7 +96,7 @@ class LineItemTypes
     end
 
     def default_field_value(id, line_item)
-      get_field(id)&.default_value_with(line_item)
+      get_field(id).default_value_with(line_item)
     end
 
     def display_name_key
@@ -128,7 +128,7 @@ class LineItemTypes
       @parent = parent
       @id = yaml['id']
       @type = yaml['type']
-      @enum_values = yaml['enumValues']&.map { |yaml| yaml['id'] }
+      @enum_values = yaml['enumValues']&.map { |enum_value_yaml| enum_value_yaml['id'] }
       @example = yaml['example']
       @default_value = yaml['defaultValue']
       @default_value_from = yaml['defaultValueFrom']
@@ -148,6 +148,8 @@ class LineItemTypes
           line_item.vehicle.oil_viscosity
         when 'vehicle.currentTires'
           line_item.vehicle.current_tires
+        else
+          raise StandardError, 'Invalid expression for default_value_from'
         end
       end
     end
@@ -173,7 +175,7 @@ class LineItemTypes
     end
   end
 
-  def initialize(file_name = File.join(__dir__, 'line_item_types', 'line_item_types.yml'))
+  def initialize(file_name = File.join(__dir__ || '.', 'line_item_types', 'line_item_types.yml'))
     @file_name = file_name
   end
 

@@ -34,7 +34,7 @@
     <%= vehicle.model_year %>
   </p>
 
-  <% if vehicle.current_tires then %>
+  <% if vehicle.current_tires %>
   <p>
     <strong>Tires:</strong>
     <%= link_to vehicle.current_tires.display_name, vehicle.current_tires %>

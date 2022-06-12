@@ -25,7 +25,7 @@ class LogItemsController < ApplicationController
 
     respond_to do |format|
       if @log_item.save
-        format.html { redirect_to log_item_url(@log_item), notice: 'Log item was successfully created.' }
+        format.html { redirect_to log_item_url(@log_item), notice: I18n.t('log_item.create.success') }
         format.json { render :show, status: :created, location: @log_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LogItemsController < ApplicationController
   def update
     respond_to do |format|
       if @log_item.update(log_item_params)
-        format.html { redirect_to log_item_url(@log_item), notice: 'Log item was successfully updated.' }
+        format.html { redirect_to log_item_url(@log_item), notice: I18n.t('log_item.update.success') }
         format.json { render :show, status: :ok, location: @log_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class LogItemsController < ApplicationController
     @log_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to log_items_url, notice: 'Log item was successfully destroyed.' }
+      format.html { redirect_to log_items_url, notice: I18n.t('log_item.destroy.success') }
       format.json { head :no_content }
     end
   end

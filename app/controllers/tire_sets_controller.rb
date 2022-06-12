@@ -25,7 +25,7 @@ class TireSetsController < ApplicationController
 
     respond_to do |format|
       if @tire_set.save
-        format.html { redirect_to tire_set_url(@tire_set), notice: 'Tire set was successfully created.' }
+        format.html { redirect_to tire_set_url(@tire_set), notice: I18n.t('tire_set.create.success') }
         format.json { render :show, status: :created, location: @tire_set }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TireSetsController < ApplicationController
   def update
     respond_to do |format|
       if @tire_set.update(tire_set_params)
-        format.html { redirect_to tire_set_url(@tire_set), notice: 'Tire set was successfully updated.' }
+        format.html { redirect_to tire_set_url(@tire_set), notice: I18n.t('tire_set.update.success') }
         format.json { render :show, status: :ok, location: @tire_set }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class TireSetsController < ApplicationController
     @tire_set.destroy
 
     respond_to do |format|
-      format.html { redirect_to tire_sets_url, notice: 'Tire set was successfully destroyed.' }
+      format.html { redirect_to tire_sets_url, notice: I18n.t('tire_set.destroy.success') }
       format.json { head :no_content }
     end
   end

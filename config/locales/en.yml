@@ -31,3 +31,24 @@
 
 en:
   hello: "Hello world"
+  log_item:
+    create:
+      success: "Log item was successfully created."
+    update:
+      success: "Log item was successfully updated."
+    destroy:
+      success: "Log item was successfully destroyed."
+  tire_set:
+    create:
+      success: "Tire set was successfully created."
+    update:
+      success: "Tire set was successfully updated."
+    destroy:
+      success: "Tire set was successfully destroyed."
+  vehicle:
+    create:
+      success: "Vehicle was successfully created."
+    update:
+      success: "Vehicle was successfully updated."
+    destroy:
+      success: "Vehicle was successfully destroyed."
