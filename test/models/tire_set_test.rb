@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class TireSetTest < ActiveSupport::TestCase
-  test "line_items returns the correct line items" do
+  test 'line_items returns the correct line items' do
     tire_set = tire_sets(:pipers_factory_tires)
     expected_line_items = [
       line_items(:pipers_car_factory_tires),
@@ -10,7 +12,7 @@ class TireSetTest < ActiveSupport::TestCase
     assert_equal(expected_line_items, tire_set.line_items.chrono)
   end
 
-  test "log_items returns the correct log items" do
+  test 'log_items returns the correct log items' do
     tire_set = tire_sets(:pipers_factory_tires)
     expected_log_items = [
       log_items(:pipers_car_factory),
@@ -23,14 +25,14 @@ class TireSetTest < ActiveSupport::TestCase
     assert_nil(tire_sets(:pipers_factory_tires).current_vehicle)
   end
 
-  test "vehicle fetches the current vehicle when mounted" do
+  test 'vehicle fetches the current vehicle when mounted' do
     assert_equal(vehicles(:pipers_car), tire_sets(:pipers_summer_tires).current_vehicle)
   end
 
-  test "odometer calculates properly" do
+  test 'odometer calculates properly' do
     assert_equal(7557, tire_sets(:pipers_factory_tires).odometer)
     assert_equal(0, tire_sets(:pipers_summer_tires).odometer)
-    vehicles(:pipers_car).record_odometer_reading!(10000)
+    vehicles(:pipers_car).record_odometer_reading!(10_000)
     assert_equal(7557, tire_sets(:pipers_factory_tires).odometer)
     assert_equal(2443, tire_sets(:pipers_summer_tires).odometer)
   end
@@ -65,23 +67,23 @@ class TireSetTest < ActiveSupport::TestCase
   #   end
   # end
 
-  test "specs generates correct format" do
+  test 'specs generates correct format' do
     ts = tire_sets(:pipers_summer_tires)
-    ts.vehicle_type = "P"
+    ts.vehicle_type = 'P'
     ts.width = 225
     ts.aspect_ratio = 40
-    ts.construction = "ZR"
+    ts.construction = 'ZR'
     ts.diameter = 19
     ts.load_index = 93
-    ts.speed_rating = "Y"
-    assert_equal("P225/40ZR19 93Y", ts.specs)
+    ts.speed_rating = 'Y'
+    assert_equal('P225/40ZR19 93Y', ts.specs)
   end
 
-  test "origin returns timestamp of first log item" do
-    assert_equal(Time.iso8601("2022-01-06T01:03:03-06:00"), tire_sets(:pipers_factory_tires).origin)
+  test 'origin returns timestamp of first log item' do
+    assert_equal(Time.iso8601('2022-01-06T01:03:03-06:00'), tire_sets(:pipers_factory_tires).origin)
   end
 
-  test "category functions as expected" do
+  test 'category functions as expected' do
     summer_tires = tire_sets(:pipers_summer_tires)
     factory_tires = tire_sets(:pipers_factory_tires)
     assert_equal(:mounted, summer_tires.category)

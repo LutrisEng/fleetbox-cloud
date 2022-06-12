@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTireSets < ActiveRecord::Migration[7.0]
   def change
     create_table :tire_sets do |t|

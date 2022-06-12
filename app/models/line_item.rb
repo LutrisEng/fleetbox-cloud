@@ -1,41 +1,41 @@
+# frozen_string_literal: true
+
 class LineItem < ApplicationRecord
   belongs_to :log_item
   has_many :line_item_fields
 
   validate :type_exists
 
-  scope :chrono, -> { includes(:log_item).order("log_items.performed_at asc") }
-  scope :inverse_chrono, -> { includes(:log_item).order("log_items.performed_at desc") }
-  scope :with_type, ->(type_id) { where(type_id: type_id) }
-  scope :with_field_value, ->(field_type) {
+  scope :chrono, -> { includes(:log_item).order('log_items.performed_at asc') }
+  scope :inverse_chrono, -> { includes(:log_item).order('log_items.performed_at desc') }
+  scope :with_type, ->(type_id) { where(type_id:) }
+  scope :with_field_value, lambda { |field_type|
     includes(:line_item_fields)
-      .where("line_item_fields.type_id = ?", field_type)
-      .where("line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL")
+      .where(line_item_fields: { type_id: field_type })
+      .where('line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL')
       .distinct(:id)
   }
-  scope :where_field_value, ->(field_type, value) {
-    q = includes(:line_item_fields).where("line_item_fields.type_id = ?", field_type)
-    case LineItemField::value_data_type(value)
+  scope :where_field_value, lambda { |field_type, value|
+    q = includes(:line_item_fields).where(line_item_fields: { type_id: field_type })
+    case LineItemField.value_data_type(value)
     when :string
-      q = q.where("line_item_fields.string_value = ?", value)
+      q = q.where(line_item_fields: { string_value: value })
     when :tire_set
-      q = q.where("line_item_fields.tire_set_value_id = ?", value.id)
+      q = q.where(line_item_fields: { tire_set_value_id: value.id })
     when :boolean
-      q = q.where("line_item_fields.boolean_value = ?", value)
+      q = q.where(line_item_fields: { boolean_value: value })
     when :decimal
-      q = q.where("line_item_fields.decimal_value = ?", value)
+      q = q.where(line_item_fields: { decimal_value: value })
     when nil
-      q = q.where("line_item_fields.string_value IS NULL AND line_item_fields.tire_set_value IS NULL AND line_item_fields.boolean_value IS NULL AND line_item_fields.decimal_value IS NULL")
+      q = q.where('line_item_fields.string_value IS NULL AND line_item_fields.tire_set_value IS NULL AND line_item_fields.boolean_value IS NULL AND line_item_fields.decimal_value IS NULL')
     end
     q.distinct(:id)
   }
-  scope :where_vehicle, ->(vehicle) { includes(:log_item).where("log_items.vehicle_id = ?", vehicle.id) }
-  scope :where_after, ->(date) { includes(:log_item).where("log_items.performed_at > ?", date) }
+  scope :where_vehicle, ->(vehicle) { includes(:log_item).where(log_items: { vehicle_id: vehicle.id }) }
+  scope :where_after, ->(date) { includes(:log_item).where('log_items.performed_at > ?', date) }
 
   def type_exists
-    unless type
-      errors.add(:type_id, "Type #{type_id} doesn't exist")
-    end
+    errors.add(:type_id, "Type #{type_id} doesn't exist") unless type
   end
 
   def get_field(field_type)
@@ -43,7 +43,7 @@ class LineItem < ApplicationRecord
   end
 
   def create_field(field_type, value = nil)
-    field = LineItemField::create(line_item: self, type_id: field_type)
+    field = LineItemField.create(line_item: self, type_id: field_type)
     field.value = value
     field
   end
@@ -70,17 +70,11 @@ class LineItem < ApplicationRecord
     get_field(field_type)&.destroy!
   end
 
-  def vehicle
-    log_item.vehicle
-  end
+  delegate :vehicle, to: :log_item
 
-  def performed_at
-    log_item.performed_at
-  end
+  delegate :performed_at, to: :log_item
 
-  def odometer_reading
-    log_item.odometer_reading
-  end
+  delegate :odometer_reading, to: :log_item
 
   def type
     LineItemTypes::GLOBAL.get_type(type_id)

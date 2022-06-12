@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class LineItemTypes
   class Component
     attr_reader :id, :miles_life, :months_life
 
     def initialize(yaml)
       @yaml = yaml
-      @id = yaml["id"]
-      @name = yaml["name"]
-      @miles_life = yaml["milesLife"]
-      @months_life = yaml["monthsLife"]
+      @id = yaml['id']
+      @name = yaml['name']
+      @miles_life = yaml['milesLife']
+      @months_life = yaml['monthsLife']
     end
 
     def inspect
@@ -21,10 +23,10 @@ class LineItemTypes
     def initialize(yaml, parent = nil)
       @yaml = yaml
       @parent = parent
-      @id = yaml["id"]
-      @icon = yaml["icon"]
-      @subcategories_yaml = yaml["subcategories"]
-      @types_yaml = yaml["types"]
+      @id = yaml['id']
+      @icon = yaml['icon']
+      @subcategories_yaml = yaml['subcategories']
+      @types_yaml = yaml['types']
     end
 
     def subcategories!
@@ -61,12 +63,12 @@ class LineItemTypes
 
     def initialize(yaml, category)
       @yaml = yaml
-      @id = yaml["id"]
+      @id = yaml['id']
       @category = category
-      @replaces = yaml["replaces"]
-      @icon = yaml["icon"]
-      @fields_yaml = yaml["fields"]
-      @display_name = yaml["displayName"]
+      @replaces = yaml['replaces']
+      @icon = yaml['icon']
+      @fields_yaml = yaml['fields']
+      @display_name = yaml['displayName']
     end
 
     def fields!
@@ -110,9 +112,7 @@ class LineItemTypes
     end
 
     def description
-      if I18n.exists? description_key then
-        I18n.t description_key
-      end
+      I18n.t description_key if I18n.exists? description_key
     end
 
     def inspect
@@ -126,13 +126,13 @@ class LineItemTypes
     def initialize(yaml, parent)
       @yaml = yaml
       @parent = parent
-      @id = yaml["id"]
-      @type = yaml["type"]
-      @enum_values = yaml["enumValues"]&.map { |yaml| yaml["id"] }
-      @example = yaml["example"]
-      @default_value = yaml["defaultValue"]
-      @default_value_from = yaml["defaultValueFrom"]
-      @unit = yaml["unit"]
+      @id = yaml['id']
+      @type = yaml['type']
+      @enum_values = yaml['enumValues']&.map { |yaml| yaml['id'] }
+      @example = yaml['example']
+      @default_value = yaml['defaultValue']
+      @default_value_from = yaml['defaultValueFrom']
+      @unit = yaml['unit']
     end
 
     def default_value_with(line_item)
@@ -140,13 +140,13 @@ class LineItemTypes
         default_value
       elsif default_value_from
         case default_value_from
-        when "vehicle.make"
+        when 'vehicle.make'
           line_item.vehicle.make
-        when "vehicle.registrationState"
+        when 'vehicle.registrationState'
           line_item.vehicle.registration_state
-        when "vehicle.oilViscosity"
+        when 'vehicle.oilViscosity'
           line_item.vehicle.oil_viscosity
-        when "vehicle.currentTires"
+        when 'vehicle.currentTires'
           line_item.vehicle.current_tires
         end
       end
@@ -173,13 +173,11 @@ class LineItemTypes
     end
   end
 
-  def initialize(file_name = File.join(__dir__, "line_item_types", "line_item_types.yml"))
+  def initialize(file_name = File.join(__dir__, 'line_item_types', 'line_item_types.yml'))
     @file_name = file_name
   end
 
-  def file_name
-    @file_name
-  end
+  attr_reader :file_name
 
   def file_contents!
     YAML.load_file(file_name)
@@ -190,13 +188,13 @@ class LineItemTypes
   end
 
   def components!
-    file_contents["components"].map { |yaml| LineItemTypes::Component.new yaml }
+    file_contents['components'].map { |yaml| LineItemTypes::Component.new yaml }
   end
 
   def components
     @components ||= components!
   end
-  
+
   def components_by_id!
     hash = {}
     components.each do |component|
@@ -214,7 +212,7 @@ class LineItemTypes
   end
 
   def top_level_categories!
-    file_contents["categories"].map { |yaml| LineItemTypes::Category.new yaml }
+    file_contents['categories'].map { |yaml| LineItemTypes::Category.new yaml }
   end
 
   def top_level_categories
@@ -224,7 +222,7 @@ class LineItemTypes
   def all_categories!
     seen = []
     categories = top_level_categories.clone
-    while !categories.empty?
+    until categories.empty?
       category = categories.pop
       seen.push category
       category.subcategories.each { |subcat| categories.push subcat }
