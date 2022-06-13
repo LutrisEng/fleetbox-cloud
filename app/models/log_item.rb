@@ -4,7 +4,7 @@ class LogItem < ApplicationRecord
   belongs_to :vehicle
   belongs_to :shop, optional: true
   belongs_to :odometer_reading, optional: true
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
 
   owner_from_parent :vehicle, Vehicle
 

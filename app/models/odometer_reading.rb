@@ -2,7 +2,7 @@
 
 class OdometerReading < ApplicationRecord
   belongs_to :vehicle
-  has_one :log_item
+  has_one :log_item, dependent: :nullify
 
   owner_from_parent :vehicle, Vehicle
 

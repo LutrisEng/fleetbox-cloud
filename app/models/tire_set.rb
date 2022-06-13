@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TireSet < ApplicationRecord
-  has_many :line_item_fields, foreign_key: :tire_set_value_id
+  has_many :line_item_fields, foreign_key: :tire_set_value_id, dependent: :nullify, inverse_of: :tire_set_value
   belongs_to :owner, class_name: 'User', optional: false
 
   owner_from_record

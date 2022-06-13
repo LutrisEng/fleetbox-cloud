@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Vehicle < ApplicationRecord
-  has_many :log_items
-  has_many :odometer_readings
+  has_many :log_items, dependent: :destroy
+  has_many :odometer_readings, dependent: :destroy
   belongs_to :owner, class_name: 'User', optional: false
 
   owner_from_record
