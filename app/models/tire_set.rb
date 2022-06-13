@@ -72,7 +72,7 @@ class TireSet < ApplicationRecord
 
   def specs
     maybe = lambda { |x|
-      if x.blank? || x.zero?
+      if x.blank? || (x.is_a?(Numeric) && x.zero?)
         '?'
       elsif x.is_a? Numeric
         '%d' % x
