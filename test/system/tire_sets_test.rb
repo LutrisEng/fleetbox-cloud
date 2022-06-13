@@ -61,7 +61,7 @@ class TireSetsTest < ApplicationSystemTestCase
   end
 
   test 'should destroy Tire set' do
-    @tire_set = TireSet.create
+    @tire_set = TireSet.create(owner: users(:piper))
 
     visit tire_set_url(@tire_set)
     click_on 'Destroy this tire set', match: :first

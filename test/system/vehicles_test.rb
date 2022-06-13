@@ -47,7 +47,7 @@ class VehiclesTest < ApplicationSystemTestCase
   end
 
   test 'should destroy Vehicle' do
-    @vehicle = Vehicle.create
+    @vehicle = Vehicle.create(owner: users(:piper))
 
     visit vehicle_url(@vehicle)
     click_on 'Destroy this vehicle', match: :first
