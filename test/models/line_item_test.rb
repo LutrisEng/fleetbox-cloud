@@ -104,4 +104,8 @@ class LineItemTest < ActiveSupport::TestCase
     assert_not line_item.valid?
     assert_not_nil line_item.errors[:type_id]
   end
+
+  test 'inherits owner from log item / vehicle' do
+    assert_equal(line_items(:pipers_car_factory_tires).owner, users(:piper))
+  end
 end

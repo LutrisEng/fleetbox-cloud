@@ -12,6 +12,9 @@ class ApplicationRecord < ActiveRecord::Base
 
     def owner_from_parent(parent_name, parent_class)
       scope :with_owner, ->(owner) { joins(parent_name).merge(parent_class.with_owner(owner)) }
+      define_method(:owner) do
+        public_send(parent_name).owner
+      end
     end
 
     def owner_from_parents(parents)
@@ -31,6 +34,13 @@ class ApplicationRecord < ActiveRecord::Base
         end
         merged
       }
+      define_method(:owner) do
+        found_parent = nil
+        parents.each do |parent|
+          found_parent ||= public_send(parent[:name])
+        end
+        found_parent&.owner
+      end
     end
   end
 

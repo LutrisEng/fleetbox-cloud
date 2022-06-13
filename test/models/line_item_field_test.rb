@@ -92,4 +92,8 @@ class LineItemFieldTest < ActiveSupport::TestCase
     assert_not_nil field.errors[:boolean_value]
     assert_equal('string', field.data_type)
   end
+
+  test 'inherits owner from line item / log item / vehicle' do
+    assert_equal(line_item_fields(:pipers_car_factory_tires).owner, users(:piper))
+  end
 end

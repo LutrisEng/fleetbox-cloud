@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class OdometerReadingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'inherits owner from vehicle' do
+    assert_equal(odometer_readings(:pipers_car_factory).owner, users(:piper))
+  end
 end

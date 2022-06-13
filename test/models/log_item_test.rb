@@ -65,4 +65,8 @@ class LogItemTest < ActiveSupport::TestCase
     ]
     assert_equal(expected_log_items, LogItem.inverse_chrono)
   end
+
+  test 'inherits owner from vehicle' do
+    assert_equal(log_items(:pipers_car_factory).owner, users(:piper))
+  end
 end
