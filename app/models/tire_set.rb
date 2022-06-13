@@ -4,6 +4,8 @@ class TireSet < ApplicationRecord
   has_many :line_item_fields, foreign_key: :tire_set_value_id
   belongs_to :owner, class_name: 'User', optional: false
 
+  scope :with_owner, ->(owner) { where(owner:) }
+
   def line_items
     LineItem
       .joins(:line_item_fields)

@@ -5,6 +5,8 @@ class Vehicle < ApplicationRecord
   has_many :odometer_readings
   belongs_to :owner, class_name: 'User', optional: false
 
+  scope :with_owner, ->(owner) { where(owner:) }
+
   def line_items
     LineItem.joins(:log_item).merge(log_items).distinct(:id)
   end

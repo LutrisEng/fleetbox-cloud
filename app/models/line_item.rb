@@ -10,13 +10,13 @@ class LineItem < ApplicationRecord
   scope :inverse_chrono, -> { includes(:log_item).order('log_items.performed_at desc') }
   scope :with_type, ->(type_id) { where(type_id:) }
   scope :with_field_value, lambda { |field_type|
-    includes(:line_item_fields)
+    joins(:line_item_fields)
       .where(line_item_fields: { type_id: field_type })
       .where('line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL')
       .distinct(:id)
   }
   scope :where_field_value, lambda { |field_type, value|
-    q = includes(:line_item_fields).where(line_item_fields: { type_id: field_type })
+    q = joins(:line_item_fields).where(line_item_fields: { type_id: field_type })
     case LineItemField.value_data_type(value)
     when :string
       q = q.where(line_item_fields: { string_value: value })
@@ -33,8 +33,9 @@ class LineItem < ApplicationRecord
     end
     q.distinct(:id)
   }
-  scope :where_vehicle, ->(vehicle) { includes(:log_item).where(log_items: { vehicle_id: vehicle.id }) }
-  scope :where_after, ->(date) { includes(:log_item).where('log_items.performed_at > ?', date) }
+  scope :where_vehicle, ->(vehicle) { joins(:log_item).where(log_items: { vehicle_id: vehicle.id }) }
+  scope :where_after, ->(date) { joins(:log_item).where('log_items.performed_at > ?', date) }
+  scope :with_owner, ->(owner) { joins(:log_item).merge(LogItem.with_owner(owner)) }
 
   def type_exists
     errors.add(:type_id, "Type #{type_id} doesn't exist") unless type

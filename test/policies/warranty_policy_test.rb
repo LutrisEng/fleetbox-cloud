@@ -7,7 +7,6 @@ class WarrantyPolicyTest < ActiveSupport::TestCase
     user = users(:piper)
     user.admin = false
     warranties = WarrantyPolicy::Scope.new(user, Warranty).resolve
-    print warranties.to_sql
     assert(warranties.include?(warranties(:pipers_car_warranty)))
   end
 

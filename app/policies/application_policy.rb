@@ -50,4 +50,14 @@ class ApplicationPolicy
 
     attr_reader :user, :scope
   end
+
+  class OwnerScope < Scope
+    def resolve
+      if user.admin
+        scope.all
+      else
+        scope.with_owner(user)
+      end
+    end
+  end
 end
