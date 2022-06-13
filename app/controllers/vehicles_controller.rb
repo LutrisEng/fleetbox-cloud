@@ -2,12 +2,15 @@
 
 class VehiclesController < ApplicationController
   include Secured
+  include Pundit::Authorization
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   before_action :set_vehicle, only: %i[show edit update destroy]
 
   # GET /vehicles or /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = policy_scope(Vehicle)
   end
 
   # GET /vehicles/1 or /vehicles/1.json
@@ -16,6 +19,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   # GET /vehicles/1/edit
@@ -25,6 +29,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.owner = current_user
+    authorize @vehicle
 
     respond_to do |format|
       if @vehicle.save
@@ -65,6 +70,7 @@ class VehiclesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
   end
 
   # Only allow a list of trusted parameters through.

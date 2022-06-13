@@ -9,23 +9,23 @@ class ApplicationPolicy
   end
 
   def index?
-    @user.admin
+    user.admin || (!user.nil? && record.owner == user)
   end
 
   def show?
-    @user.admin
+    user.admin || (!user.nil? && record.owner == user)
   end
 
   def create?
-    @user.admin
+    user.admin || (!user.nil? && record.owner == user)
   end
 
   def new?
-    @user.admin
+    true
   end
 
   def update?
-    @user.admin
+    user.admin || (!user.nil? && record.owner == user)
   end
 
   def edit?
@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    @user.admin
+    user.admin || (!user.nil? && record.owner == user)
   end
 
   class Scope

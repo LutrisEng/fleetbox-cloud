@@ -2,12 +2,15 @@
 
 class TireSetsController < ApplicationController
   include Secured
+  include Pundit::Authorization
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   before_action :set_tire_set, only: %i[show edit update destroy]
 
   # GET /tire_sets or /tire_sets.json
   def index
-    @tire_sets = TireSet.all
+    @tire_sets = policy_scope(TireSet)
   end
 
   # GET /tire_sets/1 or /tire_sets/1.json
@@ -16,6 +19,7 @@ class TireSetsController < ApplicationController
   # GET /tire_sets/new
   def new
     @tire_set = TireSet.new
+    authorize @tire_set
   end
 
   # GET /tire_sets/1/edit
@@ -25,6 +29,7 @@ class TireSetsController < ApplicationController
   def create
     @tire_set = TireSet.new(tire_set_params)
     @tire_set.owner = current_user
+    authorize @tire_set
 
     respond_to do |format|
       if @tire_set.save
@@ -65,6 +70,7 @@ class TireSetsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_tire_set
     @tire_set = TireSet.find(params[:id])
+    authorize @tire_set
   end
 
   # Only allow a list of trusted parameters through.
