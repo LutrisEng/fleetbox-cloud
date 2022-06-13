@@ -37,10 +37,10 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
-      - name: Run tests
-        run: bin/rails 'test:all:with[headless_chrome]' TESTOPTS=--junit
       - name: Compile assets
         run: bin/rails assets:precompile
+      - name: Run tests
+        run: bin/rails 'test:all:with[headless_chrome]' TESTOPTS=--junit
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
