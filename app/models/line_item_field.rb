@@ -4,10 +4,11 @@ class LineItemField < ApplicationRecord
   belongs_to :line_item
   belongs_to :tire_set_value, class_name: 'TireSet', optional: true
 
+  owner_from_parent :line_item, LineItem
+
   validate :field_exists_for_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
 
   scope :with_type, ->(type_id) { where(type_id:) }
-  scope :with_owner, ->(owner) { joins(:line_item).merge(LineItem.with_owner(owner)) }
 
   def type
     line_item.type.get_field(type_id)

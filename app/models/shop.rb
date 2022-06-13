@@ -4,5 +4,5 @@ class Shop < ApplicationRecord
   has_many :log_items
   belongs_to :owner, class_name: 'User', optional: false
 
-  scope :with_owner, ->(owner) { where(owner:) }
+  owner_from_record
 end

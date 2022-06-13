@@ -4,6 +4,8 @@ class LineItem < ApplicationRecord
   belongs_to :log_item
   has_many :line_item_fields
 
+  owner_from_parent :log_item, LogItem
+
   validate :type_exists
 
   scope :chrono, -> { includes(:log_item).order('log_items.performed_at asc') }
@@ -35,7 +37,6 @@ class LineItem < ApplicationRecord
   }
   scope :where_vehicle, ->(vehicle) { joins(:log_item).where(log_items: { vehicle_id: vehicle.id }) }
   scope :where_after, ->(date) { joins(:log_item).where('log_items.performed_at > ?', date) }
-  scope :with_owner, ->(owner) { joins(:log_item).merge(LogItem.with_owner(owner)) }
 
   def type_exists
     errors.add(:type_id, "Type #{type_id} doesn't exist") unless type
