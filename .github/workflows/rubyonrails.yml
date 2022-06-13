@@ -39,6 +39,8 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rails 'test:all:with[headless_chrome]' TESTOPTS=--junit
+      - name: Compile assets
+        run: bin/rails assets:precompile
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
