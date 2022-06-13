@@ -97,35 +97,35 @@ class LineItemField < ApplicationRecord
   end
 
   def value_is_correct_type
-    if type && value_is_set
-      case data_type
-      when 'string'
-        errors.add(:decimal_value, 'decimal value set on string field') unless decimal_value.nil?
-        errors.add(:boolean_value, 'boolean value set on string field') unless boolean_value.nil?
-        errors.add(:tire_set_value, 'tire set value set on string field') unless tire_set_value.nil?
-      when 'tireSet'
-        errors.add(:decimal_value, 'decimal value set on tire set field') unless decimal_value.nil?
-        errors.add(:boolean_value, 'boolean value set on tire set field') unless boolean_value.nil?
-        errors.add(:string_value, 'string value set on tire set field') unless string_value.nil?
-      when 'enum'
-        errors.add(:decimal_value, 'decimal value set on enum field') unless decimal_value.nil?
-        errors.add(:boolean_value, 'boolean value set on enum field') unless boolean_value.nil?
-        errors.add(:tire_set_value, 'tire set value set on enum field') unless tire_set_value.nil?
-        unless type.enum_values.include?(string_value)
-          errors.add(:string_value,
-                     "invalid value #{string_value} for enum with valid values #{type.enum_values.to_json}")
-        end
-      when 'boolean'
-        errors.add(:decimal_value, 'decimal value set on boolean field') unless decimal_value.nil?
-        errors.add(:tire_set_value, 'tire set value set on boolean field') unless tire_set_value.nil?
-        errors.add(:string_value, 'string value set on boolean field') unless string_value.nil?
-      when 'decimal'
-        errors.add(:boolean_value, 'boolean value set on decimal field') unless boolean_value.nil?
-        errors.add(:tire_set_value, 'tire set value set on decimal field') unless tire_set_value.nil?
-        errors.add(:string_value, 'string value set on decimal field') unless string_value.nil?
-      else
-        errors.add(:line_item, 'line item has invalid type')
+    return unless type && value_is_set
+
+    case data_type
+    when 'string'
+      errors.add(:decimal_value, 'decimal value set on string field') unless decimal_value.nil?
+      errors.add(:boolean_value, 'boolean value set on string field') unless boolean_value.nil?
+      errors.add(:tire_set_value, 'tire set value set on string field') unless tire_set_value.nil?
+    when 'tireSet'
+      errors.add(:decimal_value, 'decimal value set on tire set field') unless decimal_value.nil?
+      errors.add(:boolean_value, 'boolean value set on tire set field') unless boolean_value.nil?
+      errors.add(:string_value, 'string value set on tire set field') unless string_value.nil?
+    when 'enum'
+      errors.add(:decimal_value, 'decimal value set on enum field') unless decimal_value.nil?
+      errors.add(:boolean_value, 'boolean value set on enum field') unless boolean_value.nil?
+      errors.add(:tire_set_value, 'tire set value set on enum field') unless tire_set_value.nil?
+      unless type.enum_values.include?(string_value)
+        errors.add(:string_value,
+                   "invalid value #{string_value} for enum with valid values #{type.enum_values.to_json}")
       end
+    when 'boolean'
+      errors.add(:decimal_value, 'decimal value set on boolean field') unless decimal_value.nil?
+      errors.add(:tire_set_value, 'tire set value set on boolean field') unless tire_set_value.nil?
+      errors.add(:string_value, 'string value set on boolean field') unless string_value.nil?
+    when 'decimal'
+      errors.add(:boolean_value, 'boolean value set on decimal field') unless boolean_value.nil?
+      errors.add(:tire_set_value, 'tire set value set on decimal field') unless tire_set_value.nil?
+      errors.add(:string_value, 'string value set on decimal field') unless string_value.nil?
+    else
+      errors.add(:line_item, 'line item has invalid type')
     end
   end
 end
