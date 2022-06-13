@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_13_015031) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_13_021140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_015031) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id", null: false
+    t.index ["owner_id"], name: "index_shops_on_owner_id"
   end
 
   create_table "tire_sets", force: :cascade do |t|
@@ -95,6 +97,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_015031) do
     t.decimal "width"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id", null: false
+    t.index ["owner_id"], name: "index_tire_sets_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_015031) do
     t.text "model_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id", null: false
+    t.index ["owner_id"], name: "index_vehicles_on_owner_id"
     t.index ["vin"], name: "index_vehicles_on_vin"
   end
 
@@ -138,6 +144,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_015031) do
   add_foreign_key "log_items", "shops"
   add_foreign_key "log_items", "vehicles"
   add_foreign_key "odometer_readings", "vehicles"
+  add_foreign_key "shops", "users", column: "owner_id"
+  add_foreign_key "tire_sets", "users", column: "owner_id"
+  add_foreign_key "vehicles", "users", column: "owner_id"
   add_foreign_key "warranties", "tire_sets"
   add_foreign_key "warranties", "vehicles"
 end

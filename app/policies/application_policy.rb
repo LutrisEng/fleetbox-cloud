@@ -9,23 +9,23 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    @user.admin
   end
 
   def show?
-    false
+    @user.admin
   end
 
   def create?
-    false
+    @user.admin
   end
 
   def new?
-    create?
+    @user.admin
   end
 
   def update?
-    false
+    @user.admin
   end
 
   def edit?
@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    @user.admin
   end
 
   class Scope

@@ -24,6 +24,7 @@ class TireSetsController < ApplicationController
   # POST /tire_sets or /tire_sets.json
   def create
     @tire_set = TireSet.new(tire_set_params)
+    @tire_set.owner = current_user
 
     respond_to do |format|
       if @tire_set.save

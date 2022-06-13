@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 pipers_factory_tires:
+  owner: piper
   make: Bridgestone
   model: Turanza
 
 pipers_summer_tires:
+  owner: piper
   make: Michelin
   model: Pilot Sport 4S

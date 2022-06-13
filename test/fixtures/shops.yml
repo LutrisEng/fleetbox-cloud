@@ -2,9 +2,12 @@
 
 bmw_factory:
   name: BMW
+  owner: piper
 
 bmw_dealer:
   name: BMW of West Houston
+  owner: piper
 
 discount_tire:
   name: Discount Tire of Brenham, Texas
+  owner: piper

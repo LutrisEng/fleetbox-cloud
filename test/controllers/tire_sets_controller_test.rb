@@ -21,7 +21,12 @@ class TireSetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('TireSet.count') do
       post tire_sets_url,
            params: { tire_set: { aspect_ratio: @tire_set.aspect_ratio, base_miles: @tire_set.base_miles,
-                                 breakin: @tire_set.breakin, construction: @tire_set.construction, diameter: @tire_set.diameter, hidden: @tire_set.hidden, load_index: @tire_set.load_index, make: @tire_set.make, model: @tire_set.model, speed_rating: @tire_set.speed_rating, tin: @tire_set.tin, user_display_name: @tire_set.user_display_name, vehicle_type: @tire_set.vehicle_type, width: @tire_set.width } }
+                                 breakin: @tire_set.breakin, construction: @tire_set.construction,
+                                 diameter: @tire_set.diameter, hidden: @tire_set.hidden,
+                                 load_index: @tire_set.load_index, make: @tire_set.make, model: @tire_set.model,
+                                 speed_rating: @tire_set.speed_rating, tin: @tire_set.tin,
+                                 user_display_name: @tire_set.user_display_name, vehicle_type: @tire_set.vehicle_type,
+                                 width: @tire_set.width } }
     end
 
     assert_redirected_to tire_set_url(TireSet.last)
@@ -45,7 +50,7 @@ class TireSetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy tire_set' do
-    @tire_set = TireSet.create
+    @tire_set = TireSet.create(owner: users(:piper))
 
     assert_difference('TireSet.count', -1) do
       delete tire_set_url(@tire_set)

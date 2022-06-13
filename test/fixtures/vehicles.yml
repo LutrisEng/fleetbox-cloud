@@ -2,7 +2,16 @@
 
 pipers_car:
   display_name: Piper's Car
+  owner: piper
   model_year: 2022
   make: BMW
   model: M340i
   vin: 3MW5U7J09N8C40580
+
+mock_vehicle:
+  display_name: Mock Vehicle
+  owner: mock
+
+mock_non_admin_vehicle:
+  display_name: Mock Non-Admin Vehicle
+  owner: mock_non_admin

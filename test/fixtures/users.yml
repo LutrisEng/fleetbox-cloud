@@ -9,3 +9,8 @@ mock:
   email: mock_test_auth@fleetbox.io
   name: Mock Test Auth
   admin: true
+
+mock_non_admin:
+  email: mock_test_auth_non_admin@fleetbox.io
+  name: Mock Test Auth Non Admin
+  admin: false

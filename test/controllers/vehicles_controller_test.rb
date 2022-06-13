@@ -45,7 +45,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy vehicle' do
-    @vehicle = Vehicle.create
+    @vehicle = Vehicle.create(owner: users(:piper))
 
     assert_difference('Vehicle.count', -1) do
       delete vehicle_url(@vehicle)
