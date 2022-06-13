@@ -8,16 +8,28 @@ class ApplicationPolicy
     @record = record
   end
 
+  def admin?
+    user.admin
+  end
+
+  def owner?
+    !user.nil? && record.owner == user
+  end
+
+  def admin_or_owner?
+    admin? || owner?
+  end
+
   def index?
-    user.admin || (!user.nil? && record.owner == user)
+    admin_or_owner?
   end
 
   def show?
-    user.admin || (!user.nil? && record.owner == user)
+    admin_or_owner?
   end
 
   def create?
-    user.admin || (!user.nil? && record.owner == user)
+    admin_or_owner?
   end
 
   def new?
@@ -25,7 +37,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.admin || (!user.nil? && record.owner == user)
+    admin_or_owner?
   end
 
   def edit?
@@ -33,7 +45,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user.admin || (!user.nil? && record.owner == user)
+    admin_or_owner?
   end
 
   class Scope
