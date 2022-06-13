@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LogItemsController < ApplicationController
+  include Secured
+
   before_action :set_log_item, only: %i[show edit update destroy]
 
   # GET /log_items or /log_items.json

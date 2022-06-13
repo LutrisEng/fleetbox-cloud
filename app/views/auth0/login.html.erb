@@ -1,0 +1,4 @@
+<%= button_to 'Log in', '/auth/auth0', data: { turbo: false } %>
+<% if Rails.env.development? %>
+  <%= button_to 'Log in as developer', '/auth/developer', data: { turbo: false } %>
+<% end %>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
+  include Secured
+
   before_action :set_vehicle, only: %i[show edit update destroy]
 
   # GET /vehicles or /vehicles.json

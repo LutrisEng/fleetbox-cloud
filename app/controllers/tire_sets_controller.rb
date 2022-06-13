@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TireSetsController < ApplicationController
+  include Secured
+
   before_action :set_tire_set, only: %i[show edit update destroy]
 
   # GET /tire_sets or /tire_sets.json
