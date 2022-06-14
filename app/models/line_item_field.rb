@@ -8,7 +8,33 @@ class LineItemField < ApplicationRecord
 
   validate :field_exists_for_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
 
+  FIELD_VALUE_COLUMNS = %i[string_value tire_set_value_id boolean_value decimal_value]
+
   scope :where_type, ->(type_id) { where(type_id:) }
+  scope :without_value, lambda {
+    field_value_columns_nil = nil
+    FIELD_VALUE_COLUMNS.each do |col|
+      expression = LineItemField.arel_table[col].eq(nil)
+      field_value_columns_nil = if field_value_columns_nil.nil?
+                                  expression
+                                else
+                                  field_value_columns_nil.or(expression)
+                                end
+    end
+    where(field_value_columns_nil)
+  }
+  scope :with_value, lambda {
+    field_value_columns_not_nil = nil
+    FIELD_VALUE_COLUMNS.each do |col|
+      expression = LineItemField.arel_table[col].not_eq(nil)
+      field_value_columns_not_nil = if field_value_columns_not_nil.nil?
+                                      expression
+                                    else
+                                      field_value_columns_not_nil.or(expression)
+                                    end
+    end
+    where(field_value_columns_not_nil)
+  }
 
   def type
     line_item.type.get_field(type_id)

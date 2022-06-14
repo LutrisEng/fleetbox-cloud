@@ -8,14 +8,14 @@ class LineItem < ApplicationRecord
 
   validate :type_exists
 
-  scope :chrono, -> { includes(:log_item).order('log_items.performed_at asc') }
-  scope :inverse_chrono, -> { includes(:log_item).order('log_items.performed_at desc') }
+  scope :chrono, -> { joins(:log_item).includes(:log_item).order(LogItem.arel_table[:performed_at].asc) }
+  scope :inverse_chrono, -> { joins(:log_item).includes(:log_item).order(LogItem.arel_table[:performed_at].desc) }
   scope :where_type, ->(type_id) { where(type_id:) }
   scope :with_field_value, lambda { |field_type|
     joins(:line_item_fields)
       .where(line_item_fields: { type_id: field_type })
-      .where('line_item_fields.string_value IS NOT NULL OR line_item_fields.tire_set_value_id IS NOT NULL OR line_item_fields.boolean_value IS NOT NULL OR line_item_fields.decimal_value IS NOT NULL')
-      .distinct(:id)
+      .merge(LineItemField.with_value)
+      .distinct
   }
   scope :where_field_value, lambda { |field_type, value|
     q = joins(:line_item_fields).where(line_item_fields: { type_id: field_type })
@@ -29,14 +29,14 @@ class LineItem < ApplicationRecord
     when :decimal
       q = q.where(line_item_fields: { decimal_value: value })
     when nil
-      q = q.where('line_item_fields.string_value IS NULL AND line_item_fields.tire_set_value IS NULL AND line_item_fields.boolean_value IS NULL AND line_item_fields.decimal_value IS NULL')
+      q = q.merge(LineItemField.without_value)
     else
       raise StandardError, 'Invalid data type for field value'
     end
-    q.distinct(:id)
+    q.distinct
   }
   scope :where_vehicle, ->(vehicle) { joins(:log_item).where(log_items: { vehicle_id: vehicle.id }) }
-  scope :where_after, ->(date) { joins(:log_item).where('log_items.performed_at > ?', date) }
+  scope :where_after, ->(date) { joins(:log_item).where(LogItem.arel_table[:performed_at].gt(date)) }
 
   def type_exists
     errors.add(:type_id, "Type #{type_id} doesn't exist") unless type
