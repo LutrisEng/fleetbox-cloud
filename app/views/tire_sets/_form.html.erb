@@ -1,87 +1,48 @@
-<%= form_with(model: tire_set) do |form| %>
-  <% if tire_set.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tire_set.errors.count, "error") %> prohibited this tire_set from being saved:</h2>
+<%= bootstrap_form_with(model: tire_set, data: { controller: 'tire-set--display-name-and-specs' }) do |form| %>
+  <%= form.text_field :make, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'make'
+  } %>
+  <%= form.text_field :model, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'model'
+  } %>
+  <%= form.text_field :tin %>
+  <%= form.text_field :user_display_name, placeholder: tire_set.generate_display_name, data: { 'tire-set--display-name-and-specs-target' => 'displayName' } %>
+  <%= form.text_field :breakin %>
+  <%= form.text_field :base_miles %>
+  <%= form.check_box :hidden %>
 
-      <ul>
-        <% tire_set.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <h2><%= TireSet.human_attribute_name(:specs) %></h2>
+  <p data-tire-set--display-name-and-specs-target="specs"><%= tire_set.specs %></p>
+  <%= form.text_field :vehicle_type, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'vehicleType'
+  } %>
+  <%= form.text_field :width, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'width'
+  } %>
+  <%= form.text_field :aspect_ratio, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'aspectRatio'
+  } %>
+  <%= form.text_field :construction, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'construction'
+  } %>
+  <%= form.text_field :diameter, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'diameter'
+  } %>
+  <%= form.text_field :load_index, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'loadIndex'
+  } %>
+  <%= form.text_field :speed_rating, data: {
+    action: 'tire-set--display-name-and-specs#update',
+    'tire-set--display-name-and-specs-target' => 'speedRating'
+  } %>
 
-  <div>
-    <%= form.label :aspect_ratio, style: "display: block" %>
-    <%= form.text_field :aspect_ratio %>
-  </div>
-
-  <div>
-    <%= form.label :base_miles, style: "display: block" %>
-    <%= form.text_field :base_miles %>
-  </div>
-
-  <div>
-    <%= form.label :breakin, style: "display: block" %>
-    <%= form.text_field :breakin %>
-  </div>
-
-  <div>
-    <%= form.label :construction, style: "display: block" %>
-    <%= form.text_field :construction %>
-  </div>
-
-  <div>
-    <%= form.label :diameter, style: "display: block" %>
-    <%= form.text_field :diameter %>
-  </div>
-
-  <div>
-    <%= form.label :hidden, style: "display: block" %>
-    <%= form.check_box :hidden %>
-  </div>
-
-  <div>
-    <%= form.label :load_index, style: "display: block" %>
-    <%= form.text_field :load_index %>
-  </div>
-
-  <div>
-    <%= form.label :make, style: "display: block" %>
-    <%= form.text_field :make %>
-  </div>
-
-  <div>
-    <%= form.label :model, style: "display: block" %>
-    <%= form.text_field :model %>
-  </div>
-
-  <div>
-    <%= form.label :speed_rating, style: "display: block" %>
-    <%= form.text_field :speed_rating %>
-  </div>
-
-  <div>
-    <%= form.label :tin, style: "display: block" %>
-    <%= form.text_field :tin %>
-  </div>
-
-  <div>
-    <%= form.label :user_display_name, style: "display: block" %>
-    <%= form.text_field :user_display_name %>
-  </div>
-
-  <div>
-    <%= form.label :vehicle_type, style: "display: block" %>
-    <%= form.text_field :vehicle_type %>
-  </div>
-
-  <div>
-    <%= form.label :width, style: "display: block" %>
-    <%= form.text_field :width %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>

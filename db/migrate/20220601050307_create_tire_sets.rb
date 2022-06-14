@@ -4,8 +4,8 @@ class CreateTireSets < ActiveRecord::Migration[7.0]
   def change
     create_table :tire_sets do |t|
       t.bigint :aspect_ratio
-      t.bigint :base_miles
-      t.bigint :breakin
+      t.bigint :base_miles, null: false, default: 0
+      t.bigint :breakin, default: 500
       t.text :construction
       t.bigint :diameter
       t.boolean :hidden

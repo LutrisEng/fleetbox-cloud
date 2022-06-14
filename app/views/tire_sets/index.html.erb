@@ -4,11 +4,18 @@
 
 <div id="tire_sets">
   <% @tire_sets.each do |tire_set| %>
-    <%= render tire_set %>
-    <p>
-      <%= link_to "Show this tire set", tire_set %>
-    </p>
+    <div class="card">
+      <div class="card-body">
+        <%= render tire_set %>
+        <% if policy(tire_set).show? %>
+          <%= link_to t('tire_set.link.show'), tire_set_path(tire_set), class: 'card-link' %>
+        <% end %>
+        <% if policy(tire_set).edit? %>
+          <%= link_to t('tire_set.link.edit'), edit_tire_set_path(tire_set), class: 'card-link' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New tire set", new_tire_set_path %>
+<%= button_to t('tire_set.link.new'), new_tire_set_path, method: :get, class: 'btn btn-primary my-4' %>

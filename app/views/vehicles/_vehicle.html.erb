@@ -8,9 +8,15 @@
           <strong><%= vehicle.vin %></strong>
           &middot;
         <% end %>
-      <%= t 'miles', miles: vehicle.odometer %>
+      <%= t 'miles', miles: number_with_delimiter(vehicle.odometer) %>
       </span>
   </h2>
+  <% unless vehicle.owner.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:owner) %>:</strong>
+      <%= vehicle.owner.name %>
+    </p>
+  <% end %>
   <% unless vehicle.model_year.nil? %>
     <p>
       <strong><%= Vehicle.human_attribute_name(:model_year) %>:</strong>

@@ -45,6 +45,12 @@ en:
       success: "Tire set was successfully updated."
     destroy:
       success: "Tire set was successfully destroyed."
+    link:
+      show: "View Tires"
+      edit: "Edit Tires"
+      back: "Back to all tire sets"
+      destroy: "Destroy Tires"
+      new: "New Tire Set"
   vehicle:
     create:
       success: "Vehicle was successfully created."
@@ -57,17 +63,38 @@ en:
       edit: "Edit Vehicle"
       back: "Back to all vehicles"
       destroy: "Destroy Vehicle"
+      new: "New Vehicle"
   activerecord:
     attributes:
       vehicle:
         user_display_name: "Display name"
-        breakin: "Break-in period"
+        breakin: "Break-in period (miles)"
         make: "Make"
-        miles_per_year: "Miles driven per year"
+        miles_per_year: "Approximate miles driven per year"
         model: "Model"
         vin: "VIN"
         model_year: "Model year"
         current_tires: "Current tires"
+      tire_set:
+        make: "Make"
+        model: "Model"
+        tin: "TIN"
+        user_display_name: "Display name"
+        breakin: "Break-in period (miles)"
+        base_miles: "Base miles (from before tracking with Fleetbox)"
+        vehicle_type: "Vehicle type"
+        width: "Width"
+        aspect_ratio: "Aspect ratio"
+        construction: "Construction"
+        diameter: "Diameter"
+        load_index: "Load index"
+        speed_rating: "Speed rating"
+        specs: "Specs"
+        category: "Category"
+        categories:
+          hidden: "Hidden"
+          unmounted: "Unmounted"
+          mounted: "Mounted"
   navbar:
     login: "Log in"
     logout: "Log out"

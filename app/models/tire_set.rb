@@ -3,8 +3,16 @@
 class TireSet < ApplicationRecord
   has_many :line_item_fields, foreign_key: :tire_set_value_id, dependent: :nullify, inverse_of: :tire_set_value
   belongs_to :owner, class_name: 'User', optional: false
+  before_save :convert_blank_to_nil
 
   owner_from_record
+
+  def convert_blank_to_nil
+    self.user_display_name = nil if user_display_name.blank?
+    self.make = nil if make.blank?
+    self.model = nil if model.blank?
+    self.tin = nil if tin.blank?
+  end
 
   def line_items
     LineItem

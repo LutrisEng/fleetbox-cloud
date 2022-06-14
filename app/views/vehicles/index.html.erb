@@ -4,7 +4,7 @@
 
 <div id="vehicles" class="card-group">
   <% @vehicles.each do |vehicle| %>
-    <div id="<%= dom_id vehicle %>" class="card">
+    <div class="card">
       <div class="card-body">
         <%= render vehicle %>
         <% if policy(vehicle).show? %>
@@ -18,4 +18,4 @@
   <% end %>
 </div>
 
-<%= button_to "New vehicle", new_vehicle_path, method: :get, class: 'btn btn-primary my-4' %>
+<%= button_to t('vehicle.link.new'), new_vehicle_path, method: :get, class: 'btn btn-primary my-4' %>

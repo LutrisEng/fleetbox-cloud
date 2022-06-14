@@ -110,8 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_065433) do
 
   create_table "tire_sets", force: :cascade do |t|
     t.bigint "aspect_ratio"
-    t.bigint "base_miles"
-    t.bigint "breakin"
+    t.bigint "base_miles", default: 0, null: false
+    t.bigint "breakin", default: 500
     t.text "construction"
     t.bigint "diameter"
     t.boolean "hidden"

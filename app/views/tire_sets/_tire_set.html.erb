@@ -1,82 +1,52 @@
 <div id="<%= dom_id tire_set %>">
+  <h2>
+    <%= tire_set.display_name %>
+    <span class="small text-secondary">
+      &middot;
+      <% if tire_set.tin %>
+        <%= TireSet.human_attribute_name(:tin) %>:
+        <strong><%= tire_set.tin %></strong>
+        &middot;
+      <% end %>
+      <%= t 'miles', miles: number_with_delimiter(tire_set.odometer) %>
+    </span>
+  </h2>
+  <% unless tire_set.owner.nil? %>
+    <p>
+      <strong><%= TireSet.human_attribute_name(:owner) %>:</strong>
+      <%= tire_set.owner.name %>
+    </p>
+  <% end %>
+  <% unless tire_set.make.nil? %>
+    <p>
+      <strong><%= TireSet.human_attribute_name(:make) %>:</strong>
+      <%= tire_set.make %>
+    </p>
+  <% end %>
+  <% unless tire_set.model.nil? %>
+    <p>
+      <strong><%= TireSet.human_attribute_name(:model) %>:</strong>
+      <%= tire_set.model %>
+    </p>
+  <% end %>
+  <% unless tire_set.tin.nil? %>
+    <p>
+      <strong><%= TireSet.human_attribute_name(:tin) %>:</strong>
+      <%= tire_set.tin %>
+    </p>
+  <% end %>
+  <% unless tire_set.breakin.nil? %>
+    <p>
+      <strong><%= TireSet.human_attribute_name(:breakin) %>:</strong>
+      <%= t 'miles', miles: number_with_delimiter(tire_set.breakin) %>
+    </p>
+  <% end %>
   <p>
-    <strong>Aspect ratio:</strong>
-    <%= tire_set.aspect_ratio %>
+    <strong><%= TireSet.human_attribute_name(:category) %>:</strong>
+    <%= t tire_set.category, scope: 'activerecord.attributes.tire_set.categories' %>
   </p>
-
   <p>
-    <strong>Base miles:</strong>
-    <%= tire_set.base_miles %>
-  </p>
-
-  <p>
-    <strong>Breakin:</strong>
-    <%= tire_set.breakin %>
-  </p>
-
-  <p>
-    <strong>Construction:</strong>
-    <%= tire_set.construction %>
-  </p>
-
-  <p>
-    <strong>Diameter:</strong>
-    <%= tire_set.diameter %>
-  </p>
-
-  <p>
-    <strong>Hidden:</strong>
-    <%= tire_set.hidden %>
-  </p>
-
-  <p>
-    <strong>Load index:</strong>
-    <%= tire_set.load_index %>
-  </p>
-
-  <p>
-    <strong>Make:</strong>
-    <%= tire_set.make %>
-  </p>
-
-  <p>
-    <strong>Model:</strong>
-    <%= tire_set.model %>
-  </p>
-
-  <p>
-    <strong>Speed rating:</strong>
-    <%= tire_set.speed_rating %>
-  </p>
-
-  <p>
-    <strong>Tin:</strong>
-    <%= tire_set.tin %>
-  </p>
-
-  <p>
-    <strong>User display name:</strong>
-    <%= tire_set.user_display_name %>
-  </p>
-
-  <p>
-    <strong>Vehicle type:</strong>
-    <%= tire_set.vehicle_type %>
-  </p>
-
-  <p>
-    <strong>Width:</strong>
-    <%= tire_set.width %>
-  </p>
-
-  <p>
-    <strong>Odometer:</strong>
-    <%= tire_set.odometer %> miles
-  </p>
-
-  <p>
-    <strong>Specs:</strong>
+    <strong><%= TireSet.human_attribute_name(:specs) %>:</strong>
     <%= tire_set.specs %>
   </p>
-
 </div>

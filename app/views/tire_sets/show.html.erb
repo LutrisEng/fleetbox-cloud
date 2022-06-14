@@ -3,8 +3,13 @@
 <%= render @tire_set %>
 
 <div>
-  <%= link_to "Edit this tire set", edit_tire_set_path(@tire_set) %> |
-  <%= link_to "Back to tire sets", tire_sets_path %>
-
-  <%= button_to "Destroy this tire set", @tire_set, method: :delete %>
+  <p class="my-1">
+    <%= link_to t('tire_set.link.back'), tire_sets_path %>
+  </p>
+  <% if policy(@tire_set).edit? %>
+    <%= button_to t('tire_set.link.edit'), edit_tire_set_path(@tire_set), method: :get, class: 'btn btn-primary my-1' %>
+  <% end %>
+  <% if policy(@tire_set).destroy? %>
+    <%= button_to t('tire_set.link.destroy'), @tire_set, method: :delete, class: 'btn btn-danger my-1' %>
+  <% end %>
 </div>
