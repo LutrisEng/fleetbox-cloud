@@ -8,7 +8,7 @@ class LineItemField < ApplicationRecord
 
   validate :field_exists_for_item_type, :ensure_only_one_value_is_set, :value_is_correct_type
 
-  FIELD_VALUE_COLUMNS = %i[string_value tire_set_value_id boolean_value decimal_value]
+  FIELD_VALUE_COLUMNS = %i[string_value tire_set_value_id boolean_value decimal_value].freeze
 
   scope :where_type, ->(type_id) { where(type_id:) }
   scope :without_value, lambda {

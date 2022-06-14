@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArelHelpers
   def self.quoted(str)
     Arel::Nodes.build_quoted(str)
@@ -12,7 +14,7 @@ class ArelHelpers
   end
 
   def self.date_part(part, expr)
-    part = ArelHelpers::quoted(part) if part.is_a?(String)
+    part = ArelHelpers.quoted(part) if part.is_a?(String)
     Arel::Nodes::NamedFunction.new('DATE_PART', [part, expr])
   end
 

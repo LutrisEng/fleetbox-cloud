@@ -3,8 +3,20 @@
 class OdometerReading < ApplicationRecord
   belongs_to :vehicle
   has_one :log_item, dependent: :nullify
+  validate :consistent_performed_at
 
   owner_from_parent :vehicle, Vehicle
+
+  def consistent_performed_at
+    return unless log_item && log_item.performed_at != performed_at
+
+    errors.add(:performed_at, 'Odometer reading performed at different timestamp than log item')
+  end
+
+  def attach_to_log_item(log_item)
+    self.log_item = log_item
+    self.performed_at = log_item.performed_at
+  end
 
   scope :chrono, -> { order(performed_at: :asc) }
   scope :inverse_chrono, -> { order(performed_at: :desc) }
