@@ -59,6 +59,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pundit'
 
 gem 'bootstrap'
+gem 'bootstrap_form', '~> 5.0'
 
 gem 'aws-sdk-s3', require: false
 
@@ -79,6 +80,7 @@ group :development do
 
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'erb_lint', require: false
 
   gem 'capistrano', '~> 3.17', require: false
   gem 'capistrano-passenger', '~> 0.2', require: false

@@ -52,3 +52,33 @@ en:
       success: "Vehicle was successfully updated."
     destroy:
       success: "Vehicle was successfully destroyed."
+    link:
+      show: "View Vehicle"
+      edit: "Edit Vehicle"
+      back: "Back to all vehicles"
+      destroy: "Destroy Vehicle"
+  activerecord:
+    attributes:
+      vehicle:
+        user_display_name: "Display name"
+        breakin: "Break-in period"
+        make: "Make"
+        miles_per_year: "Miles driven per year"
+        model: "Model"
+        vin: "VIN"
+        model_year: "Model year"
+        current_tires: "Current tires"
+  navbar:
+    login: "Log in"
+    logout: "Log out"
+    welcome_logged_in: "Hello, %{user_name}!"
+    items:
+      vehicles: Vehicles
+      tire_sets: Tire Sets
+      shops: Shops
+  login:
+    continue_to_login: "Continue to login"
+    login_as_developer: "Login as developer"
+    heading: "Login to Fleetbox"
+  miles: "%{miles} miles"
+  miles_per_year: "%{miles_per_year} miles/year"

@@ -1,44 +1,50 @@
 <div id="<%= dom_id vehicle %>">
-  <p>
-    <strong>Breakin:</strong>
-    <%= vehicle.breakin %>
-  </p>
-
-  <p>
-    <strong>Display name:</strong>
+  <h2>
     <%= vehicle.display_name %>
-  </p>
-
-  <p>
-    <strong>Make:</strong>
-    <%= vehicle.make %>
-  </p>
-
-  <p>
-    <strong>Miles per year:</strong>
-    <%= vehicle.miles_per_year %>
-  </p>
-
-  <p>
-    <strong>Model:</strong>
-    <%= vehicle.model %>
-  </p>
-
-  <p>
-    <strong>Vin:</strong>
-    <%= vehicle.vin %>
-  </p>
-
-  <p>
-    <strong>Model year:</strong>
-    <%= vehicle.model_year %>
-  </p>
-
-  <% if vehicle.current_tires %>
-  <p>
-    <strong>Tires:</strong>
-    <%= link_to vehicle.current_tires.display_name, vehicle.current_tires %>
-  </p>
+    <span class="small text-secondary">
+        &middot;
+      <% if vehicle.vin %>
+          <%= Vehicle.human_attribute_name(:vin) %>:
+          <strong><%= vehicle.vin %></strong>
+          &middot;
+        <% end %>
+      <%= t 'miles', miles: vehicle.odometer %>
+      </span>
+  </h2>
+  <% unless vehicle.model_year.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:model_year) %>:</strong>
+      <%= vehicle.model_year %>
+    </p>
   <% end %>
-
+  <% unless vehicle.make.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:make) %>:</strong>
+      <%= vehicle.make %>
+    </p>
+  <% end %>
+  <% unless vehicle.model.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:model) %>:</strong>
+      <%= vehicle.model %>
+    </p>
+  <% end %>
+  <% unless vehicle.breakin.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:breakin) %>:</strong>
+      <%= t 'miles', miles: number_with_delimiter(vehicle.breakin) %>
+    </p>
+  <% end %>
+  <% unless vehicle.miles_per_year.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:miles_per_year) %>:</strong>
+      <%= t 'miles_per_year', miles_per_year: number_with_delimiter(vehicle.miles_per_year) %>
+    </p>
+  <% end %>
+  <% unless vehicle.current_tires.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:current_tires) %>:</strong>
+      <%= link_to vehicle.current_tires.display_name, vehicle.current_tires %>
+    </p>
+  <% end %>
 </div>

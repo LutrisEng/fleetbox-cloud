@@ -64,6 +64,10 @@ class LogItemsController < ApplicationController
     end
   end
 
+  def current_navbar_item
+    :vehicles
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

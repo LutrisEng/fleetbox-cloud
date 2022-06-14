@@ -91,6 +91,14 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     backport (1.2.0)
     benchmark (0.2.0)
+    better_html (1.0.16)
+      actionview (>= 4.0)
+      activesupport (>= 4.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      html_tokenizer (~> 0.0.6)
+      parser (>= 2.4)
+      smart_properties
     bindex (0.8.1)
     bootsnap (1.12.0)
       msgpack (~> 1.2)
@@ -98,6 +106,9 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.9.3, < 3)
       sassc-rails (>= 2.0.0)
+    bootstrap_form (5.0.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     builder (3.2.4)
     capistrano (3.17.0)
       airbrussh (>= 1.0.0)
@@ -132,6 +143,14 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     e2mmap (0.1.0)
+    erb_lint (0.1.1)
+      activesupport
+      better_html (~> 1.0.7)
+      html_tokenizer
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.10.0)
     execjs (2.8.1)
     faraday (2.3.0)
@@ -144,6 +163,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
+    html_tokenizer (0.0.7)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -318,6 +338,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    smart_properties (1.17.0)
     solargraph (0.45.0)
       backport (~> 1.2)
       benchmark
@@ -388,12 +409,14 @@ DEPENDENCIES
   benchmark
   bootsnap
   bootstrap
+  bootstrap_form (~> 5.0)
   capistrano (~> 3.17)
   capistrano-passenger (~> 0.2)
   capistrano-rails (~> 1.6)
   capistrano-rbenv (~> 2.2)
   capybara
   debug
+  erb_lint
   fixture_validation
   image_processing (~> 1.2)
   importmap-rails

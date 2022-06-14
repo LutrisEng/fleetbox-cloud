@@ -2,13 +2,20 @@
 
 <h1>Vehicles</h1>
 
-<div id="vehicles">
+<div id="vehicles" class="card-group">
   <% @vehicles.each do |vehicle| %>
-    <%= render vehicle %>
-    <p>
-      <%= link_to "Show this vehicle", vehicle %>
-    </p>
+    <div id="<%= dom_id vehicle %>" class="card">
+      <div class="card-body">
+        <%= render vehicle %>
+        <% if policy(vehicle).show? %>
+          <%= link_to t('vehicle.link.show'), vehicle_path(vehicle), class: 'card-link' %>
+        <% end %>
+        <% if policy(vehicle).edit? %>
+          <%= link_to t('vehicle.link.edit'), edit_vehicle_path(vehicle), class: 'card-link' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New vehicle", new_vehicle_path %>
+<%= button_to "New vehicle", new_vehicle_path, method: :get, class: 'btn btn-primary my-4' %>

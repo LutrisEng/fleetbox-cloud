@@ -3,8 +3,13 @@
 <%= render @vehicle %>
 
 <div>
-  <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
-  <%= link_to "Back to vehicles", vehicles_path %>
-
-  <%= button_to "Destroy this vehicle", @vehicle, method: :delete %>
+  <p class="my-1">
+    <%= link_to t('vehicle.link.back'), vehicles_path %>
+  </p>
+  <% if policy(@vehicle).edit? %>
+    <%= button_to t('vehicle.link.edit'), edit_vehicle_path(@vehicle), method: :get, class: 'btn btn-primary my-1' %>
+  <% end %>
+  <% if policy(@vehicle).destroy? %>
+    <%= button_to t('vehicle.link.destroy'), @vehicle, method: :delete, class: 'btn btn-danger my-1' %>
+  <% end %>
 </div>

@@ -65,6 +65,10 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def current_navbar_item
+    :vehicles
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +79,6 @@ class VehiclesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def vehicle_params
-    params.require(:vehicle).permit(:breakin, :display_name, :make, :miles_per_year, :model, :vin, :model_year)
+    params.require(:vehicle).permit(:breakin, :user_display_name, :make, :miles_per_year, :model, :vin, :model_year)
   end
 end

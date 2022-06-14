@@ -5,12 +5,29 @@ class Auth0Controller < ApplicationController
 
   def callback
     auth_info = request.env['omniauth.auth']
-    session[:userinfo] = auth_info['extra']['raw_info']
+    print auth_info
+    session[:userinfo] = {
+      provider: auth_info[:provider],
+      uid: auth_info[:uid],
+      info: {
+        name: auth_info[:info][:name],
+        email: auth_info[:info][:email]
+      }
+    }
     redirect_to '/'
   end
 
   def developer_callback
-    session[:userinfo] = params
+    if Rails.env.development?
+      session[:userinfo] = {
+        provider: :developer,
+        uid: params[:email],
+        info: {
+          name: params[:name],
+          email: params[:email]
+        }
+      }
+    end
     redirect_to '/'
   end
 
@@ -21,8 +38,17 @@ class Auth0Controller < ApplicationController
   def login; end
 
   def logout
+    unless session[:userinfo]
+      redirect_to root_path
+      return
+    end
+    provider = session[:userinfo]['provider']
     reset_session
-    redirect_to logout_url, allow_other_host: true
+    if provider == 'auth0'
+      redirect_to logout_url, allow_other_host: true
+    else
+      redirect_to root_path
+    end
   end
 
   private

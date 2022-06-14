@@ -65,6 +65,10 @@ class TireSetsController < ApplicationController
     end
   end
 
+  def current_navbar_item
+    :tire_sets
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
