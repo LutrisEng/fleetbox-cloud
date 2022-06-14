@@ -68,7 +68,7 @@ class ApplicationPolicy
       if user.admin
         scope.all
       else
-        scope.with_owner(user)
+        scope.where_owner(user)
       end
     end
   end

@@ -10,7 +10,7 @@ class LineItem < ApplicationRecord
 
   scope :chrono, -> { includes(:log_item).order('log_items.performed_at asc') }
   scope :inverse_chrono, -> { includes(:log_item).order('log_items.performed_at desc') }
-  scope :with_type, ->(type_id) { where(type_id:) }
+  scope :where_type, ->(type_id) { where(type_id:) }
   scope :with_field_value, lambda { |field_type|
     joins(:line_item_fields)
       .where(line_item_fields: { type_id: field_type })
@@ -43,7 +43,7 @@ class LineItem < ApplicationRecord
   end
 
   def get_field(field_type)
-    line_item_fields.with_type(field_type).first
+    line_item_fields.where_type(field_type).first
   end
 
   def create_field(field_type, value = nil)

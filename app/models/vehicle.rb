@@ -21,7 +21,7 @@ class Vehicle < ApplicationRecord
 
   def current_tires
     line_items
-      .with_type('mountedTires')
+      .where_type('mountedTires')
       .with_field_value('tireSet')
       .inverse_chrono
       .first

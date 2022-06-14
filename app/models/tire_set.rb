@@ -22,14 +22,14 @@ class TireSet < ApplicationRecord
 
   def current_vehicle
     mounted_line_item = line_items
-                        .with_type('mountedTires')
+                        .where_type('mountedTires')
                         .where_field_value('tireSet', self)
                         .inverse_chrono
                         .first
     return nil if mounted_line_item.nil?
 
     dismounted_line_items = line_items
-                            .with_type('dismountedTires')
+                            .where_type('dismountedTires')
                             .where_field_value('tireSet', self)
                             .where_vehicle(mounted_line_item.vehicle)
                             .where_after(mounted_line_item.performed_at)

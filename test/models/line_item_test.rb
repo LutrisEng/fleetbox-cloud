@@ -20,7 +20,7 @@ class LineItemTest < ActiveSupport::TestCase
       line_items(:pipers_car_factory_tires),
       line_items(:pipers_car_summer_tires_mount)
     ]
-    assert_equal(expected_line_items, LineItem.with_type('mountedTires').chrono)
+    assert_equal(expected_line_items, LineItem.where_type('mountedTires').chrono)
   end
 
   test 'can find all line items with type on vehicle' do
@@ -28,7 +28,7 @@ class LineItemTest < ActiveSupport::TestCase
       line_items(:pipers_car_factory_tires),
       line_items(:pipers_car_summer_tires_mount)
     ]
-    assert_equal(expected_line_items, vehicles(:pipers_car).line_items.with_type('mountedTires').chrono)
+    assert_equal(expected_line_items, vehicles(:pipers_car).line_items.where_type('mountedTires').chrono)
   end
 
   test 'can get string field values' do
