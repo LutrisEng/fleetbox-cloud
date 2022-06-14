@@ -24,6 +24,6 @@ class OdometerReading < ApplicationRecord
     order(ArelHelpers.abs(ArelHelpers.date_part('epoch', performed_at - ArelHelpers.to_timestamp(date))).asc)
   }
   scope :closest_to, ->(date) { order_by_closest_to(date).first }
-  scope :first_before, ->(date) { where('performed_at < ?', date).inverse_chrono.first }
-  scope :soonest_after, ->(date) { where('performed_at > ?', date).chrono.first }
+  scope :first_before, ->(date) { where(OdometerReading.arel_table[:performed_at].lt(date)).inverse_chrono.first }
+  scope :soonest_after, ->(date) { where(OdometerReading.arel_table[:performed_at].gt(date)).chrono.first }
 end
