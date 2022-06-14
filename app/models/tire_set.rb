@@ -26,7 +26,7 @@ class TireSet < ApplicationRecord
                         .where_field_value('tireSet', self)
                         .inverse_chrono
                         .first
-    return mounted_line_item if mounted_line_item.nil?
+    return nil if mounted_line_item.nil?
 
     dismounted_line_items = line_items
                             .with_type('dismountedTires')
@@ -74,16 +74,7 @@ class TireSet < ApplicationRecord
   end
 
   def specs
-    maybe = lambda { |x|
-      if x.blank? || (x.is_a?(Numeric) && x.zero?)
-        '?'
-      elsif x.is_a? Numeric
-        '%d' % x
-      else
-        x.to_s
-      end
-    }
-    "#{maybe.call(vehicle_type)}#{maybe.call(width)}/#{maybe.call(aspect_ratio)}#{maybe.call(construction)}#{maybe.call(diameter)} #{maybe.call(load_index)}#{maybe.call(speed_rating)}"
+    "#{spec_maybe(vehicle_type)}#{spec_maybe(width)}/#{spec_maybe(aspect_ratio)}#{spec_maybe(construction)}#{spec_maybe(diameter)} #{spec_maybe(load_index)}#{spec_maybe(speed_rating)}"
   end
 
   def origin
@@ -100,13 +91,31 @@ class TireSet < ApplicationRecord
     end
   end
 
+  def display_make
+    make || 'Unknown Make'
+  end
+
+  def display_model
+    model || 'Unknown Model'
+  end
+
   def generate_display_name
-    dm_make = make || 'Unknown Make'
-    dm_model = model || 'Unknown Model'
-    "#{dm_make} #{dm_model} (#{specs})"
+    "#{display_make} #{display_model} (#{specs})"
   end
 
   def display_name
     user_display_name || generate_display_name
+  end
+
+  private
+
+  def spec_maybe(spec)
+    if spec.blank? || (spec.is_a?(Numeric) && spec.zero?)
+      '?'
+    elsif spec.is_a? Numeric
+      spec.round.to_s
+    else
+      spec.to_s
+    end
   end
 end
