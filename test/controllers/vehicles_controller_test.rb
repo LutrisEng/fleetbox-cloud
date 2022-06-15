@@ -32,11 +32,6 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should show vehicle odometer' do
-    get odometer_vehicle_url(@vehicle)
-    assert_response :success
-  end
-
   test 'should get edit' do
     get edit_vehicle_url(@vehicle)
     assert_response :success

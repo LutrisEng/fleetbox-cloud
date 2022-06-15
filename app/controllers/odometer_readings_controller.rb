@@ -5,32 +5,39 @@ class OdometerReadingsController < ApplicationController
   include Pundit::Authorization
   after_action :verify_authorized
 
+  before_action :set_vehicle
   before_action :set_odometer_reading, only: %i[edit update destroy]
 
-  # GET /odometer_readings/1/edit
+  # GET /vehicles/1/odometer_readings or /vehicles/1/odometer_readings.json
+  def index
+    @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: current_user.now) if policy(@vehicle).edit?
+  end
+
+  # GET /vehicles/1/odometer_readings/1/edit
   def edit; end
 
-  # POST /odometer_readings or /odometer_readings.json
+  # POST /vehicles/1/odometer_readings or /vehicles/1/odometer_readings.json
   def create
-    @odometer_reading = OdometerReading.new(create_odometer_reading_params)
+    @odometer_reading = OdometerReading.new(odometer_reading_params)
+    @odometer_reading.vehicle = @vehicle
     authorize @odometer_reading
 
     respond_to do |format|
       if @odometer_reading.save
-        format.html { redirect_to odometer_vehicle_url(@odometer_reading.vehicle), notice: I18n.t('odometer_reading.create.success') }
+        format.html { redirect_to vehicle_odometer_readings_url(@odometer_reading.vehicle), notice: I18n.t('odometer_reading.create.success') }
         format.json { render :show, status: :created, location: @odometer_reading }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
         format.json { render json: @odometer_reading.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /odometer_readings/1 or /odometer_readings/1.json
+  # PATCH/PUT /vehicles/1/odometer_readings/1 or /vehicles/1/odometer_readings/1.json
   def update
     respond_to do |format|
       if @odometer_reading.update(odometer_reading_params)
-        format.html { redirect_to edit_odometer_reading_url(@odometer_reading), notice: I18n.t('odometer_reading.update.success') }
+        format.html { redirect_to edit_vehicle_odometer_reading_url(@vehicle, @odometer_reading), notice: I18n.t('odometer_reading.update.success') }
         format.json { render :show, status: :ok, location: @odometer_reading }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -39,12 +46,12 @@ class OdometerReadingsController < ApplicationController
     end
   end
 
-  # DELETE /odometer_readings/1 or /odometer_readings/1.json
+  # DELETE /vehicles/1/odometer_readings/1 or /vehicles/1/odometer_readings/1.json
   def destroy
     @odometer_reading.destroy
 
     respond_to do |format|
-      format.html { redirect_to odometer_readings_url, notice: I18n.t('odometer_reading.destroy.success') }
+      format.html { redirect_to vehicle_odometer_readings_url(@vehicle), notice: I18n.t('odometer_reading.destroy.success') }
       format.json { head :no_content }
     end
   end
@@ -55,27 +62,24 @@ class OdometerReadingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def set_vehicle
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    authorize @vehicle
+  end
+
   def set_odometer_reading
     @odometer_reading = OdometerReading.find(params[:id])
     authorize @odometer_reading
   end
 
   def transform_performed_at(params)
-    params[:performed_at] = convert_from_datetime_field(params[:performed_at])
-    params
+    params[:performed_at] = convert_from_datetime_field(params[:performed_at]) if params[:performed_at]
   end
 
   # Only allow a list of trusted parameters through.
   def odometer_reading_params
-    transform_performed_at(
-      params.require(:odometer_reading).permit(:reading, :include_time, :performed_at)
-    )
-  end
-
-  def create_odometer_reading_params
-    transform_performed_at(
-      params.require(:odometer_reading).permit(:reading, :include_time, :performed_at, :vehicle_id)
-    )
+    extracted_params = params.require(:odometer_reading).permit(:reading, :include_time, :performed_at)
+    transform_performed_at(extracted_params)
+    extracted_params
   end
 end

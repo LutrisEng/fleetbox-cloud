@@ -16,11 +16,6 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1 or /vehicles/1.json
   def show; end
 
-  # GET /vehicles/1/odometer or /vehicles/1/odometer.json
-  def odometer
-    @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: Time.now) if policy(@vehicle).edit?
-  end
-
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new

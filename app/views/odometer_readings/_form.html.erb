@@ -1,9 +1,8 @@
-<%= bootstrap_form_with(model: odometer_reading) do |form| %>
+<%= bootstrap_form_with(model: [vehicle, odometer_reading]) do |form| %>
   <p>
     <%= OdometerReading.human_attribute_name(:vehicle) %>:
-    <%= link_to odometer_reading.vehicle.display_name, vehicle_path(odometer_reading.vehicle) %>
+    <%= link_to @vehicle.display_name, vehicle_path(@vehicle) %>
   </p>
-  <%= form.hidden_field :vehicle_id %>
   <%= form.text_field :reading %>
   <%= form.datetime_field :performed_at,
                           value: convert_for_datetime_field(odometer_reading.performed_at),

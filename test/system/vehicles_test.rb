@@ -54,15 +54,4 @@ class VehiclesTest < ApplicationSystemTestCase
 
     assert_text 'Vehicle was successfully destroyed'
   end
-
-  test 'should add odometer reading' do
-    @vehicle = Vehicle.create(owner: users(:piper))
-
-    visit odometer_vehicle_url(@vehicle)
-    fill_in 'Reading', with: 123_456
-    click_on 'Create Odometer reading', match: :first
-
-    assert_text 'Odometer reading was successfully created.'
-    assert_text "Odometer for #{@vehicle.display_name}: 123,456 miles"
-  end
 end

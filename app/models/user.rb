@@ -11,6 +11,6 @@ class User < ApplicationRecord
   end
 
   def now
-    Time.now(in: tz).strftime('%Y-%m-%dT%T')
+    Time.now(in: tz)
   end
 end
