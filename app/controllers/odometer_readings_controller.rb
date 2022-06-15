@@ -11,6 +11,7 @@ class OdometerReadingsController < ApplicationController
   # GET /vehicles/1/odometer_readings or /vehicles/1/odometer_readings.json
   def index
     @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: current_user.now) if policy(@vehicle).edit?
+    @odometer_readings = @vehicle.odometer_readings.merge(policy_scope(OdometerReading))
   end
 
   # GET /vehicles/1/odometer_readings/1/edit
@@ -24,7 +25,10 @@ class OdometerReadingsController < ApplicationController
 
     respond_to do |format|
       if @odometer_reading.save
-        format.html { redirect_to vehicle_odometer_readings_url(@odometer_reading.vehicle), notice: I18n.t('odometer_reading.create.success') }
+        format.html do
+          redirect_to vehicle_odometer_readings_url(@odometer_reading.vehicle),
+                      notice: I18n.t('odometer_reading.create.success')
+        end
         format.json { render :show, status: :created, location: @odometer_reading }
       else
         format.html { render :index, status: :unprocessable_entity }
@@ -37,7 +41,10 @@ class OdometerReadingsController < ApplicationController
   def update
     respond_to do |format|
       if @odometer_reading.update(odometer_reading_params)
-        format.html { redirect_to edit_vehicle_odometer_reading_url(@vehicle, @odometer_reading), notice: I18n.t('odometer_reading.update.success') }
+        format.html do
+          redirect_to edit_vehicle_odometer_reading_url(@vehicle, @odometer_reading),
+                      notice: I18n.t('odometer_reading.update.success')
+        end
         format.json { render :show, status: :ok, location: @odometer_reading }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +58,9 @@ class OdometerReadingsController < ApplicationController
     @odometer_reading.destroy
 
     respond_to do |format|
-      format.html { redirect_to vehicle_odometer_readings_url(@vehicle), notice: I18n.t('odometer_reading.destroy.success') }
+      format.html do
+        redirect_to vehicle_odometer_readings_url(@vehicle), notice: I18n.t('odometer_reading.destroy.success')
+      end
       format.json { head :no_content }
     end
   end
@@ -70,10 +79,6 @@ class OdometerReadingsController < ApplicationController
   def set_odometer_reading
     @odometer_reading = OdometerReading.find(params[:id])
     authorize @odometer_reading
-  end
-
-  def transform_performed_at(params)
-    params[:performed_at] = convert_from_datetime_field(params[:performed_at]) if params[:performed_at]
   end
 
   # Only allow a list of trusted parameters through.

@@ -50,8 +50,8 @@
     <div id="readingsCollapse" class="accordion-collapse collapse<%= if default_accordion_item == :list then ' show' else '' end %>" aria-labelledby="readingsHeading" data-bs-parent="#odometerReadings">
       <div class="accordion-body">
         <ul>
-          <% @vehicle.odometer_readings.inverse_chrono.each do |odometer_reading| %>
-            <li>
+          <% @odometer_readings.inverse_chrono.each do |odometer_reading| %>
+            <li class="my-1">
               <div class="d-flex align-items-center">
                 <%= t(
                       'odometer_reading.preview',
@@ -65,6 +65,9 @@
                                 end
                       )
                     ) %>
+                <% if odometer_reading.log_item %>
+                  <%= link_to t('odometer_reading.link.log_item'), vehicle_log_item_path(@vehicle, odometer_reading.log_item), class: 'mx-1 btn btn-sm btn-primary' %>
+                <% end %>
                 <%= link_to t('odometer_reading.link.edit'), edit_vehicle_odometer_reading_path(@vehicle, odometer_reading), class: 'mx-1 btn btn-sm btn-secondary' %>
                 <%= button_to t('odometer_reading.link.destroy'), vehicle_odometer_reading_path(@vehicle, odometer_reading), method: :delete, class: 'mx-1 btn btn-sm btn-danger' %>
               </div>

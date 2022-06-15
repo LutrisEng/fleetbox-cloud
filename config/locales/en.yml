@@ -70,11 +70,13 @@ en:
       new: "New Vehicle"
       odometer: "View odometer readings"
       vehicle_back: "Back to %{vehicle}"
+      log: "View maintenance log"
     editing: "Editing vehicle"
     creating: "Creating vehicle"
     odometer_title: "Odometer for %{vehicle}: %{miles}"
     list:
       title: "My vehicles"
+    log_items_title: "Log items for %{vehicle}"
   odometer_reading:
     create:
       success: "Odometer reading was successfully created."
@@ -89,6 +91,7 @@ en:
       back: "Back to vehicle"
       edit: "Edit"
       destroy: "Delete"
+      log_item: "Log item"
     editing: "Editing odometer reading"
   activerecord:
     attributes:
@@ -101,6 +104,12 @@ en:
         vin: "VIN"
         model_year: "Model year"
         current_tires: "Current tires"
+      log_item:
+        vehicle: "Vehicle"
+        display_name: "Display name"
+        performed_at: "Performed at"
+        include time: "Include time in performed at?"
+        odometer_reading_reading: "Odometer reading at time of service"
       tire_set:
         make: "Make"
         model: "Model"

@@ -9,24 +9,24 @@ class LogItemsController < ApplicationController
   before_action :set_vehicle
   before_action :set_log_item, only: %i[show edit update destroy]
 
-  # GET /log_items or /log_items.json
+  # GET /vehicles/1/log_items or /log_items.json
   def index
-    @log_items = policy_scope(LogItem)
+    @log_items = @vehicle.log_items.merge(policy_scope(LogItem))
   end
 
-  # GET /log_items/1 or /log_items/1.json
+  # GET /vehicles/1/log_items/1 or /log_items/1.json
   def show; end
 
-  # GET /log_items/new
+  # GET /vehicles/1/log_items/new
   def new
-    @log_item = LogItem.new
+    @log_item = LogItem.new(vehicle: @vehicle, performed_at: current_user.now)
     authorize @log_item
   end
 
-  # GET /log_items/1/edit
+  # GET /vehicles/1/log_items/1/edit
   def edit; end
 
-  # POST /log_items or /log_items.json
+  # POST /vehicles/1/log_items or /vehicles/1/log_items.json
   def create
     @log_item = LogItem.new(log_item_params)
     @log_item.vehicle = @vehicle
@@ -43,7 +43,7 @@ class LogItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /log_items/1 or /log_items/1.json
+  # PATCH/PUT /vehicles/1/log_items/1 or /vehicles/1/log_items/1.json
   def update
     respond_to do |format|
       if @log_item.update(log_item_params)
@@ -56,7 +56,7 @@ class LogItemsController < ApplicationController
     end
   end
 
-  # DELETE /log_items/1 or /log_items/1.json
+  # DELETE /vehicles/1/log_items/1 or /vehicles/1/log_items/1.json
   def destroy
     @log_item.destroy
 
@@ -84,6 +84,9 @@ class LogItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def log_item_params
-    params.require(:log_item).permit(:display_name, :include_time, :performed_at)
+    extracted_params = params.require(:log_item).permit(:display_name, :include_time, :performed_at,
+                                                        :odometer_reading_reading)
+    transform_performed_at(extracted_params)
+    extracted_params
   end
 end

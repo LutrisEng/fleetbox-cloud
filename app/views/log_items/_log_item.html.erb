@@ -4,14 +4,17 @@
     <%= log_item.display_name %>
   </p>
 
-  <p>
-    <strong>Include time:</strong>
-    <%= log_item.include_time %>
-  </p>
+  <% unless log_item.performed_at.nil? %>
+    <p>
+      <strong>Performed at:</strong>
+      <%= display_time(log_item.performed_at, format: if log_item.include_time then :date_and_time else :date_only end) %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Performed at:</strong>
-    <%= log_item.performed_at %>
-  </p>
-
+  <% if log_item.odometer_reading_reading %>
+    <p>
+      <strong><%= LogItem.human_attribute_name(:odometer_reading_reading) %></strong>:
+      <%= t :miles, miles: log_item.odometer_reading_reading %>
+    </p>
+  <% end %>
 </div>

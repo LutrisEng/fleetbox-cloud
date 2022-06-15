@@ -78,9 +78,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   gem 'spring'
 
+  gem 'erb_lint', require: false
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'erb_lint', require: false
 
   gem 'capistrano', '~> 3.17', require: false
   gem 'capistrano-passenger', '~> 0.2', require: false

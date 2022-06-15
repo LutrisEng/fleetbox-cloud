@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<h1>
+  <%= t 'vehicle.log_items_title',
+        vehicle: @vehicle.display_name %>
+</h1>
 
-<h1>Log items</h1>
+<p>
+  <%= link_to t('vehicle.link.vehicle_back', vehicle: @vehicle.display_name), vehicle_path(@vehicle) %>
+</p>
 
-<div id="log_items">
-  <% @log_items.each do |log_item| %>
-    <%= render log_item %>
-    <p>
-      <%= link_to "Show this log item", vehicle_log_item_path(@vehicle, log_item) %>
-    </p>
+<ul id="log_items">
+  <% @log_items.inverse_chrono.each do |log_item| %>
+    <li>
+      <%= render log_item %>
+      <p>
+        <%= link_to "Show this log item", vehicle_log_item_path(@vehicle, log_item) %>
+      </p>
+    </li>
   <% end %>
-</div>
+</ul>
 
 <%= link_to "New log item", new_vehicle_log_item_path(@vehicle) %>

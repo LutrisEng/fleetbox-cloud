@@ -1,37 +1,14 @@
-<%= form_with(model: [vehicle, log_item]) do |form| %>
-  <% if log_item.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(log_item.errors.count, "error") %> prohibited this log_item from being saved:</h2>
-
-      <ul>
-        <% log_item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :display_name, style: "display: block" %>
-    <%= form.text_field :display_name %>
-  </div>
-
-  <div>
-    <%= form.label :include_time, style: "display: block" %>
-    <%= form.check_box :include_time %>
-  </div>
-
-  <div>
-    <%= form.label :performed_at, style: "display: block" %>
-    <%= form.datetime_field :performed_at %>
-  </div>
-
-  <div>
-    <%= form.label :vehicle_id, style: "display: block" %>
-    <%= form.text_field :vehicle_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= bootstrap_form_with(model: [vehicle, log_item]) do |form| %>
+  <p>
+    <%= LogItem.human_attribute_name(:vehicle) %>:
+    <%= link_to @vehicle.display_name, vehicle_path(@vehicle) %>
+  </p>
+  <%= form.text_field :display_name %>
+  <%= form.text_field :odometer_reading_reading %>
+  <%= form.datetime_field :performed_at,
+                          value: convert_for_datetime_field(log_item.performed_at),
+                          max: convert_for_datetime_field(Time.now) %>
+  <p><%= t 'current_time_zone' %>: <%= current_user.tz.to_s %></p>
+  <%= form.check_box :include_time %>
+  <%= form.submit %>
 <% end %>

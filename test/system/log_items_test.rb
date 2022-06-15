@@ -20,7 +20,6 @@ class LogItemsTest < ApplicationSystemTestCase
     fill_in 'Display name', with: @log_item.display_name
     check 'Include time' if @log_item.include_time
     fill_in 'Performed at', with: @log_item.performed_at
-    fill_in 'Vehicle', with: @log_item.vehicle_id
     click_on 'Create Log item'
 
     assert_text 'Log item was successfully created'

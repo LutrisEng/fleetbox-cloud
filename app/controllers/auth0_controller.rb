@@ -5,7 +5,7 @@ class Auth0Controller < ApplicationController
 
   def callback
     auth_info = request.env['omniauth.auth']
-    print auth_info
+    Rails.logger.debug auth_info
     session[:userinfo] = {
       provider: auth_info[:provider],
       uid: auth_info[:uid],

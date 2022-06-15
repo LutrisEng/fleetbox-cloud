@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @log_item %>
 
 <div>
   <%= link_to "Edit this log item", edit_vehicle_log_item_path(@vehicle, @log_item) %> |
   <%= link_to "Back to log items", vehicle_log_items_path(@vehicle) %>
 
-  <%= button_to "Destroy this log item", vehicle_log_item_path(@vehicle, @log_item), method: :delete %>
+  <%= button_to "Destroy this log item", vehicle_log_item_path(@vehicle, @log_item), method: :delete, class: 'btn btn-danger' %>
 </div>

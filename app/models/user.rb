@@ -11,6 +11,6 @@ class User < ApplicationRecord
   end
 
   def now
-    Time.now(in: tz)
+    Time.now.in_time_zone(tz)
   end
 end

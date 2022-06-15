@@ -47,25 +47,29 @@ class ApplicationController < ActionController::Base
 
   def displayable_time(time)
     if current_user
-      time.in_time_zone(current_user.tz)
+      time&.in_time_zone(current_user.tz)
     else
-      time.in_time_zone(Time.zone)
+      time&.in_time_zone(Time.zone)
     end
   end
 
   def display_time(time, **options)
-    I18n.l(displayable_time(time), **options)
+    I18n.l(displayable_time(time), **options) if time
   end
 
   def convert_for_datetime_field(time)
-    displayable_time(time).strftime('%Y-%m-%dT%R')
+    displayable_time(time)&.strftime('%Y-%m-%dT%R')
   end
 
   def convert_from_datetime_field(time)
-    if time.is_a?(Time)
+    if time.is_a?(Time) || time.nil?
       time
     else
       current_user.tz.parse(time)
     end
+  end
+
+  def transform_performed_at(params)
+    params[:performed_at] = convert_from_datetime_field(params[:performed_at]) if params[:performed_at]
   end
 end
