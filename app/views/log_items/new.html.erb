@@ -1,9 +1,9 @@
 <h1>New log item</h1>
 
-<%= render "form", log_item: @log_item %>
+<%= render "form", vehicle: @vehicle, log_item: @log_item %>
 
 <br>
 
 <div>
-  <%= link_to "Back to log items", log_items_path %>
+  <%= link_to "Back to log items", vehicle_log_items_path(@vehicle) %>
 </div>

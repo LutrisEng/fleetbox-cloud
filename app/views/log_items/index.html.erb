@@ -6,9 +6,9 @@
   <% @log_items.each do |log_item| %>
     <%= render log_item %>
     <p>
-      <%= link_to "Show this log item", log_item %>
+      <%= link_to "Show this log item", vehicle_log_item_path(@vehicle, log_item) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New log item", new_log_item_path %>
+<%= link_to "New log item", new_vehicle_log_item_path(@vehicle) %>

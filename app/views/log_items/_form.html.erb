@@ -1,4 +1,4 @@
-<%= form_with(model: log_item) do |form| %>
+<%= form_with(model: [vehicle, log_item]) do |form| %>
   <% if log_item.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(log_item.errors.count, "error") %> prohibited this log_item from being saved:</h2>

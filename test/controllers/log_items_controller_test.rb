@@ -4,53 +4,54 @@ require 'test_helper'
 
 class LogItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @vehicle = vehicles(:pipers_car)
     @log_item = log_items(:pipers_car_breakin)
   end
 
   test 'should get index' do
-    get log_items_url
+    get vehicle_log_items_url(@vehicle)
     assert_response :success
   end
 
   test 'should get new' do
-    get new_log_item_url
+    get new_vehicle_log_item_url(@vehicle)
     assert_response :success
   end
 
   test 'should create log_item' do
     assert_difference('LogItem.count') do
-      post log_items_url,
+      post vehicle_log_items_url(@vehicle),
            params: { log_item: { display_name: @log_item.display_name, include_time: @log_item.include_time,
-                                 performed_at: @log_item.performed_at, vehicle_id: @log_item.vehicle_id } }
+                                 performed_at: @log_item.performed_at } }
     end
 
-    assert_redirected_to log_item_url(LogItem.last)
+    assert_redirected_to vehicle_log_item_url(@vehicle, LogItem.last)
   end
 
   test 'should show log_item' do
-    get log_item_url(@log_item)
+    get vehicle_log_item_url(@vehicle, @log_item)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_log_item_url(@log_item)
+    get edit_vehicle_log_item_url(@vehicle, @log_item)
     assert_response :success
   end
 
   test 'should update log_item' do
-    patch log_item_url(@log_item),
+    patch vehicle_log_item_url(@vehicle, @log_item),
           params: { log_item: { display_name: @log_item.display_name, include_time: @log_item.include_time,
                                 performed_at: @log_item.performed_at } }
-    assert_redirected_to log_item_url(@log_item)
+    assert_redirected_to vehicle_log_item_url(@vehicle, @log_item)
   end
 
   test 'should destroy log_item' do
     @log_item = LogItem.create(vehicle: vehicles(:pipers_car))
 
     assert_difference('LogItem.count', -1) do
-      delete log_item_url(@log_item)
+      delete vehicle_log_item_url(@vehicle, @log_item)
     end
 
-    assert_redirected_to log_items_url
+    assert_redirected_to vehicle_log_items_url(@vehicle)
   end
 end

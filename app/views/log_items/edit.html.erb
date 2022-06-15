@@ -1,10 +1,10 @@
 <h1>Editing log item</h1>
 
-<%= render "form", log_item: @log_item %>
+<%= render "form", vehicle: @vehicle, log_item: @log_item %>
 
 <br>
 
 <div>
-  <%= link_to "Show this log item", @log_item %> |
-  <%= link_to "Back to log items", log_items_path %>
+  <%= link_to "Show this log item", vehicle_log_item_path(@vehicle, @log_item) %> |
+  <%= link_to "Back to log items", vehicle_log_items_path(@vehicle) %>
 </div>

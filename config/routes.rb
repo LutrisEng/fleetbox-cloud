@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :log_items
   resources :tire_sets
   resources :vehicles do
-    resources :odometer_readings, only: %w[index edit create update destroy]
-    get :odometer, on: :member
+    resources :odometer_readings
+    resources :log_items
   end
 
   root 'vehicles#index'
