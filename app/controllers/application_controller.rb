@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::StatementInvalid do |e|
     raise e unless e.cause.is_a?(PG::ReadOnlySqlTransaction)
 
-    r = ENV['PRIMARY_REGION']
+    r = ENV.fetch('PRIMARY_REGION', nil)
     response.headers['fly-replay'] = "region=#{r}"
     Rails.logger.info "Replaying request in #{r}"
-    render plain: "retry in region #{r}", status: 409
+    render plain: "retry in region #{r}", status: :conflict
   end
 
   def current_user_session
