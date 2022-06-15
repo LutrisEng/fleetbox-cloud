@@ -5,4 +5,12 @@ class User < ApplicationRecord
   has_many :vehicles, foreign_key: :owner_id, dependent: :destroy, inverse_of: :owner
   has_many :shops, foreign_key: :owner_id, dependent: :destroy, inverse_of: :owner
   has_many :tire_sets, foreign_key: :owner_id, dependent: :destroy, inverse_of: :owner
+
+  def tz
+    ActiveSupport::TimeZone.new(timezone)
+  end
+
+  def now
+    Time.now(in: tz).strftime('%Y-%m-%dT%T')
+  end
 end

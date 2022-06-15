@@ -51,6 +51,10 @@ en:
       back: "Back to all tire sets"
       destroy: "Destroy Tires"
       new: "New Tire Set"
+    editing: "Editing tire set"
+    creating: "Creating tire set"
+    list:
+      title: "My tire sets"
   vehicle:
     create:
       success: "Vehicle was successfully created."
@@ -64,6 +68,28 @@ en:
       back: "Back to all vehicles"
       destroy: "Destroy Vehicle"
       new: "New Vehicle"
+      odometer: "View odometer readings"
+      vehicle_back: "Back to %{vehicle}"
+    editing: "Editing vehicle"
+    creating: "Creating vehicle"
+    odometer_title: "Odometer for %{vehicle}: %{miles}"
+    list:
+      title: "My vehicles"
+  odometer_reading:
+    create:
+      success: "Odometer reading was successfully created."
+      button: "Record reading"
+      title: "Record new reading"
+    update:
+      success: "Odometer reading was successfully updated."
+    destroy:
+      success: "Odometer reading was successfully destroyed."
+    preview: "%{reading} miles on %{performed_at}"
+    link:
+      back: "Back to vehicle"
+      edit: "Edit"
+      destroy: "Delete"
+    editing: "Editing odometer reading"
   activerecord:
     attributes:
       vehicle:
@@ -109,3 +135,9 @@ en:
     heading: "Login to Fleetbox"
   miles: "%{miles} miles"
   miles_per_year: "%{miles_per_year} miles/year"
+  time:
+    formats:
+      date_only: "%d %B %Y"
+      date_and_time: "%d %B %Y at %I:%M %p"
+  current_time_zone: "Current time zone"
+  owned_by_you_badge: "You"

@@ -3,6 +3,8 @@
 class OdometerReading < ApplicationRecord
   belongs_to :vehicle
   has_one :log_item, dependent: :nullify
+  validates :reading, presence: true
+  validates :performed_at, presence: true
   validate :consistent_performed_at
 
   owner_from_parent :vehicle, Vehicle

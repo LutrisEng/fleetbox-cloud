@@ -15,6 +15,9 @@
     <p>
       <strong><%= Vehicle.human_attribute_name(:owner) %>:</strong>
       <%= vehicle.owner.name %>
+      <% if vehicle.owner == current_user %>
+        <small class="badge bg-secondary"><%= t 'owned_by_you_badge' %></small>
+      <% end %>
     </p>
   <% end %>
   <% unless vehicle.model_year.nil? %>

@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   resources :log_items
   resources :tire_sets
-  resources :vehicles
+  resources :vehicles do
+    get :odometer, on: :member
+  end
+  resources :odometer_readings
 
   root 'vehicles#index'
 

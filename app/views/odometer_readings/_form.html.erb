@@ -1,0 +1,14 @@
+<%= bootstrap_form_with(model: odometer_reading) do |form| %>
+  <p>
+    <%= OdometerReading.human_attribute_name(:vehicle) %>:
+    <%= link_to odometer_reading.vehicle.display_name, vehicle_path(odometer_reading.vehicle) %>
+  </p>
+  <%= form.hidden_field :vehicle_id %>
+  <%= form.text_field :reading %>
+  <%= form.datetime_field :performed_at,
+                          value: convert_for_datetime_field(odometer_reading.performed_at),
+                          max: convert_for_datetime_field(Time.now) %>
+  <p><%= t 'current_time_zone' %>: <%= current_user.tz.to_s %></p>
+  <%= form.check_box :include_time %>
+  <%= form.submit %>
+<% end %>

@@ -29,7 +29,7 @@ class ApplicationRecord < ActiveRecord::Base
 
     def read_owner_from_parent(parent_name)
       define_method(:owner) do
-        public_send(parent_name).owner
+        public_send(parent_name)&.owner
       end
     end
 

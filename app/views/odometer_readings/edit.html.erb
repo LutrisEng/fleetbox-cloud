@@ -1,0 +1,9 @@
+<h1><%= t 'odometer_reading.editing' %></h1>
+
+<%= render 'form', odometer_reading: @odometer_reading %>
+
+<br>
+
+<div>
+  <%= link_to t('odometer_reading.link.back'), vehicle_path(@odometer_reading.vehicle) %>
+</div>

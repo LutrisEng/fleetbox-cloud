@@ -1,0 +1,77 @@
+<h1>
+  <%= t 'vehicle.odometer_title',
+        vehicle: @vehicle.display_name,
+        miles: t('miles', miles: number_with_delimiter(@vehicle.odometer)) %>
+</h1>
+
+<p>
+  <%= link_to t('vehicle.link.vehicle_back', vehicle: @vehicle.display_name), vehicle_path(@vehicle) %>
+</p>
+
+<% default_accordion_item = if @odometer_reading && @vehicle.odometer_readings.empty?
+                              :record
+                            else
+                              :list
+                            end %>
+
+<div class="accordion" id="odometerReadings">
+  <% if @odometer_reading %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="recordNewReadingHeading">
+        <button
+          class="accordion-button<%= if default_accordion_item == :record then '' else ' collapsed' end %>"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#recordNewReadingCollapse"
+          aria-expanded="<%= default_accordion_item == :record %>"
+          aria-controls="recordNewReadingCollapse">
+          <%= t 'odometer_reading.create.title' %>
+        </button>
+      </h2>
+      <div id="recordNewReadingCollapse" class="accordion-collapse collapse<%= if default_accordion_item == :record then ' show' else '' end %>" aria-labelledby="recordNewReadingHeading" data-bs-parent="#odometerReadings">
+        <div class="accordion-body">
+          <%= render 'odometer_readings/form', odometer_reading: @odometer_reading %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="readingsHeading">
+      <button
+        class="accordion-button<%= if default_accordion_item == :list then '' else ' collapsed' end %>"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#readingsCollapse"
+        aria-expanded="<%= default_accordion_item == :record %>"
+        aria-controls="readingsCollapse">
+        <%= OdometerReading.model_name.human(count: @vehicle.odometer_readings.count) %>
+      </button>
+    </h2>
+    <div id="readingsCollapse" class="accordion-collapse collapse<%= if default_accordion_item == :list then ' show' else '' end %>" aria-labelledby="readingsHeading" data-bs-parent="#odometerReadings">
+      <div class="accordion-body">
+        <ul>
+          <% @vehicle.odometer_readings.inverse_chrono.each do |odometer_reading| %>
+            <li>
+              <div class="d-flex align-items-center">
+                <%= t(
+                      'odometer_reading.preview',
+                      reading: number_with_delimiter(odometer_reading.reading),
+                      performed_at: display_time(
+                        odometer_reading.performed_at,
+                        format: if odometer_reading.include_time
+                                  :date_and_time
+                                else
+                                  :date_only
+                                end
+                      )
+                    ) %>
+                <%= link_to t('odometer_reading.link.edit'), edit_odometer_reading_path(odometer_reading), class: 'mx-1 btn btn-sm btn-secondary' %>
+                <%= button_to t('odometer_reading.link.destroy'), odometer_reading_path(odometer_reading), method: :delete, class: 'mx-1 btn btn-sm btn-danger' %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

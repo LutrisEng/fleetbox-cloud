@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
-  before_action :set_vehicle, only: %i[show edit update destroy]
+  before_action :set_vehicle, only: %i[show odometer edit update destroy]
 
   # GET /vehicles or /vehicles.json
   def index
@@ -15,6 +15,11 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1 or /vehicles/1.json
   def show; end
+
+  # GET /vehicles/1/odometer or /vehicles/1/odometer.json
+  def odometer
+    @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: Time.now) if policy(@vehicle).edit?
+  end
 
   # GET /vehicles/new
   def new

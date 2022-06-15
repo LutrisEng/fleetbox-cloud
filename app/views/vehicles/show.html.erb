@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @vehicle %>
 
 <div>
   <p class="my-1">
     <%= link_to t('vehicle.link.back'), vehicles_path %>
+  </p>
+  <p class="my-1">
+    <%= link_to t('vehicle.link.odometer'), odometer_vehicle_path(@vehicle) %>
   </p>
   <% if policy(@vehicle).edit? %>
     <%= button_to t('vehicle.link.edit'), edit_vehicle_path(@vehicle), method: :get, class: 'btn btn-primary my-1' %>

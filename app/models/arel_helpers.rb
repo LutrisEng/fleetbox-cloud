@@ -6,7 +6,7 @@ class ArelHelpers
   end
 
   def self.to_timestamp(expr)
-    if expr.is_a?(Date) || expr.is_a?(DateTime) || expr.is_a?(Time)
+    if expr.is_a?(Date) || expr.is_a?(Time)
       Arel::Nodes::NamedFunction.new('TO_TIMESTAMP', [expr.to_i])
     else
       Arel::Nodes::NamedFunction.new('TO_TIMESTAMP', [expr])
