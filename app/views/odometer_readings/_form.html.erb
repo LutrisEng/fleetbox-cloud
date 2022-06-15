@@ -7,7 +7,7 @@
   <%= form.datetime_field :performed_at,
                           value: convert_for_datetime_field(odometer_reading.performed_at),
                           max: convert_for_datetime_field(Time.now) %>
-  <p><%= t 'current_time_zone' %>: <%= current_user.tz.to_s %></p>
+  <p><%= t 'current_time_zone' %>: <%= current_user.tz.name %></p>
   <%= form.check_box :include_time %>
   <%= form.submit %>
 <% end %>

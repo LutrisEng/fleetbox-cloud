@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   post '/auth/developer/callback' => 'auth0#developer_callback'
   get '/auth/failure' => 'auth0#failure'
   get '/logout' => 'auth0#logout'
+
+  get '/user' => 'user#me'
+  put '/user' => 'user#update_me'
 end

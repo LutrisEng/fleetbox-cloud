@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
-    <title>FleetboxCloud</title>
+    <title><%= t :app_name %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fleetbox</a>
+        <%= link_to t(:app_name), root_path, class: 'navbar-brand' %>
+        <% if Rails.env.development? %>
+          <span class="badge bg-danger"><%= t 'env.development' %></span>
+        <% elsif Rails.env.test? %>
+          <span class="badge bg-warning"><%= t 'env.test' %></span>
+        <% elsif Rails.env.staging? %>
+          <span class="badge bg-primary"><%= t 'env.staging' %></span>
+        <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,9 +42,11 @@
           </ul>
           <% if current_user %>
             <ul class="navbar-nav d-flex align-items-center">
-              <span class="navbar-text"><%= t("navbar.welcome_logged_in", user_name: current_user.name) %></span>
               <li class="nav-item">
-                <%= link_to t("navbar.logout"), logout_path, class: 'btn btn-sm btn-outline-warning mx-2', data: { turbo: false } %>
+                <%= link_to t("navbar.account"), user_path, class: 'nav-link mx-2' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t("navbar.logout"), logout_path, class: 'btn btn-sm btn-outline-danger mx-2', data: { turbo: false } %>
               </li>
             </ul>
           <% else %>

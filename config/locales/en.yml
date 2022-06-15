@@ -143,6 +143,7 @@ en:
       vehicles: Vehicles
       tire_sets: Tire Sets
       shops: Shops
+    account: "Account"
   login:
     continue_to_login: "Continue to login"
     login_as_developer: "Login as developer"
@@ -155,3 +156,13 @@ en:
       date_and_time: "%d %B %Y at %I:%M %p"
   current_time_zone: "Current time zone"
   owned_by_you_badge: "You"
+  user:
+    update:
+      success: "Your account has been successfully updated"
+    contact_to_change_email: "(Contact support to change)"
+    profile_title: "My account"
+  app_name: "Fleetbox"
+  env:
+    development: "Development Mode"
+    test: "Test Mode"
+    staging: "Staging Environment"

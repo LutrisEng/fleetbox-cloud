@@ -1,0 +1,12 @@
+<h1><%= t 'user.profile_title' %></h1>
+
+<%= bootstrap_form_with(model: @user, url: user_path, method: :put) do |form| %>
+  <p>
+    <%= User.human_attribute_name(:email) %>:
+    <%= @user.email %>
+    <%= t 'user.contact_to_change_email' %>
+  </p>
+  <%= form.text_field :name %>
+  <%= form.select :timezone, ActiveSupport::TimeZone.us_zones.map { |zone| zone.name } %>
+  <%= form.submit %>
+<% end %>
