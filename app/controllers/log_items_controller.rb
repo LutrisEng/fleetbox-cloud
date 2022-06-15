@@ -73,12 +73,12 @@ class LogItemsController < ApplicationController
   private
 
   def set_vehicle
-    @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle = Vehicle.find_by(uuid: params[:vehicle_uuid])
     authorize @vehicle
   end
 
   def set_log_item
-    @log_item = LogItem.find(params[:id])
+    @log_item = LogItem.find_by(uuid: params[:uuid])
     authorize @log_item
   end
 

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'securerandom'
+
 class ApplicationRecord < ActiveRecord::Base
   primary_abstract_class
 
@@ -95,4 +97,14 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   extend ClassMethods
+
+  before_create :generate_uuid!
+
+  def to_param
+    uuid
+  end
+
+  def generate_uuid!
+    self.uuid = SecureRandom.uuid
+  end
 end

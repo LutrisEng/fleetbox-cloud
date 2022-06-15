@@ -73,7 +73,7 @@ class VehiclesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_vehicle
-    @vehicle = Vehicle.find(params[:id])
+    @vehicle = Vehicle.find_by(uuid: params[:uuid])
     authorize @vehicle
   end
 

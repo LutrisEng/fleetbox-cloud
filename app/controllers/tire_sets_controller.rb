@@ -73,7 +73,7 @@ class TireSetsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_tire_set
-    @tire_set = TireSet.find(params[:id])
+    @tire_set = TireSet.find_by(uuid: params[:uuid])
     authorize @tire_set
   end
 

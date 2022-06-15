@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_060924) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -51,9 +52,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "updated_at", null: false
     t.bigint "line_item_id", null: false
     t.bigint "tire_set_value_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["line_item_id"], name: "index_line_item_fields_on_line_item_id"
     t.index ["tire_set_value_id"], name: "index_line_item_fields_on_tire_set_value_id"
     t.index ["type_id"], name: "index_line_item_fields_on_type_id"
+    t.index ["uuid"], name: "index_line_item_fields_on_uuid", unique: true
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -63,8 +66,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "log_item_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["log_item_id"], name: "index_line_items_on_log_item_id"
     t.index ["type_id"], name: "index_line_items_on_type_id"
+    t.index ["uuid"], name: "index_line_items_on_uuid", unique: true
   end
 
   create_table "log_items", force: :cascade do |t|
@@ -76,9 +81,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.bigint "vehicle_id", null: false
     t.bigint "shop_id"
     t.bigint "odometer_reading_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["odometer_reading_id"], name: "index_log_items_on_odometer_reading_id"
     t.index ["performed_at"], name: "index_log_items_on_performed_at"
     t.index ["shop_id"], name: "index_log_items_on_shop_id"
+    t.index ["uuid"], name: "index_log_items_on_uuid", unique: true
     t.index ["vehicle_id", "performed_at"], name: "index_log_items_on_vehicle_id_and_performed_at"
     t.index ["vehicle_id"], name: "index_log_items_on_vehicle_id"
   end
@@ -90,7 +97,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "vehicle_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["performed_at"], name: "index_odometer_readings_on_performed_at"
+    t.index ["uuid"], name: "index_odometer_readings_on_uuid", unique: true
     t.index ["vehicle_id", "performed_at"], name: "index_odometer_readings_on_vehicle_id_and_performed_at"
     t.index ["vehicle_id"], name: "index_odometer_readings_on_vehicle_id"
   end
@@ -105,7 +114,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["owner_id"], name: "index_shops_on_owner_id"
+    t.index ["uuid"], name: "index_shops_on_uuid", unique: true
   end
 
   create_table "tire_sets", force: :cascade do |t|
@@ -126,7 +137,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["owner_id"], name: "index_tire_sets_on_owner_id"
+    t.index ["uuid"], name: "index_tire_sets_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -136,7 +149,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "timezone", default: "Central Time (US & Canada)", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
   create_table "vehicles", force: :cascade do |t|
@@ -150,7 +165,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["owner_id"], name: "index_vehicles_on_owner_id"
+    t.index ["uuid"], name: "index_vehicles_on_uuid", unique: true
     t.index ["vin"], name: "index_vehicles_on_vin"
   end
 
@@ -162,7 +179,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_234124) do
     t.datetime "updated_at", null: false
     t.bigint "vehicle_id"
     t.bigint "tire_set_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["tire_set_id"], name: "index_warranties_on_tire_set_id"
+    t.index ["uuid"], name: "index_warranties_on_uuid", unique: true
     t.index ["vehicle_id"], name: "index_warranties_on_vehicle_id"
   end
 

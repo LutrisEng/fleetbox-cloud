@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :tire_sets
-  resources :vehicles do
-    resources :odometer_readings
-    resources :log_items
+  resources :tire_sets, param: :uuid
+  resources :vehicles, param: :uuid do
+    resources :odometer_readings, param: :uuid
+    resources :log_items, param: :uuid
   end
 
   root 'vehicles#index'

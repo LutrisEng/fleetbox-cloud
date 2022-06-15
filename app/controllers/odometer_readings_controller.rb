@@ -72,12 +72,12 @@ class OdometerReadingsController < ApplicationController
   private
 
   def set_vehicle
-    @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle = Vehicle.find_by(uuid: params[:vehicle_uuid])
     authorize @vehicle
   end
 
   def set_odometer_reading
-    @odometer_reading = OdometerReading.find(params[:id])
+    @odometer_reading = OdometerReading.find_by(uuid: params[:uuid])
     authorize @odometer_reading
   end
 
