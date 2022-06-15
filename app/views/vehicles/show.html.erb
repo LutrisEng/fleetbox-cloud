@@ -1,3 +1,7 @@
+<% if @vehicle.photo.attached? %>
+  <%= image_tag @vehicle.photo, class: 'w-50 img-thumbnail' %>
+<% end %>
+
 <%= render @vehicle %>
 
 <div>

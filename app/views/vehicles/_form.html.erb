@@ -1,4 +1,5 @@
 <%= bootstrap_form_with(model: vehicle, data: { controller: 'vehicle--display-name' }) do |form| %>
+  <%= form.file_field :photo %>
   <%= form.text_field :vin %>
   <%= form.text_field :model_year, data: {
     action: 'vehicle--display-name#update',
