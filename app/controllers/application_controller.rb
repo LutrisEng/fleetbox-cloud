@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
                 :display_time, :convert_for_datetime_field
 
   def current_user_session
-    if Rails.env.test? && @current_user_session.nil?
-      session[:userinfo] = {
+    if Rails.env.test?
+      session[:userinfo] ||= {
         'provider' => :developer,
         'uid' => 'mock_test_auth@fleetbox.io',
         'info' => {
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     return unless current_user_session
 
     @current_user ||= User.find_or_create_by(email: current_user_session['info']['email']) do |user|
-      user.name = current_user_session['info']['email']
+      user.name = current_user_session['info']['name']
     end
   end
 
