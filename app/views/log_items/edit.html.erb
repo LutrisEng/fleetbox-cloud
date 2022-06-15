@@ -1,4 +1,15 @@
-<h1>Editing log item</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t('home.title'), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t('vehicle.list.title'), vehicles_path %></li>
+    <li class="breadcrumb-item"><%= link_to @vehicle.display_name, vehicle_path(@vehicle) %></li>
+    <li class="breadcrumb-item"><%= link_to t('log_item.list.title'), vehicle_log_items_path(@vehicle) %></li>
+    <li class="breadcrumb-item"><%= link_to @log_item.display_name, vehicle_log_item_path(@vehicle, @log_item) %></li>
+    <li class="breadcrumb-item active"><%= t 'log_item.edit.title' %></li>
+  </ol>
+</nav>
+
+<h1><%= t 'log_item.edit.title' %></h1>
 
 <%= render "form", vehicle: @vehicle, log_item: @log_item %>
 

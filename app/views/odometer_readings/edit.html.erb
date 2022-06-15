@@ -1,3 +1,27 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t('home.title'), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t('vehicle.list.title'), vehicles_path %></li>
+    <li class="breadcrumb-item"><%= link_to @vehicle.display_name, vehicle_path(@vehicle) %></li>
+    <li class="breadcrumb-item"><%= link_to t('odometer_reading.list.title'), vehicle_odometer_readings_url(@vehicle) %></li>
+    <li class="breadcrumb-item"><%=
+      I18n.t(
+        'odometer_reading.preview',
+        reading: number_with_delimiter(@odometer_reading.reading),
+        performed_at: display_time(
+          @odometer_reading.performed_at,
+          format: if @odometer_reading.include_time
+                    :date_and_time
+                  else
+                    :date_only
+                  end
+        )
+      )
+    %></li>
+    <li class="breadcrumb-item active"><%= t 'odometer_reading.editing' %></li>
+  </ol>
+</nav>
+
 <h1><%= t 'odometer_reading.editing' %></h1>
 
 <%= render 'form', vehicle: @vehicle, odometer_reading: @odometer_reading %>

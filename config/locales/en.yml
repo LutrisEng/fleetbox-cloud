@@ -34,10 +34,15 @@ en:
   log_item:
     create:
       success: "Log item was successfully created."
+      title: "New log item"
     update:
       success: "Log item was successfully updated."
     destroy:
       success: "Log item was successfully destroyed."
+    list:
+      title: "Maintenance log"
+    edit:
+      title: "Editing log item"
   tire_set:
     create:
       success: "Tire set was successfully created."
@@ -98,6 +103,8 @@ en:
       destroy: "Delete"
       log_item: "Log item"
     editing: "Editing odometer reading"
+    list:
+      title: "Odometer"
   activerecord:
     attributes:
       vehicle:
@@ -166,3 +173,5 @@ en:
     development: "Development Mode"
     test: "Test Mode"
     staging: "Staging Environment"
+  home:
+    title: "Home"

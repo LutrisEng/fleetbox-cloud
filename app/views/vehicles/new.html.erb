@@ -1,3 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t('home.title'), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t('vehicle.list.title'), vehicles_path %></li>
+    <li class="breadcrumb-item active"><%= t 'vehicle.creating' %></li>
+  </ol>
+</nav>
+
 <h1><%= t 'vehicle.creating' %></h1>
 
 <%= render "form", vehicle: @vehicle %>

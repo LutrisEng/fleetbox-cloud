@@ -1,3 +1,12 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t('home.title'), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t('vehicle.list.title'), vehicles_path %></li>
+    <li class="breadcrumb-item"><%= link_to @vehicle.display_name, vehicle_path(@vehicle) %></li>
+    <li class="breadcrumb-item active"><%= t 'odometer_reading.list.title' %></li>
+  </ol>
+</nav>
+
 <h1>
   <%= t 'vehicle.odometer_title',
         vehicle: @vehicle.display_name,
@@ -53,18 +62,20 @@
           <% @odometer_readings.inverse_chrono.each do |odometer_reading| %>
             <li class="my-1">
               <div class="d-flex align-items-center">
-                <%= t(
-                      'odometer_reading.preview',
-                      reading: number_with_delimiter(odometer_reading.reading),
-                      performed_at: display_time(
-                        odometer_reading.performed_at,
-                        format: if odometer_reading.include_time
-                                  :date_and_time
-                                else
-                                  :date_only
-                                end
-                      )
-                    ) %>
+                <%=
+                  I18n.t(
+                    'odometer_reading.preview',
+                    reading: number_with_delimiter(odometer_reading.reading),
+                    performed_at: display_time(
+                      odometer_reading.performed_at,
+                      format: if odometer_reading.include_time
+                                :date_and_time
+                              else
+                                :date_only
+                              end
+                    )
+                  )
+                %>
                 <% if odometer_reading.log_item %>
                   <%= link_to t('odometer_reading.link.log_item'), vehicle_log_item_path(@vehicle, odometer_reading.log_item), class: 'mx-1 btn btn-sm btn-primary' %>
                 <% end %>

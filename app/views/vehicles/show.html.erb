@@ -1,3 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t('home.title'), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t('vehicle.list.title'), vehicles_path %></li>
+    <li class="breadcrumb-item active"><%= @vehicle.display_name %></li>
+  </ol>
+</nav>
+
 <% if @vehicle.photo.attached? %>
   <%= image_tag @vehicle.photo, class: 'w-50 img-thumbnail' %>
 <% end %>
