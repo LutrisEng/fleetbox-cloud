@@ -39,15 +39,15 @@ class Vehicle < ApplicationRecord
   end
 
   def display_model_year
-    model_year || 'Unknown Year'
+    model_year || I18n.t('vehicle.unknown_year')
   end
 
   def display_make
-    make || 'Unknown Make'
+    make || I18n.t('vehicle.unknown_make')
   end
 
   def display_model
-    model || 'Unknown Model'
+    model || I18n.t('vehicle.unknown_model')
   end
 
   def generate_display_name

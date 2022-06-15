@@ -55,6 +55,8 @@ en:
     creating: "Creating tire set"
     list:
       title: "My tire sets"
+    unknown_make: "[Unknown make]"
+    unknown_model: "[Unknown model]"
   vehicle:
     create:
       success: "Vehicle was successfully created."
@@ -77,6 +79,9 @@ en:
     list:
       title: "My vehicles"
     log_items_title: "Log items for %{vehicle}"
+    unknown_year: "[Unknown year]"
+    unknown_make: "[Unknown make]"
+    unknown_model: "[Unknown model]"
   odometer_reading:
     create:
       success: "Odometer reading was successfully created."

@@ -1,16 +1,16 @@
 <div id="<%= dom_id vehicle %>">
-  <h2>
-    <%= vehicle.display_name %>
-    <span class="small text-secondary">
-        &middot;
-      <% if vehicle.vin %>
-          <%= Vehicle.human_attribute_name(:vin) %>:
-          <strong><%= vehicle.vin %></strong>
-          &middot;
-        <% end %>
-      <%= t 'miles', miles: number_with_delimiter(vehicle.odometer) %>
-      </span>
-  </h2>
+  <h2><%= vehicle.display_name %></h2>
+  <ul class="h3 small text-secondary">
+    <% if vehicle.vin %>
+      <li>
+        <%= Vehicle.human_attribute_name(:vin) %>:
+        <strong><%= vehicle.vin %></strong>
+      </li>
+      <li>
+        <%= t 'miles', miles: number_with_delimiter(vehicle.odometer) %>
+      </li>
+    <% end %>
+  </ul>
   <% unless vehicle.owner.nil? %>
     <p>
       <strong><%= Vehicle.human_attribute_name(:owner) %>:</strong>

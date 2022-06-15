@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :navbar_items, :current_navbar_item, :displayable_time,
                 :display_time, :convert_for_datetime_field
 
+  rescue_from ActiveRecord::StatementInvalid do |e|
+    raise e unless e.cause.is_a?(PG::ReadOnlySqlTransaction)
+
+    r = ENV['PRIMARY_REGION']
+    response.headers['fly-replay'] = "region=#{r}"
+    Rails.logger.info "Replaying request in #{r}"
+    render plain: "retry in region #{r}", status: 409
+  end
+
   def current_user_session
     if Rails.env.test?
       session[:userinfo] ||= {

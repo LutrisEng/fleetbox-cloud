@@ -43,19 +43,22 @@ class Auth0Controller < ApplicationController
       return
     end
     provider = session[:userinfo]['provider']
+    Rails.logger.info("User #{current_user.email} (ID #{current_user.id}) logging out")
     reset_session
     if provider == 'auth0'
-      redirect_to logout_url, allow_other_host: true
+      Rails.logger.info('Logging user out using Auth0')
+      redirect_to auth0_logout_url, allow_other_host: true
     else
+      Rails.logger.info("User wasn't logged in using Auth0 (instead #{provider}), so not logging out using Auth0")
       redirect_to root_path
     end
   end
 
   private
 
-  def logout_url
+  def auth0_logout_url
     request_params = {
-      returnTo: root_url,
+      returnTo: logout_url,
       client_id: AUTH0_CREDENTIALS[:client_id]
     }
     URI::HTTPS.build(host: AUTH0_CREDENTIALS[:domain], path: '/v2/logout', query: request_params.to_query).to_s

@@ -77,6 +77,8 @@ class TireSetTest < ActiveSupport::TestCase
     ts.load_index = 93
     ts.speed_rating = 'Y'
     assert_equal('P225/40ZR19 93Y', ts.specs)
+    ts.user_display_name = nil
+    assert_equal('Michelin Pilot Sport 4S (P225/40ZR19 93Y)', ts.display_name)
   end
 
   test 'origin returns timestamp of first log item' do
@@ -92,5 +94,26 @@ class TireSetTest < ActiveSupport::TestCase
     factory_tires.hidden = true
     assert_equal(:hidden, summer_tires.category)
     assert_equal(:hidden, factory_tires.category)
+  end
+
+  test 'display name works when nothing is set' do
+    tire_set = TireSet.new
+    assert_equal '[Unknown make] [Unknown model] (??/??? ??)', tire_set.display_name
+  end
+
+  test 'display name works when one part is unset' do
+    tire_set = TireSet.new(make: 'Michelin')
+    assert_equal 'Michelin [Unknown model] (??/??? ??)', tire_set.display_name
+    tire_set = TireSet.new(model: 'Pilot Sport 4S')
+    assert_equal '[Unknown make] Pilot Sport 4S (??/??? ??)', tire_set.display_name
+  end
+
+  test 'display name works when overridden by user_display_name' do
+    tire_set = TireSet.new(make: 'Michelin', model: 'Pilot Sport 4S')
+    assert_equal 'Michelin Pilot Sport 4S (??/??? ??)', tire_set.display_name
+    tire_set.user_display_name = 'My tires'
+    assert_equal 'My tires', tire_set.display_name
+    tire_set.user_display_name = nil
+    assert_equal 'Michelin Pilot Sport 4S (??/??? ??)', tire_set.display_name
   end
 end

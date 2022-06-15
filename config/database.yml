@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: fleetbox_cloud_production
-  username: fleetbox_cloud
-  password: <%= ENV["FLEETBOX_CLOUD_DATABASE_PASSWORD"] %>
+  url: <%= Fly.database_url %>

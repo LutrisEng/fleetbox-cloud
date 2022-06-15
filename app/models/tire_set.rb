@@ -100,11 +100,11 @@ class TireSet < ApplicationRecord
   end
 
   def display_make
-    make || 'Unknown Make'
+    make || I18n.t('tire_set.unknown_make')
   end
 
   def display_model
-    model || 'Unknown Model'
+    model || I18n.t('tire_set.unknown_model')
   end
 
   def generate_display_name
