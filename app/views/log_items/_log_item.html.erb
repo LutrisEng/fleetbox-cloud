@@ -17,4 +17,10 @@
       <%= t :miles, miles: log_item.odometer_reading_reading %>
     </p>
   <% end %>
+
+  <ul>
+    <% log_item.line_items.each do |line_item| %>
+      <li><%= line_item.type.display_name %></li>
+    <% end %>
+  </ul>
 </div>
