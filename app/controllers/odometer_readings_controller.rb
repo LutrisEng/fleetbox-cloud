@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
 class OdometerReadingsController < ApplicationController
+  SET_ACTIONS = %i[edit update destroy].freeze
+
   include Secured
   include Pundit::Authorization
   after_action :verify_authorized
+  after_action :verify_policy_scoped, only: SET_ACTIONS + %i[index]
 
   before_action :set_vehicle
-  before_action :set_odometer_reading, only: %i[edit update destroy]
+  before_action :set_odometer_reading, only: SET_ACTIONS
 
   # GET /vehicles/1/odometer_readings or /vehicles/1/odometer_readings.json
   def index
     @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: current_user.now) if policy(@vehicle).edit?
-    @odometer_readings = @vehicle.odometer_readings.merge(policy_scope(OdometerReading))
+    @odometer_readings = policy_scope(OdometerReading).merge(@vehicle.odometer_readings)
   end
 
   # GET /vehicles/1/odometer_readings/1/edit
@@ -72,12 +75,12 @@ class OdometerReadingsController < ApplicationController
   private
 
   def set_vehicle
-    @vehicle = Vehicle.find_by(uuid: params[:vehicle_uuid])
+    @vehicle = policy_scope(Vehicle).find_by(uuid: params[:vehicle_uuid])
     authorize @vehicle
   end
 
   def set_odometer_reading
-    @odometer_reading = OdometerReading.find_by(uuid: params[:uuid])
+    @odometer_reading = policy_scope(OdometerReading).merge(@vehicle.odometer_readings).find_by(uuid: params[:uuid])
     authorize @odometer_reading
   end
 

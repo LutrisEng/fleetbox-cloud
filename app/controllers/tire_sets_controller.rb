@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class TireSetsController < ApplicationController
+  SET_ACTIONS = %i[show edit update destroy].freeze
+
   include Secured
   include Pundit::Authorization
   after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: SET_ACTIONS + %i[index]
 
-  before_action :set_tire_set, only: %i[show edit update destroy]
+  before_action :set_tire_set, only: SET_ACTIONS
 
   # GET /tire_sets or /tire_sets.json
   def index
@@ -73,7 +75,7 @@ class TireSetsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_tire_set
-    @tire_set = TireSet.find_by(uuid: params[:uuid])
+    @tire_set = policy_scope(TireSet).find_by(uuid: params[:uuid])
     authorize @tire_set
   end
 

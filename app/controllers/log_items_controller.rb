@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class LogItemsController < ApplicationController
+  SET_ACTIONS = %i[show edit update destroy].freeze
+
   include Secured
   include Pundit::Authorization
   after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: SET_ACTIONS + %i[index]
 
   before_action :set_vehicle
-  before_action :set_log_item, only: %i[show edit update destroy]
+  before_action :set_log_item, only: SET_ACTIONS
 
   # GET /vehicles/1/log_items or /log_items.json
   def index
@@ -73,12 +75,12 @@ class LogItemsController < ApplicationController
   private
 
   def set_vehicle
-    @vehicle = Vehicle.find_by(uuid: params[:vehicle_uuid])
+    @vehicle = policy_scope(Vehicle).find_by(uuid: params[:vehicle_uuid])
     authorize @vehicle
   end
 
   def set_log_item
-    @log_item = LogItem.find_by(uuid: params[:uuid])
+    @log_item = policy_scope(LogItem).merge(@vehicle.log_items).find_by(uuid: params[:uuid])
     authorize @log_item
   end
 

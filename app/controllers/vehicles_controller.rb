@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
+  SET_ACTIONS = %i[show edit update destroy].freeze
+
   include Secured
   include Pundit::Authorization
   after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: SET_ACTIONS + %i[index]
 
-  before_action :set_vehicle, only: %i[show edit update destroy]
+  before_action :set_vehicle, only: SET_ACTIONS
 
   # GET /vehicles or /vehicles.json
   def index
@@ -73,7 +75,7 @@ class VehiclesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_vehicle
-    @vehicle = Vehicle.find_by(uuid: params[:uuid])
+    @vehicle = policy_scope(Vehicle).find_by(uuid: params[:uuid])
     authorize @vehicle
   end
 
