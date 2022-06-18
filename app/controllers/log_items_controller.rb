@@ -10,6 +10,7 @@ class LogItemsController < ApplicationController
 
   before_action :set_vehicle
   before_action :set_log_item, only: SET_ACTIONS
+  before_action :set_shops, only: %i[new edit]
 
   # GET /vehicles/1/log_items or /log_items.json
   def index
@@ -84,10 +85,15 @@ class LogItemsController < ApplicationController
     authorize @log_item
   end
 
+  def set_shops
+    @shops = policy_scope(Shop)
+    @shop_options = (@shops.map { |shop| [shop.name || shop.uuid || 'Unknown shop', shop.uuid] }) + [['None', nil]]
+  end
+
   # Only allow a list of trusted parameters through.
   def log_item_params
     extracted_params = params.require(:log_item).permit(:display_name, :include_time, :performed_at,
-                                                        :odometer_reading_reading)
+                                                        :odometer_reading_reading, :shop_uuid)
     transform_performed_at(extracted_params)
     extracted_params
   end

@@ -7,17 +7,19 @@
 
 <h1><%= t 'tire_set.list.title' %></h1>
 
-<div id="tire_sets">
+<div id="tire_sets" class="row row-cols-1 row-cols-md-2 g-4">
   <% @tire_sets.each do |tire_set| %>
-    <div class="card">
-      <div class="card-body">
-        <%= render tire_set %>
-        <% if policy(tire_set).show? %>
-          <%= link_to t('tire_set.link.show'), tire_set_path(tire_set), class: 'card-link' %>
-        <% end %>
-        <% if policy(tire_set).edit? %>
-          <%= link_to t('tire_set.link.edit'), edit_tire_set_path(tire_set), class: 'card-link' %>
-        <% end %>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <%= render tire_set %>
+          <% if policy(tire_set).show? %>
+            <%= link_to t('tire_set.link.show'), tire_set_path(tire_set), class: 'card-link' %>
+          <% end %>
+          <% if policy(tire_set).edit? %>
+            <%= link_to t('tire_set.link.edit'), edit_tire_set_path(tire_set), class: 'card-link' %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

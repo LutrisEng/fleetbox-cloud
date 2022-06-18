@@ -1,12 +1,19 @@
 <div id="<%= dom_id log_item %>">
   <p>
-    <strong>Display name:</strong>
+    <strong><%= LogItem.human_attribute_name(:display_name) %>:</strong>
     <%= log_item.display_name %>
   </p>
 
+  <% unless log_item.shop.nil? %>
+    <p>
+      <strong><%= LogItem.human_attribute_name(:shop) %>:</strong>
+      <%= link_to log_item.shop.name, '#' %>
+    </p>
+  <% end %>
+
   <% unless log_item.performed_at.nil? %>
     <p>
-      <strong>Performed at:</strong>
+      <strong><%= LogItem.human_attribute_name(:performed_at) %>:</strong>
       <%= display_time(log_item.performed_at, format: if log_item.include_time then :date_and_time else :date_only end) %>
     </p>
   <% end %>

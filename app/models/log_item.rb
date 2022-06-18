@@ -45,4 +45,12 @@ class LogItem < ApplicationRecord
       self.odometer_reading = OdometerReading.new(vehicle:, reading:, performed_at:, include_time:)
     end
   end
+
+  def shop_uuid
+    shop&.uuid
+  end
+
+  def shop_uuid=(new_uuid)
+    self.shop = Shop.find_by(uuid: new_uuid)
+  end
 end

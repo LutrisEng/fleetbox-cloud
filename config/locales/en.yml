@@ -122,6 +122,7 @@ en:
         performed_at: "Performed at"
         include time: "Include time in performed at?"
         odometer_reading_reading: "Odometer reading at time of service"
+        shop_uuid: "Shop"
       tire_set:
         make: "Make"
         model: "Model"
