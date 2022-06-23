@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Pull Docker images
+        run: make pre-pull
+      - name: Cache built Docker layers
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Run tests
         run: make test
       - name: Publish test results
