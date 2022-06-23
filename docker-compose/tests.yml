@@ -1,0 +1,25 @@
+services:
+  database:
+    image: postgres:14.3-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: rails_test
+      POSTGRES_USER: rails
+      POSTGRES_PASSWORD: password
+  tests:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        RAILS_ENV: test
+        BUNDLE_WITHOUT: development
+        PROD_PACKAGES: postgresql-client file vim curl gzip libsqlite3-0 nodejs firefox-esr
+    environment:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://rails:password@database:5432/rails_test"
+    links:
+      - database
+    command: bash -euxo pipefail -c 'bin/rails db:schema:load && bin/rails test:all:with[headless_firefox] TESTOPTS=--junit && cp report.xml junit/'
+    volumes:
+      - ../junit:/app/junit
