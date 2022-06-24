@@ -71,4 +71,5 @@ RUN bin/rails assets:precompile
 ENV PORT 8080
 
 ENTRYPOINT ["/usr/bin/make"]
+SHELL [""]
 CMD local-prod-server
