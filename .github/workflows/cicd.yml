@@ -93,7 +93,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Fly.io CLI
-        uses: superfly/flyctl-actions/setup-flyctl@1.3
+        uses: superfly/flyctl-actions/setup-flyctl@67ddda2a87628f1aff28a54b8a708879ec62c80f
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2.0.0
         with:
