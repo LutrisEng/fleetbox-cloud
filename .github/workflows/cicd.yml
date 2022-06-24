@@ -103,6 +103,6 @@ jobs:
       - name: Pull Docker Image
         run: "docker pull ghcr.io/lutriseng/fleetbox-cloud:sha-${{ github.sha }}"
       - name: Deploy to Fly.io
-        run: "fly deploy --image ghcr.io/lutriseng/fleetbox-cloud:sha-${{ github.sha }}"
+        run: "flyctl deploy --image ghcr.io/lutriseng/fleetbox-cloud:sha-${{ github.sha }}"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
