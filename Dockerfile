@@ -7,7 +7,6 @@ ARG NODE_VERSION=16
 ARG BUNDLER_VERSION=2.3.14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
-ENTRYPOINT ["/bin/bash", "-euxo", "pipefail", "-c"]
 
 RUN mkdir /app
 WORKDIR /app
@@ -15,25 +14,18 @@ RUN mkdir -p tmp/pids
 
 ARG PRE_PACKAGES="curl"
 ENV PRE_PACKAGES=${PRE_PACKAGES}
-
-RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
-    --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-    ${PRE_PACKAGES} \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
 ARG EXTRA_PROD_PACKAGES=""
 ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make ${EXTRA_PROD_PACKAGES}"
 ENV PROD_PACKAGES=${PROD_PACKAGES}
 
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
-    curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - && \
     apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-    ${PROD_PACKAGES} \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get install --no-install-recommends -y ${PRE_PACKAGES} && \
+    (curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -) && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y ${PROD_PACKAGES} && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN corepack enable
 
@@ -56,8 +48,8 @@ ENV DEV_PACKAGES ${DEV_PACKAGES}
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
-    apt-get install --no-install-recommends -y ${DEV_PACKAGES} \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get install --no-install-recommends -y ${DEV_PACKAGES} && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN gem install -N bundler -v ${BUNDLER_VERSION}
 
@@ -78,6 +70,5 @@ RUN bin/rails assets:precompile
 
 ENV PORT 8080
 
-ARG SERVER_TARGET="local-prod-server"
-ENV SERVER_TARGET ${SERVER_TARGET}
-CMD ["make ${SERVER_TARGET}"]
+ENTRYPOINT ["/usr/bin/make"]
+CMD local-prod-server

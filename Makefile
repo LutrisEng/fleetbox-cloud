@@ -22,11 +22,18 @@ pre-pull:
 	docker compose -f ./docker-compose/tests.yml -p fleetbox_tests pull
 	docker compose -f ./docker-compose/development.yml -p fleetbox_dev_server pull
 
+.PHONY: sleep
+sleep:
+	sleep 10
+
 .PHONY: local-tests
 local-test:
 	bin/rails db:schema:load
 	bin/rails test:all:with[headless_firefox] TESTOPTS=--junit
 	cp report.xml junit/
+
+.PHONY: sleep-then-local-test
+sleep-then-local-test: sleep local-test
 
 .PHONY: local-dev-server
 local-dev-server:
