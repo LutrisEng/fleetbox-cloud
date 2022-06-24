@@ -38,11 +38,11 @@ sleep-then-local-test: sleep local-test
 .PHONY: local-dev-server
 local-dev-server:
 	bin/rails db:schema:load
-	bin/rails server $(WEB_SERVER) -b 0.0.0.0
+	bin/rails server -b 0.0.0.0
 
 .PHONY: local-prod-server
 local-prod-server:
-	bin/rails server $(WEB_SERVER)
+	bin/rails server
 
 .PHONY: local-migrate-db
 local-migrate-db:
@@ -50,3 +50,7 @@ local-migrate-db:
 
 .PHONY: post-deploy
 post-deploy: local-migrate-db
+
+.PHONY: hello-world
+hello-world:
+	echo Hello, world!
