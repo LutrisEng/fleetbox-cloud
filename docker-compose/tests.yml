@@ -14,12 +14,12 @@ services:
       args:
         RAILS_ENV: test
         BUNDLE_WITHOUT: development
-        PROD_PACKAGES: postgresql-client file vim curl gzip libsqlite3-0 nodejs firefox-esr
+        EXTRA_PROD_PACKAGES: firefox-esr
     environment:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@database:5432/rails_test"
     links:
       - database
-    command: bash -euxo pipefail -c 'bin/rails db:schema:load && bin/rails test:all:with[headless_firefox] TESTOPTS=--junit && cp report.xml junit/'
+    command: make local-test
     volumes:
       - ../junit:/app/junit

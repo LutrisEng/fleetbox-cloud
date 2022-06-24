@@ -32,13 +32,14 @@ jobs:
   build-docker:
     name: Build Docker image
     runs-on: ubuntu-22.04
+    concurrency: "docker_${{ github.event_name == 'pull_request' && format('pr_{0}', github.event.number) || format('ref_{0}', github.ref) }}"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3.0.2
       - name: Pull Docker images
         run: make pre-pull
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2.0.0
+      # - name: Set up QEMU
+      #   uses: docker/setup-qemu-action@v2.0.0
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v2.0.0
@@ -68,7 +69,10 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          # Sadly qemu is too slow to be productive, this would be good to revisit when there are native arm64 workers
+          # though
+          # platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: ${{ steps.docker_metadata.outputs.tags }}
           labels: ${{ steps.docker_metadata.outputs.labels }}

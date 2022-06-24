@@ -43,4 +43,3 @@
 Dockerfile
 docker-compose/
 fly.toml
-Makefile

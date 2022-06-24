@@ -21,13 +21,12 @@ services:
         RAILS_ENV: development
         BUNDLE_WITHOUT: ""
         BUNDLE_PATH: ""
-        EXTRA_PROD_PACKAGES: firefox-esr
     environment:
       RAILS_ENV: development
       DATABASE_URL: "postgres://rails:password@database:5432/rails_development"
     links:
       - database
-    command: bash -euxo pipefail -c 'bin/rails db:schema:load && bin/rails server -b 0.0.0.0'
+    command: make local-dev-server
     volumes:
       - ../:/app
     ports:

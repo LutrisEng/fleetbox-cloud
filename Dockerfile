@@ -7,6 +7,7 @@ ARG NODE_VERSION=16
 ARG BUNDLER_VERSION=2.3.14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+ENTRYPOINT ["/bin/bash", "-euxo", "pipefail", "-c"]
 
 RUN mkdir /app
 WORKDIR /app
@@ -25,7 +26,7 @@ RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
 
 ARG EXTRA_PROD_PACKAGES=""
-ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs ${EXTRA_PROD_PACKAGES}"
+ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make ${EXTRA_PROD_PACKAGES}"
 ENV PROD_PACKAGES=${PROD_PACKAGES}
 
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
@@ -78,6 +79,6 @@ RUN bin/rails assets:precompile
 
 ENV PORT 8080
 
-ARG SERVER_COMMAND="bundle exec puma -C config/puma.rb"
-ENV SERVER_COMMAND ${SERVER_COMMAND}
-CMD ${SERVER_COMMAND}
+ARG SERVER_TARGET="local-prod-server"
+ENV SERVER_TARGET ${SERVER_TARGET}
+CMD ["make ${SERVER_TARGET}"]
