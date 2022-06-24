@@ -53,8 +53,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Cache Built Docker Layers
-        uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Set Docker Metadata
         id: docker_metadata
         uses: docker/metadata-action@v4.0.1
@@ -87,6 +85,8 @@ jobs:
           push: true
           tags: ${{ steps.docker_metadata.outputs.tags }}
           labels: ${{ steps.docker_metadata.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   deploy-staging:
     if: github.ref == 'refs/heads/main'
     name: Deploy to Staging
