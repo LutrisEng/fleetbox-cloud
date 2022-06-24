@@ -6,7 +6,11 @@ build: version.txt commit.txt
 
 .PHONY: deploy
 deploy:
-	fly deploy
+	fly deploy -c fly.toml --remote-only
+
+.PHONY: deploy-staging
+deploy-staging:
+	fly deploy -c fly.staging.toml --remote-only
 
 .PHONY: test
 test: version.txt commit.txt
@@ -47,6 +51,10 @@ local-prod-server:
 .PHONY: local-migrate-db
 local-migrate-db:
 	bin/rails db:migrate
+
+.PHONY: local-goodjob
+local-goodjob:
+	bin/good_job start
 
 .PHONY: post-deploy
 post-deploy: local-migrate-db

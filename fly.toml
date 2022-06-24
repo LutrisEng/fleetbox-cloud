@@ -3,7 +3,10 @@
 app = "fleetbox"
 kill_signal = "SIGINT"
 kill_timeout = 5
-processes = []
+
+[processes]
+  web = "make local-prod-server"
+  goodjob = "make local-goodjob"
 
 [deploy]
   release_command = "make post-deploy"
@@ -11,6 +14,7 @@ processes = []
 [env]
   PORT = "8080"
   PRIMARY_REGION = "dfw"
+  RAILS_ENV = "production"
 
 [experimental]
   allowed_public_ports = []
@@ -19,7 +23,7 @@ processes = []
 [[services]]
   http_checks = []
   internal_port = 8080
-  processes = ["app"]
+  processes = ["web"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
