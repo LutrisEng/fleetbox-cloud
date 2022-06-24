@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
       - name: Pull Docker images
         run: make pre-pull
       # - name: Set up QEMU
