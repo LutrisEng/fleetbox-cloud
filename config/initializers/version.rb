@@ -22,3 +22,7 @@ end
 
 FLEETBOX_VERSION = read_version_file || 'fleetbox'
 FLEETBOX_COMMIT = read_commit_file || 'main'
+
+Rails.application.config.action_dispatch.default_headers['Server'] = FLEETBOX_VERSION
+Rails.application.config.action_dispatch.default_headers['X-Fleetbox-Version'] = FLEETBOX_VERSION
+Rails.application.config.action_dispatch.default_headers['X-Fleetbox-Commit'] = FLEETBOX_COMMIT
