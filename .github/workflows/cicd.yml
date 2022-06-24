@@ -34,7 +34,9 @@ jobs:
   build-docker:
     name: Build Docker image
     runs-on: ubuntu-22.04
-    concurrency: "docker_${{ github.event_name == 'pull_request' && format('pr_{0}', github.event.number) || format('ref_{0}', github.ref) }}"
+    concurrency:
+      group: "docker_${{ github.event_name == 'pull_request' && format('pr_{0}', github.event.number) || format('ref_{0}', github.ref) }}"
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3.0.2
