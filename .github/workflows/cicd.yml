@@ -88,7 +88,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy-staging:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'release'
     name: Deploy to Staging
     runs-on: ubuntu-22.04
     concurrency: deploy_staging
