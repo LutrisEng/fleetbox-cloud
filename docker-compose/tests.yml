@@ -20,6 +20,6 @@ services:
       DATABASE_URL: "postgres://rails:password@database:5432/rails_test"
     links:
       - database
-    command: sleep-then-local-test
+    command: make sleep-then-local-test
     volumes:
       - ../junit:/app/junit

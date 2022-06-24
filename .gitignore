@@ -38,3 +38,6 @@
 
 /junit
 /vendor/bundle
+
+version.txt
+commit.txt

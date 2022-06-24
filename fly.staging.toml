@@ -6,7 +6,7 @@ kill_timeout = 5
 processes = []
 
 [deploy]
-  release_command = "post-deploy"
+  release_command = "make post-deploy"
 
 [env]
   PORT = "8080"

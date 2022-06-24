@@ -73,6 +73,8 @@
         </p>
       <% end %>
       <%= yield %>
+      <hr />
+      <p><code><%= FLEETBOX_VERSION %></code> (<a href="https://github.com/lutriseng/fleetbox-cloud/tree/<%= FLEETBOX_COMMIT %>"><%= t :view_source %></a>)</p>
     </div>
   </body>
 </html>
