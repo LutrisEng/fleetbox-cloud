@@ -23,14 +23,13 @@ RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     ${PRE_PACKAGES} \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
-
 ARG EXTRA_PROD_PACKAGES=""
 ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make ${EXTRA_PROD_PACKAGES}"
 ENV PROD_PACKAGES=${PROD_PACKAGES}
 
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
+    curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - && \
     apt-get update -qq && \
     apt-get install --no-install-recommends -y \
     ${PROD_PACKAGES} \
