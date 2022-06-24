@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-22.04
     concurrency: deploy_staging
     environment:
-      name: production
+      name: staging
       url: https://staging.fleetbox.io/
     needs:
       - test
