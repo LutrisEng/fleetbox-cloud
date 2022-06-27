@@ -23,6 +23,7 @@ dev-server: version.txt commit.txt
 .PHONY: pre-pull
 pre-pull:
 	docker pull ruby:3.1.2-slim-bullseye
+	docker pull ghcr.io/lutriseng/fleetbox-cloud:latest
 	docker compose -f ./docker-compose/tests.yml -p fleetbox_tests pull
 	docker compose -f ./docker-compose/development.yml -p fleetbox_dev_server pull
 
