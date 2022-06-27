@@ -7,6 +7,11 @@ services:
       POSTGRES_DB: rails_test
       POSTGRES_USER: rails
       POSTGRES_PASSWORD: password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   tests:
     build:
       context: ..
@@ -20,6 +25,9 @@ services:
       DATABASE_URL: "postgres://rails:password@database:5432/rails_test"
     links:
       - database
-    command: make sleep-then-local-test
+    depends_on:
+      database:
+        condition: service_healthy
+    command: make local-test
     volumes:
       - ../junit:/app/junit

@@ -15,7 +15,7 @@ RUN mkdir -p tmp/pids
 ARG PRE_PACKAGES="curl"
 ENV PRE_PACKAGES=${PRE_PACKAGES}
 ARG EXTRA_PROD_PACKAGES=""
-ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make ${EXTRA_PROD_PACKAGES}"
+ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make git ${EXTRA_PROD_PACKAGES}"
 ENV PROD_PACKAGES=${PROD_PACKAGES}
 
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
