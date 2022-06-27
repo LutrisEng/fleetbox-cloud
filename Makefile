@@ -29,7 +29,7 @@ pre-pull:
 
 .PHONY: bundle-install
 bundle-install:
-	bundle package --all-platforms --all
+	bundle package --all-platforms
 
 .PHONY: sleep
 sleep:

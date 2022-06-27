@@ -83,6 +83,9 @@ group :development do
   gem 'erb_lint', require: false
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+
+  # Use Pry as Rails console
+  gem 'pry-rails'
 end
 
 group :test do
