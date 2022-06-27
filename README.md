@@ -7,6 +7,14 @@
 Use the Ruby version specified in `.ruby-version` - `rbenv` should do this
 by default.
 
+### Gem dependencies
+
+Install the gems from the Gemfile using Bundler 2.3.14:
+
+```shell
+bin/bundle
+```
+
 ### System dependencies
 
 Fleetbox Cloud is only compatible with UNIX-like operating systems, and
