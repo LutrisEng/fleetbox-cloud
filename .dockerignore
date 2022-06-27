@@ -4,9 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/.bundle
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -41,7 +38,8 @@
 
 # We don't want to bust the cache by changing the Dockerfile or other irrelevant config
 /Dockerfile
-/docker-compose
+/docker-compose/
 /fly.toml
-/.github
-/.vscode
+/.github/
+/.vscode/
+/.dockerignore

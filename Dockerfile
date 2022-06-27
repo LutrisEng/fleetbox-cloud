@@ -56,7 +56,7 @@ RUN gem install -N bundler -v ${BUNDLER_VERSION}
 FROM dev as gems
 
 COPY Gemfile* ./
-RUN bundle install --deployment && rm -rf vendor/bundle/ruby/*/cache
+RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
 
 FROM base
 
