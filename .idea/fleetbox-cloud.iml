@@ -938,6 +938,28 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="jar_wrapper (vbundled(0.1.8)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/.idea" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/.idea" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jar_wrapper-0.1.8/.idea" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="jaro_winkler (vbundled(1.5.4)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2160,6 +2182,31 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="selenium (vbundled(0.2.11)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.bundle" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.bundle" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/selenium-0.2.11/.bundle" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="selenium-webdriver (vbundled(4.2.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2577,6 +2624,28 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zeitwerk-2.5.4/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="zip (vbundled(2.0.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/samples" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/samples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zip-2.0.2/samples" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="benchmark (v0.2.0, rbenv: 3.1.2) [gem]" level="application" />

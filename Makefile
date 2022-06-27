@@ -14,7 +14,10 @@ deploy-staging:
 
 .PHONY: test
 test: version.txt commit.txt
+	mkdir -p junit
+	chmod 777 junit
 	docker compose -f ./docker-compose/tests.yml -p fleetbox_tests up --build --exit-code-from tests --renew-anon-volumes --force-recreate --remove-orphans
+	chmod 755 junit
 
 .PHONY: dev-server
 dev-server: version.txt commit.txt
