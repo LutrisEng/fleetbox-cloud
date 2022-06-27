@@ -26,6 +26,10 @@ pre-pull:
 	docker compose -f ./docker-compose/tests.yml -p fleetbox_tests pull
 	docker compose -f ./docker-compose/development.yml -p fleetbox_dev_server pull
 
+.PHONY: bundle-install
+bundle-install:
+	bundle package --all-platforms --all
+
 .PHONY: sleep
 sleep:
 	sleep 10

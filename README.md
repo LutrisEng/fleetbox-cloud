@@ -15,6 +15,9 @@ Install the gems from the Gemfile using Bundler 2.3.14:
 bin/bundle
 ```
 
+Gems are cached in `vendor/cache`, so they may be installed without network
+connection.
+
 ### System dependencies
 
 Fleetbox Cloud is only compatible with UNIX-like operating systems, and
