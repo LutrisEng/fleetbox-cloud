@@ -79,8 +79,8 @@ ENV SECRET_KEY_BASE 1
 COPY --chown=root . .
 
 USER root
-RUN mkdir -p junit/ tmp/ public/assets/
-RUN chown -R fleetbox:fleetbox junit/ tmp/ public/assets/
+RUN mkdir -p junit/ tmp/ public/assets/ log/
+RUN chown -R fleetbox:fleetbox junit/ tmp/ public/assets/ log/
 USER fleetbox
 
 RUN bin/rails assets:precompile
