@@ -8,13 +8,12 @@ ARG BUNDLER_VERSION=2.3.14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-RUN useradd -u 9000 fleetbox
+RUN mkdir /app
+WORKDIR /app
+RUN useradd -d /app -u 9000 fleetbox
+RUN chown -R fleetbox:fleetbox /app
 USER fleetbox
 
-USER root
-RUN mkdir /app && chown -R fleetbox:fleetbox /app
-USER fleetbox
-WORKDIR /app
 RUN mkdir -p tmp/pids
 
 ARG PRE_PACKAGES="curl"
