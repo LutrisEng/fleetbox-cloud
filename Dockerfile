@@ -67,18 +67,27 @@ USER fleetbox
 
 FROM dev as gems
 
-COPY --chown=fleetbox Gemfile* ./
+COPY --chown=root Gemfile* ./
 RUN bundle config set deployment true && bundle install && rm -rf vendor/bundle/ruby/*/cache
 
 FROM base
 
-COPY --chown=fleetbox --from=gems /app /app
+COPY --chown=root --from=gems /app /app
 
 ENV SECRET_KEY_BASE 1
 
-COPY --chown=fleetbox . .
+COPY --chown=root . .
+
+USER root
+RUN mkdir -p junit/ tmp/ public/assets/
+RUN chown -R fleetbox:fleetbox junit/ tmp/ public/assets/
+USER fleetbox
 
 RUN bin/rails assets:precompile
+
+USER root
+RUN chown -R root:root public/assets/
+USER fleetbox
 
 ENV PORT 8080
 
