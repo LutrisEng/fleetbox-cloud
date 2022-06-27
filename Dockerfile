@@ -8,7 +8,12 @@ ARG BUNDLER_VERSION=2.3.14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-RUN mkdir /app
+RUN useradd -u 9000 fleetbox
+USER fleetbox
+
+USER root
+RUN mkdir /app && chown -R fleetbox:fleetbox /app
+USER fleetbox
 WORKDIR /app
 RUN mkdir -p tmp/pids
 
@@ -18,6 +23,7 @@ ARG EXTRA_PROD_PACKAGES=""
 ARG PROD_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 nodejs make git ${EXTRA_PROD_PACKAGES}"
 ENV PROD_PACKAGES=${PROD_PACKAGES}
 
+USER root
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
@@ -25,9 +31,12 @@ RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     (curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -) && \
     apt-get update -qq && \
     apt-get install --no-install-recommends -y ${PROD_PACKAGES} && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives \
+USER fleetbox
 
+USER root
 RUN corepack enable
+USER fleetbox
 
 ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
@@ -45,26 +54,30 @@ FROM base as dev
 ARG DEV_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev"
 ENV DEV_PACKAGES ${DEV_PACKAGES}
 
+USER root
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
     apt-get update -qq && \
     apt-get install --no-install-recommends -y ${DEV_PACKAGES} && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+USER fleetbox
 
+USER root
 RUN gem install -N bundler -v ${BUNDLER_VERSION}
+USER fleetbox
 
 FROM dev as gems
 
-COPY Gemfile* ./
-RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
+COPY --chown=fleetbox Gemfile* ./
+RUN bundle config set deployment true && bundle install && rm -rf vendor/bundle/ruby/*/cache
 
 FROM base
 
-COPY --from=gems /app /app
+COPY --chown=fleetbox --from=gems /app /app
 
 ENV SECRET_KEY_BASE 1
 
-COPY . .
+COPY --chown=fleetbox . .
 
 RUN bin/rails assets:precompile
 

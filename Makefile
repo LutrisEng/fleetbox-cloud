@@ -34,7 +34,7 @@ bundle-install:
 .PHONY: local-tests
 local-test:
 	bin/rails db:schema:load
-	bin/rails test:all:with[headless_firefox] TESTOPTS=--junit
+	bin/rails test:all:with[headless_chrome] TESTOPTS=--junit
 	cp report.xml junit/
 
 .PHONY: local-dev-server

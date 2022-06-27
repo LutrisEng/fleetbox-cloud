@@ -9,9 +9,9 @@ services:
       POSTGRES_PASSWORD: password
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U rails -d rails_test" ]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      interval: 1s
+      timeout: 1s
+      retries: 25
   tests:
     build:
       context: ..
@@ -19,10 +19,11 @@ services:
       args:
         RAILS_ENV: test
         BUNDLE_WITHOUT: development
-        EXTRA_PROD_PACKAGES: firefox-esr
+        EXTRA_PROD_PACKAGES: chromium chromium-driver
     environment:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@database:5432/rails_test"
+      FLEETBOX_DOCKER_TESTS: yes
     links:
       - database
     depends_on:
