@@ -1,7 +1,8 @@
 # syntax = docker/dockerfile:experimental
 ARG RUBY_VERSION=3.1.2
-ARG VARIANT=slim-bullseye
-FROM ruby:${RUBY_VERSION}-${VARIANT} as base
+ARG VARIANT=bullseye
+ARG BASE_TAG=sha-79fd7210779fec4c4745a5f5b2210ff0a9f09cca
+FROM ghcr.io/lutriseng/ruby-base/${RUBY_VERSION}/${VARIANT}:${BASE_TAG} AS base
 
 ARG NODE_VERSION=16
 ARG BUNDLER_VERSION=2.3.14
