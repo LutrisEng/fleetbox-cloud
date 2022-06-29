@@ -1,0 +1,18 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="<%= @id %>_heading">
+    <button
+      class="accordion-button<%= if @expanded then '' else ' collapsed' end %>"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#<%= @id %>_collapse"
+      aria-expanded="<%= @expanded %>"
+      aria-controls="<%= @id %>_collapse">
+      <%= @title %>
+    </button>
+  </h2>
+  <div id="<%= @id %>_collapse" class="accordion-collapse collapse<%= if @expanded then ' show' else '' end %>" aria-labelledby="<%= @id %>_heading" data-bs-parent="#<%= @parent_id %>">
+    <div class="accordion-body">
+      <%= content %>
+    </div>
+  </div>
+</div>
