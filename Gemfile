@@ -68,6 +68,9 @@ gem 'aws-sdk-s3', '~> 1.114.0', require: false
 # Use GoodJob as an ActiveJob backend [https://github.com/bensheldon/good_job]
 gem 'good_job', '~> 3.0.0'
 
+# Use View Component to create composible front-end components [https://github.com/github/view_component]
+gem 'view_component', '~> 2.57.1'
+
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
   gem 'debug', '~> 1.5.0', platforms: %i[mri mingw x64_mingw]

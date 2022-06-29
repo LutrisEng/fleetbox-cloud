@@ -275,30 +275,30 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="aws-partitions (vbundled(1.595.0)) [path][gem]" type="rubylib">
+      <library name="aws-partitions (vbundled(1.602.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-partitions-1.595.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-partitions-1.602.0/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-partitions-1.595.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-partitions-1.602.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="aws-sdk-core (vbundled(3.131.1)) [path][gem]" type="rubylib">
+      <library name="aws-sdk-core (vbundled(3.131.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-sdk-core-3.131.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-sdk-core-3.131.2/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-sdk-core-3.131.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/aws-sdk-core-3.131.2/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -1234,21 +1234,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="minitest (vbundled(5.15.0)) [path][gem]" type="rubylib">
+      <library name="minitest (vbundled(5.16.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.15.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.15.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.16.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.16.1/test" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.15.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.15.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.16.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.16.1/test" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.15.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/minitest-5.16.1/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -1300,20 +1300,6 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/msgpack-1.5.2/doclib" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/msgpack-1.5.2/.github" />
         </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="multi_json (vbundled(1.15.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/multi_json-1.15.0/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/multi_json-1.15.0/lib" />
-        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1464,22 +1450,17 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="oauth2 (vbundled(1.4.9)) [path][gem]" type="rubylib">
+      <library name="oauth2 (vbundled(2.0.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-1.4.9/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-1.4.9/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-2.0.3/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-1.4.9/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-1.4.9/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-2.0.3/lib" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/oauth2-1.4.9/spec" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1530,24 +1511,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="omniauth-oauth2 (vbundled(1.7.2)) [path][gem]" type="rubylib">
+      <library name="omniauth-oauth2 (vbundled(1.8.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/.github" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/.github" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.7.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/omniauth-oauth2-1.8.0/.github" />
         </excluded>
       </library>
     </orderEntry>
@@ -1843,16 +1824,16 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="rack-test (vbundled(1.1.0)) [path][gem]" type="rubylib">
+      <library name="rack-test (vbundled(2.0.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rack-test-1.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rack-test-2.0.2/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rack-test-1.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rack-test-2.0.2/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -1886,21 +1867,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="rails-html-sanitizer (vbundled(1.4.2)) [path][gem]" type="rubylib">
+      <library name="rails-html-sanitizer (vbundled(1.4.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.3/test" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.3/test" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rails-html-sanitizer-1.4.3/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -1956,6 +1937,28 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rake-13.0.6/doc" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rake-13.0.6/exe" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rash_alt (vbundled(0.4.12)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rash_alt-0.4.12/.github" />
         </excluded>
       </library>
     </orderEntry>
@@ -2309,21 +2312,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="sprockets (vbundled(4.0.3)) [path][gem]" type="rubylib">
+      <library name="sprockets (vbundled(4.1.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.0.3/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.0.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.1.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.1.1/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.0.3/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.0.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.1.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.1.1/lib" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.0.3/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-4.1.1/bin" />
         </excluded>
       </library>
     </orderEntry>
@@ -2488,6 +2491,43 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="version_gem (vbundled(1.1.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/version_gem-1.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/version_gem-1.1.0/sig" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/version_gem-1.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/version_gem-1.1.0/sig" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="view_component (vbundled(2.57.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/docs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/docs" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/view_component-2.57.1/docs" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="web-console (vbundled(4.2.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2632,16 +2672,16 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="zeitwerk (vbundled(2.5.4)) [path][gem]" type="rubylib">
+      <library name="zeitwerk (vbundled(2.6.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zeitwerk-2.5.4/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zeitwerk-2.6.0/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zeitwerk-2.5.4/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/zeitwerk-2.6.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2687,32 +2727,42 @@
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
+        <option value="erb:component" />
         <option value="fixture_validation" />
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
+        <option value="preview:component" />
         <option value="pundit:install" />
         <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
+        <option value="rspec:component" />
         <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="scss:assets" />
         <option value="scss:scaffold" />
+        <option value="slim:component" />
         <option value="stimulus" />
+        <option value="stimulus:component" />
         <option value="system_test" />
+        <option value="tailwindcss:component" />
         <option value="task" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
@@ -2727,32 +2777,42 @@
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
+        <option value="erb:component" />
         <option value="fixture_validation" />
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
+        <option value="preview:component" />
         <option value="pundit:install" />
         <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
+        <option value="rspec:component" />
         <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="scss:assets" />
         <option value="scss:scaffold" />
+        <option value="slim:component" />
         <option value="stimulus" />
+        <option value="stimulus:component" />
         <option value="system_test" />
+        <option value="tailwindcss:component" />
         <option value="task" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
@@ -3092,6 +3152,11 @@
           <RakeTaskImpl description="" fullCommand="tmp/cache/assets" id="tmp/cache/assets" />
           <RakeTaskImpl description="" fullCommand="tmp/pids" id="tmp/pids" />
           <RakeTaskImpl description="" fullCommand="tmp/sockets" id="tmp/sockets" />
+          <RakeTaskImpl id="view_component">
+            <subtasks>
+              <RakeTaskImpl description="" fullCommand="view_component:statsetup" id="statsetup" />
+            </subtasks>
+          </RakeTaskImpl>
         </subtasks>
       </RakeTaskImpl>
     </option>

@@ -387,6 +387,9 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
     version_gem (1.1.0)
+    view_component (2.57.1)
+      activesupport (>= 5.0.0, < 8.0)
+      method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -449,6 +452,7 @@ DEPENDENCIES
   stimulus-rails (~> 1.0.4)
   turbo-rails (~> 1.1.1)
   tzinfo-data (~> 1.2022.1)
+  view_component (~> 2.57.1)
   web-console (~> 4.2.0)
 
 RUBY VERSION
