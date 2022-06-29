@@ -1,3 +1,3 @@
-if Pry::Prompt[:rails]
-  Pry.config.prompt = Pry::Prompt[:rails]
-end
+# frozen_string_literal: true
+
+Pry.config.prompt = Pry::Prompt[:rails] if Pry::Prompt[:rails]
