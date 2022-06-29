@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Lookbook::Engine, at: '/lookbook' if Rails.env.development? || Rails.env.staging?
+  mount Lookbook::Engine, at: '/lookbook'
 
   resources :tire_sets, param: :uuid
   resources :vehicles, param: :uuid do
