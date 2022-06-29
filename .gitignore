@@ -35,6 +35,10 @@
 
 /junit
 /vendor/bundle
+/vendor/cache
+/.bundle
 
 version.txt
 commit.txt
+
+result

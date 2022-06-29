@@ -35,6 +35,10 @@
 
 /junit
 /vendor/bundle
+/vendor/cache
+/.bundle
+
+result
 
 # We don't want to bust the cache by changing the Dockerfile or other irrelevant config
 /Dockerfile
