@@ -1,0 +1,5 @@
+FROM nixos/nix
+
+COPY . .
+
+RUN NIXPKGS_ALLOW_UNFREE=1 nix-build

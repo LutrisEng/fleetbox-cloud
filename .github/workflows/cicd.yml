@@ -28,6 +28,13 @@ jobs:
         if: always()
         with:
           files: junit/report.xml
+  test-nix:
+    name: Run Test Suite in Nix
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.0.2
+      - run: docker build -f Dockerfile.tests .
   build-docker:
     name: Build Docker image
     runs-on: ubuntu-22.04

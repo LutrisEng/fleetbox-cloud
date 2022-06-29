@@ -8,13 +8,13 @@
 
   outputs = { self, nixpkgs, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgsToRuby = (pkgs: pkgs.ruby_3_1);
+      pkgsToRuby = pkgs: pkgs.ruby_3_1;
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           (final: prev: {
             # Latest V8 fails to compile on Darwin
-            v8 = final.v8_8_x;
+            v8 = if prev.stdenv.isDarwin then final.v8_8_x else prev.v8;
           })
         ];
       };
@@ -24,15 +24,19 @@
         inherit ruby;
         gemdir = ./.;
       };
-    in
-    rec {
-      packages.fleetbox-cloud = pkgs.stdenv.mkDerivation {
+      mkFleetboxCloud = systemTests: pkgs.stdenv.mkDerivation {
         name = "fleetbox-cloud";
         src = ./.;
         buildInputs = [
           gems
           ruby
           pkgs.postgresql
+        ] ++ pkgs.lib.optionals systemTests [
+          pkgs.google-chrome
+          pkgs.chromedriver
+        ];
+        propagatedBuildInputs = [
+          pkgs.nodejs
         ];
         unpackPhase = ''
           cp -R $src/* .
@@ -52,7 +56,7 @@
             export DATABASE_URL="postgres://rails:password@localhost/rails?host=$PWD/tmp/testdb"
             rails db:create
             rails db:schema:load
-            rails test
+            rails ${if systemTests then "'test:system:with[headless_chrome]'" else "test"} TESTOPTS=--junit
             kill $postgres_pid
             wait $postgres_pid
           )
@@ -64,8 +68,12 @@
           cp -R . $out/share/fleetbox-cloud
         '';
       };
+    in
+    rec {
+      packages.fleetbox-cloud = mkFleetboxCloud false;
+      packages.fleetbox-cloud-system-tests = mkFleetboxCloud true;
       devShells.fleetbox-cloud = packages.fleetbox-cloud;
-      packages.default = packages.fleetbox-cloud;
+      packages.default = if pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64 then packages.fleetbox-cloud-system-tests else packages.fleetbox-cloud;
       devShells.default = devShells.fleetbox-cloud;
       hydraJobs = {
         inherit packages;
