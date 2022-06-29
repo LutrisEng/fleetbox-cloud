@@ -10,15 +10,15 @@ class AccordionComponentTest < ViewComponent::TestCase
   BODY_COLLAPSED = '.accordion-collapse:not(.show) .accordion-body'
   BODY_EXPANDED = '.accordion-collapse.show .accordion-body'
 
-  test 'preview with_single_collapsed_item renders properly' do
-    render_preview(:with_single_collapsed_item)
+  test 'preview with 1 collapsed item renders properly' do
+    render_preview(:one_collapsed)
 
     assert_selector(BUTTON_COLLAPSED, text: 'Item 1')
     assert_selector(BODY_COLLAPSED, text: 'Contents of item 1')
   end
 
-  test 'preview with_many_collapsed_items renders properly' do
-    render_preview(:with_many_collapsed_items)
+  test 'preview with 10 collapsed items renders properly' do
+    render_preview(:ten_collapsed)
 
     (1..10).each do |i|
       assert_selector(BUTTON_COLLAPSED, text: "Item #{i}")
@@ -26,15 +26,15 @@ class AccordionComponentTest < ViewComponent::TestCase
     end
   end
 
-  test 'preview with_one_expanded_item renders properly' do
-    render_preview(:with_one_expanded_item)
+  test 'preview with 1 expanded item renders properly' do
+    render_preview(:one_expanded)
 
     assert_selector(BUTTON_EXPANDED, text: 'Item 1')
     assert_selector(BODY_EXPANDED, text: 'Contents of item 1')
   end
 
-  test 'preview with_one_of_many_expanded renders properly' do
-    render_preview(:with_one_of_many_expanded)
+  test 'preview 1 expanded item and 9 collapsed items renders properly' do
+    render_preview(:one_expanded_nine_collapsed)
 
     (1..10).each do |i|
       assert_selector(i == 1 ? BUTTON_EXPANDED : BUTTON_COLLAPSED, text: "Item #{i}")
