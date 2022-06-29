@@ -22,5 +22,7 @@ module FleetboxCloud
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
+
+    config.view_component.default_preview_layout = 'component_preview'
   end
 end

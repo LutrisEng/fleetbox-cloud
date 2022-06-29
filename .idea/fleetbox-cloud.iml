@@ -894,6 +894,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="htmlbeautifier (vbundled(1.4.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/htmlbeautifier-1.4.2/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/htmlbeautifier-1.4.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/htmlbeautifier-1.4.2/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/htmlbeautifier-1.4.2/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/htmlbeautifier-1.4.2/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="i18n (vbundled(1.10.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1117,6 +1136,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="listen (vbundled(3.7.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/listen-3.7.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/listen-3.7.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/listen-3.7.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/listen-3.7.1/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/listen-3.7.1/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="loofah (vbundled(2.18.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1128,6 +1166,29 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/loofah-2.18.0/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="lookbook (vbundled(0.9.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/public" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/public" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/lookbook-0.9.1/public" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1170,6 +1231,25 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/matrix-0.4.2/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="memory_profiler (vbundled(1.0.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/memory_profiler-1.0.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/memory_profiler-1.0.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/memory_profiler-1.0.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/memory_profiler-1.0.0/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/memory_profiler-1.0.0/bin" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1963,6 +2043,72 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rb-fsevent (vbundled(0.11.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-fsevent-0.11.1/ext" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rb-inotify (vbundled(0.10.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-inotify-0.10.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-inotify-0.10.1/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-inotify-0.10.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-inotify-0.10.1/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rb-inotify-0.10.1/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="redcarpet (vbundled(3.5.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/redcarpet-3.5.1/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="redis (vbundled(4.7.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2042,6 +2188,25 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rexml-3.2.5/doc" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rouge (vbundled(3.29.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rouge-3.29.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rouge-3.29.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rouge-3.29.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rouge-3.29.0/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/rouge-3.29.0/bin" />
         </excluded>
       </library>
     </orderEntry>
@@ -2342,6 +2507,36 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sprockets-rails-3.4.2/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="stackprof (vbundled(0.2.19)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/vendor" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/vendor" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/stackprof-0.2.19/.github" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -3016,6 +3211,22 @@
           <RakeTaskImpl id="log">
             <subtasks>
               <RakeTaskImpl description="Truncates all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="lookbook">
+            <subtasks>
+              <RakeTaskImpl id="previews">
+                <subtasks>
+                  <RakeTaskImpl description="Preparse the previews" fullCommand="lookbook:previews:preparse" id="preparse" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl id="release">
+                <subtasks>
+                  <RakeTaskImpl description="Build Gem and push to RubyGems" fullCommand="lookbook:release:build_and_push" id="build_and_push" />
+                  <RakeTaskImpl description="Bump the Lookbook engine version number" fullCommand="lookbook:release:bump_version[version]" id="bump_version[version]" />
+                  <RakeTaskImpl description="" fullCommand="lookbook:release:bump_version" id="bump_version" />
+                </subtasks>
+              </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Prints out your Rack middleware stack" fullCommand="middleware" id="middleware" />

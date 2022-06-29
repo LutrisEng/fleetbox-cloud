@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :navbar_items, :current_navbar_item, :displayable_time,
                 :display_time, :convert_for_datetime_field
 
+  before_action :authorize_miniprofiler
+
   rescue_from ActiveRecord::StatementInvalid do |e|
     raise e unless e.cause.is_a?(PG::ReadOnlySqlTransaction)
 
@@ -33,6 +35,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_or_create_by(email: current_user_session['info']['email']) do |user|
       user.name = current_user_session['info']['name']
     end
+  end
+
+  def authorize_miniprofiler
+    Rack::MiniProfiler.authorize_request if current_user&.admin
   end
 
   def navbar_items

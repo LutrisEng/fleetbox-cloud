@@ -68,8 +68,16 @@ gem 'aws-sdk-s3', '~> 1.114.0', require: false
 # Use GoodJob as an ActiveJob backend [https://github.com/bensheldon/good_job]
 gem 'good_job', '~> 3.0.0'
 
-# Use View Component to create composible front-end components [https://github.com/github/view_component]
+# Use ViewComponent to create composable front-end components [https://github.com/github/view_component]
 gem 'view_component', '~> 2.57.1'
+
+# Use Lookbook to preview ViewComponents, much like Storybook [https://github.com/allmarkedup/lookbook]
+gem 'lookbook', '~> 0.9.1'
+
+# Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+gem 'memory_profiler', '~> 1.0.0'
+gem 'rack-mini-profiler', '~> 3.0.0'
+gem 'stackprof', '~> 0.2.19'
 
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
@@ -79,9 +87,6 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console', '~> 4.2.0'
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  gem 'rack-mini-profiler', '~> 3.0.0'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   gem 'spring', '~> 4.0.0'
