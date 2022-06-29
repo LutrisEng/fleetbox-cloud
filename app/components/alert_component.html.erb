@@ -1,0 +1,6 @@
+<div class="<%= div_classes %>" role="alert">
+  <%= content %>
+  <% if @dismissible %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% end %>
+</div>
