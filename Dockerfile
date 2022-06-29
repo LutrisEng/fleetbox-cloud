@@ -68,8 +68,10 @@ USER fleetbox
 
 FROM dev as gems
 
-COPY --chown=root Gemfile* ./
-RUN bundle config set deployment true && bundle install && rm -rf vendor/bundle/ruby/*/cache
+COPY --chown=fleetbox Gemfile* ./
+COPY --chown=fleetbox .bundle ./.bundle
+COPY --chown=fleetbox vendor ./vendor
+RUN bundle config set deployment true && bundle install --local && rm -rf vendor/bundle/ruby/*/cache vendor/cache
 
 FROM base
 
