@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_24_070240) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_031852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -181,6 +181,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_24_070240) do
     t.datetime "updated_at", null: false
     t.text "timezone", default: "Central Time (US & Canada)", null: false
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.boolean "paid", default: false, null: false
+    t.bigint "max_vehicles", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end

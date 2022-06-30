@@ -42,4 +42,12 @@ class User < ApplicationRecord
   def now
     Time.now.in_time_zone(tz)
   end
+
+  def paid?
+    paid
+  end
+
+  def can_create_vehicle?
+    vehicles.count < max_vehicles
+  end
 end

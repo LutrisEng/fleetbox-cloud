@@ -5,6 +5,14 @@ class VehiclePolicy < ApplicationPolicy
     show?
   end
 
+  def create?
+    user&.can_create_vehicle?
+  end
+
+  def new?
+    create?
+  end
+
   class Scope < OwnerScope
   end
 end

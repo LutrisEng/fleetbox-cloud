@@ -83,6 +83,9 @@ en:
     odometer_title: "Odometer for %{vehicle}: %{miles}"
     list:
       title: "My vehicles"
+      cant_create:
+        paid: "You've hit your vehicle limit! Add another vehicle to your subscription to create another vehicle."
+        free: "You can only have one vehicle on the free plan. To add more, subscribe to Fleetbox!"
     log_items_title: "Log items for %{vehicle}"
     unknown_year: "[Unknown year]"
     unknown_make: "[Unknown make]"
@@ -169,6 +172,8 @@ en:
       success: "Your account has been successfully updated"
     contact_to_change_email: "(Contact support to change)"
     profile_title: "My account"
+    go_to_subscriptions: "Manage Subscription"
+    create_subscription: "Subscribe"
   app_name: "Fleetbox"
   env:
     development: "Development Mode"
