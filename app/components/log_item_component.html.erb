@@ -29,7 +29,7 @@
   <% end %>
 
   <div id="line_items" class="list-group">
-    <% @log_item.line_items.each do |line_item| %>
+    <% @log_item.line_items.includes(line_item_fields: :tire_set_value).each do |line_item| %>
       <a href="#" class="list-group-item list-group-item-action">
         <%= render(LineItemPreviewComponent.new(line_item:, mini: false, link: false)) %>
       </a>
