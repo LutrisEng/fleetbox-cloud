@@ -41,7 +41,7 @@ class LogItemsController < ApplicationController
         format.html { redirect_to vehicle_log_item_url(@vehicle, @log_item), notice: I18n.t('log_item.create.success') }
         format.json { render :show, status: :created, location: @log_item }
       else
-        print @log_item.errors.to_json
+        Rails.logger.debug @log_item.errors.to_json
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @log_item.errors, status: :unprocessable_entity }
       end
@@ -94,7 +94,7 @@ class LogItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def log_item_params
     extracted_params = params.require(:log_item).permit(:display_name, :include_time, :performed_at,
-                                                        :odometer_reading_reading, :shop_uuid)
+                                                        :odometer_reading_reading, :shop_uuid, :notes)
     transform_performed_at(extracted_params)
     extracted_params
   end

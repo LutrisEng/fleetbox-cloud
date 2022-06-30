@@ -28,6 +28,13 @@
     </p>
   <% end %>
 
+  <% if @log_item.notes.present? %>
+    <section>
+      <h3>Notes</h3>
+      <p><%= @log_item.notes %></p>
+    </section>
+  <% end %>
+
   <div id="line_items" class="list-group">
     <% @log_item.line_items.includes(line_item_fields: :tire_set_value).each do |line_item| %>
       <a href="#" class="list-group-item list-group-item-action">

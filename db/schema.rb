@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_032454) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_080854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -127,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_032454) do
     t.bigint "shop_id"
     t.bigint "odometer_reading_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.text "notes"
     t.index ["odometer_reading_id"], name: "index_log_items_on_odometer_reading_id"
     t.index ["performed_at"], name: "index_log_items_on_performed_at"
     t.index ["shop_id"], name: "index_log_items_on_shop_id"

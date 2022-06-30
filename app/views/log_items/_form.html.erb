@@ -4,6 +4,7 @@
     <%= link_to @vehicle.display_name, vehicle_path(@vehicle) %>
   </p>
   <%= form.text_field :display_name %>
+  <%= form.text_area :notes %>
   <%= form.select :shop_uuid, @shop_options %>
   <%= form.text_field :odometer_reading_reading %>
   <%= form.datetime_field :performed_at,
