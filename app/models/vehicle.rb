@@ -60,6 +60,6 @@ class Vehicle < ApplicationRecord
   end
 
   def remove_photo=(should_remove)
-    photo.purge_later if should_remove
+    photo.purge_later if should_remove && should_remove != 0 && should_remove != '0'
   end
 end

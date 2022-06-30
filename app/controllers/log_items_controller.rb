@@ -92,7 +92,7 @@ class LogItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def log_item_params
     extracted_params = params.require(:log_item).permit(:display_name, :include_time, :performed_at,
-                                                        :odometer_reading_reading, :shop_uuid)
+                                                        :odometer_reading_reading, :shop_uuid, :remove_odometer_reading)
     transform_performed_at(extracted_params)
     extracted_params
   end

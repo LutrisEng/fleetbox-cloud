@@ -3,7 +3,7 @@
 class LogItem < ApplicationRecord
   belongs_to :vehicle
   belongs_to :shop, optional: true
-  belongs_to :odometer_reading, optional: true
+  belongs_to :odometer_reading, optional: true, autosave: true
   has_many :line_items, dependent: :destroy
 
   before_save :copy_odometer_reading_time
@@ -52,5 +52,9 @@ class LogItem < ApplicationRecord
 
   def shop_uuid=(new_uuid)
     self.shop = Shop.find_by(uuid: new_uuid)
+  end
+
+  def remove_odometer_reading=(should_remove)
+    odometer_reading.destroy! if should_remove && should_remove != 0 && should_remove != '0'
   end
 end
