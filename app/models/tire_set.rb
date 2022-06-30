@@ -33,6 +33,7 @@ class TireSet < ApplicationRecord
                         .where_type('mountedTires')
                         .where_field_value('tireSet', self)
                         .inverse_chrono
+                        .includes(:vehicle)
                         .first
     return nil if mounted_line_item.nil?
 
@@ -48,7 +49,7 @@ class TireSet < ApplicationRecord
     counter = 0
     mounted_on = nil
     mounted_at = nil
-    log_items.chrono.each do |log_item|
+    log_items.includes(:odometer_reading, :vehicle).chrono.each do |log_item|
       if log_item.removed_tire_sets.exists?(id:)
         if log_item.odometer_reading
           counter += log_item.odometer_reading.reading - (mounted_at || 0)
