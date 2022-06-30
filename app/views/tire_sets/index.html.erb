@@ -7,7 +7,7 @@
 
 <h1><%= t 'tire_set.list.title' %></h1>
 
-<div id="tire_sets" class="row row-cols-1 row-cols-md-2 g-4">
+<div id="tire_sets" class="row row-cols-1 row-cols-md-2 g-4" data-masonry='{"percentPosition": true }'>
   <% @tire_sets.each do |tire_set| %>
     <div class="col">
       <%= render(CardComponent.new) do |c| %>

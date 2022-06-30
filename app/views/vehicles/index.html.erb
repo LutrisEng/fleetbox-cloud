@@ -7,7 +7,7 @@
 
 <h1><%= t 'vehicle.list.title' %></h1>
 
-<div id="vehicles" class="row row-cols-1 row-cols-md-2 g-4">
+<div id="vehicles" class="row row-cols-1 row-cols-md-2 g-4" data-masonry='{"percentPosition": true }'>
   <% @vehicles.each do |vehicle| %>
     <div class="col">
       <%= render(CardComponent.new(image: vehicle.photo.attached? ? url_for(vehicle.photo) : nil)) do |c| %>
