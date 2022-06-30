@@ -58,4 +58,8 @@ class Vehicle < ApplicationRecord
   def display_name
     user_display_name || generate_display_name
   end
+
+  def remove_photo=(should_remove)
+    photo.purge_later if should_remove
+  end
 end

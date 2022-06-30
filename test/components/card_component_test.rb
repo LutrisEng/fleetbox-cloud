@@ -3,10 +3,21 @@
 require 'test_helper'
 
 class CardComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(CardComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+  include ViewComponent::RenderPreviewHelper
+
+  test 'body renders' do
+    render_preview :body
+  end
+
+  test 'header and footer renders' do
+    render_preview :header_and_footer
+  end
+
+  test 'image renders' do
+    render_preview :image
+  end
+
+  test 'button renders' do
+    render_preview :buttons
   end
 end

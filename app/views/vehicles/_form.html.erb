@@ -1,5 +1,9 @@
 <%= bootstrap_form_with(model: vehicle, data: { controller: 'vehicle--display-name' }) do |form| %>
-  <%= form.file_field :photo %>
+  <% if @vehicle.photo.attached? %>
+    <%= form.check_box :remove_photo %>
+  <% else %>
+    <%= form.file_field :photo %>
+  <% end %>
   <%= form.text_field :vin %>
   <%= form.text_field :model_year, data: {
     action: 'vehicle--display-name#update',

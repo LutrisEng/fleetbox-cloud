@@ -7,26 +7,24 @@
 
 <h1><%= t 'tire_set.list.title' %></h1>
 
-<div id="tire_sets" class="row row-cols-1 row-cols-md-2 g-4" data-masonry='{"percentPosition": true }'>
-  <% @tire_sets.each do |tire_set| %>
-    <div class="col">
-      <%= render(CardComponent.new) do |c| %>
-        <% c.with_body do %>
-          <%= render tire_set %>
-        <% end %>
-        <% c.with_footer do %>
-          <div class="btn-group">
-            <% if policy(tire_set).show? %>
-              <%= link_to t('tire_set.link.show'), tire_set_path(tire_set), class: 'btn btn-secondary' %>
-            <% end %>
-            <% if policy(tire_set).edit? %>
-              <%= link_to t('tire_set.link.edit'), edit_tire_set_path(tire_set), class: 'btn btn-outline-secondary' %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
 <%= button_to t('tire_set.link.new'), new_tire_set_path, method: :get, class: 'btn btn-primary my-4' %>
+
+<%= render(CardsComponent.new) do |cards| %>
+  <% @tire_sets.each do |tire_set| %>
+    <% cards.with_card do |card| %>
+      <% card.with_body do %>
+        <%= render tire_set %>
+      <% end %>
+      <% card.with_footer do %>
+        <div class="btn-group">
+          <% if policy(tire_set).show? %>
+            <%= link_to t('tire_set.link.show'), tire_set_path(tire_set), class: 'btn btn-secondary' %>
+          <% end %>
+          <% if policy(tire_set).edit? %>
+            <%= link_to t('tire_set.link.edit'), edit_tire_set_path(tire_set), class: 'btn btn-outline-secondary' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

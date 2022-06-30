@@ -1,6 +1,6 @@
-<div class="card <%= @classes %>">
+<div class="<%= class_names(:card, @classes) %>">
   <% if @image %>
-    <img src="<%= @image %>" class="card-img-top" <% if @image_alt %>alt="<%= @image_alt %>"<% end %> />
+    <%= image_tag @image, class: 'card-img-top', alt: @image_alt %>
   <% end %>
   <% if header %>
     <div class="card-header">

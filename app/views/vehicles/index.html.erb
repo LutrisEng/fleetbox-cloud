@@ -6,27 +6,24 @@
 </nav>
 
 <h1><%= t 'vehicle.list.title' %></h1>
-
-<div id="vehicles" class="row row-cols-1 row-cols-md-2 g-4" data-masonry='{"percentPosition": true }'>
-  <% @vehicles.each do |vehicle| %>
-    <div class="col">
-      <%= render(CardComponent.new(image: vehicle.photo.attached? ? url_for(vehicle.photo) : nil)) do |c| %>
-        <% c.with_body do %>
-          <%= render vehicle %>
-        <% end %>
-        <% c.with_footer do %>
-          <div class="btn-group">
-            <% if policy(vehicle).show? %>
-              <%= link_to t('vehicle.link.show'), vehicle_path(vehicle), class: 'btn btn-secondary' %>
-            <% end %>
-            <% if policy(vehicle).edit? %>
-              <%= link_to t('vehicle.link.edit'), edit_vehicle_path(vehicle), class: 'btn btn-outline-secondary' %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
 <%= button_to t('vehicle.link.new'), new_vehicle_path, method: :get, class: 'btn btn-primary my-4' %>
+
+<%= render(CardsComponent.new) do |cards| %>
+  <% @vehicles.each do |vehicle| %>
+    <% cards.with_card(image: vehicle.photo.attached? ? url_for(vehicle.photo) : nil) do |card| %>
+      <% card.with_body do %>
+        <%= render vehicle %>
+      <% end %>
+      <% card.with_footer do %>
+        <div class="btn-group">
+          <% if policy(vehicle).show? %>
+            <%= link_to t('vehicle.link.show'), vehicle_path(vehicle), class: 'btn btn-secondary' %>
+          <% end %>
+          <% if policy(vehicle).edit? %>
+            <%= link_to t('vehicle.link.edit'), edit_vehicle_path(vehicle), class: 'btn btn-outline-secondary' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
