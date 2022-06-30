@@ -7,6 +7,7 @@ class LogItem < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
   before_save :copy_odometer_reading_time
+  before_create :copy_odometer_reading_time
 
   owner_from_parent :vehicle, Vehicle
 
@@ -35,13 +36,13 @@ class LogItem < ApplicationRecord
 
   def odometer_reading_reading=(reading)
     if odometer_reading
-      if reading
+      if reading.present?
         odometer_reading.reading = reading
         odometer_reading.include_time = include_time
       else
         odometer_reading.destroy!
       end
-    elsif reading
+    elsif reading.present?
       self.odometer_reading = OdometerReading.new(vehicle:, reading:, performed_at:, include_time:)
     end
   end
@@ -52,9 +53,5 @@ class LogItem < ApplicationRecord
 
   def shop_uuid=(new_uuid)
     self.shop = Shop.find_by(uuid: new_uuid)
-  end
-
-  def remove_odometer_reading=(should_remove)
-    odometer_reading.destroy! if should_remove && should_remove != 0 && should_remove != '0'
   end
 end

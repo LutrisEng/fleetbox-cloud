@@ -10,7 +10,7 @@ class LogItemsController < ApplicationController
 
   before_action :set_vehicle
   before_action :set_log_item, only: SET_ACTIONS
-  before_action :set_shops, only: %i[new edit update]
+  before_action :set_shops, only: %i[new create edit update]
 
   # GET /vehicles/1/log_items or /log_items.json
   def index
@@ -31,8 +31,9 @@ class LogItemsController < ApplicationController
 
   # POST /vehicles/1/log_items or /vehicles/1/log_items.json
   def create
-    @log_item = LogItem.new(log_item_params)
+    @log_item = LogItem.new(log_item_params.except(:odometer_reading_reading))
     @log_item.vehicle = @vehicle
+    @log_item.odometer_reading_reading = log_item_params[:odometer_reading_reading]
     authorize @log_item
 
     respond_to do |format|
@@ -40,6 +41,7 @@ class LogItemsController < ApplicationController
         format.html { redirect_to vehicle_log_item_url(@vehicle, @log_item), notice: I18n.t('log_item.create.success') }
         format.json { render :show, status: :created, location: @log_item }
       else
+        print @log_item.errors.to_json
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @log_item.errors, status: :unprocessable_entity }
       end
@@ -92,7 +94,7 @@ class LogItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def log_item_params
     extracted_params = params.require(:log_item).permit(:display_name, :include_time, :performed_at,
-                                                        :odometer_reading_reading, :shop_uuid, :remove_odometer_reading)
+                                                        :odometer_reading_reading, :shop_uuid)
     transform_performed_at(extracted_params)
     extracted_params
   end

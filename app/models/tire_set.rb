@@ -33,7 +33,7 @@ class TireSet < ApplicationRecord
                         .where_type('mountedTires')
                         .where_field_value('tireSet', self)
                         .inverse_chrono
-                        .includes(:vehicle)
+                        .includes(log_item: :vehicle)
                         .first
     return nil if mounted_line_item.nil?
 
