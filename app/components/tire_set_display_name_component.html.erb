@@ -1,0 +1,10 @@
+<%= @tire_set.display_name %>
+<span class="small text-secondary">
+  &middot;
+  <% if @tire_set.tin %>
+    <%= TireSet.human_attribute_name(:tin) %>:
+    <strong><%= @tire_set.tin %></strong>
+    &middot;
+  <% end %>
+  <%= t 'miles', miles: number_with_delimiter(@tire_set.odometer) %>
+</span>

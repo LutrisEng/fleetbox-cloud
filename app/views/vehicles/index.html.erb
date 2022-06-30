@@ -11,8 +11,11 @@
 <%= render(CardsComponent.new) do |cards| %>
   <% @vehicles.each do |vehicle| %>
     <% cards.with_card(image: vehicle.photo.attached? ? url_for(vehicle.photo) : nil) do |card| %>
+      <% card.with_header do %>
+        <%= render(VehicleDisplayNameComponent.new(vehicle:)) %>
+      <% end %>
       <% card.with_body do %>
-        <%= render vehicle %>
+        <%= render(VehicleComponent.new(vehicle:, current_user:, with_title: false)) %>
       <% end %>
       <% card.with_footer do %>
         <div class="btn-group">

@@ -12,8 +12,11 @@
 <%= render(CardsComponent.new) do |cards| %>
   <% @tire_sets.each do |tire_set| %>
     <% cards.with_card do |card| %>
+      <% card.with_header do %>
+        <%= render(TireSetDisplayNameComponent.new(tire_set:)) %>
+      <% end %>
       <% card.with_body do %>
-        <%= render tire_set %>
+        <%= render(TireSetComponent.new(tire_set:, current_user:, with_title: false)) %>
       <% end %>
       <% card.with_footer do %>
         <div class="btn-group">

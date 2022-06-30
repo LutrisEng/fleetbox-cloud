@@ -6,11 +6,7 @@
   </ol>
 </nav>
 
-<% if @vehicle.photo.attached? %>
-  <%= image_tag @vehicle.photo, class: 'w-50 img-thumbnail' %>
-<% end %>
-
-<%= render @vehicle %>
+<%= render(VehicleComponent.new(vehicle: @vehicle, current_user:, with_photo: true)) %>
 
 <div>
   <p class="my-1">

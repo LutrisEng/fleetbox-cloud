@@ -6,7 +6,7 @@
   </ol>
 </nav>
 
-<%= render @tire_set %>
+<%= render(TireSetComponent.new(tire_set: @tire_set, current_user:)) %>
 
 <div>
   <p class="my-1">

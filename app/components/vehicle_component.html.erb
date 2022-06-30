@@ -1,0 +1,53 @@
+<div id="<%= dom_id @vehicle %>">
+  <% if @with_photo && @vehicle.photo.attached? %>
+    <%= image_tag @vehicle.photo, class: 'w-50 img-thumbnail mb-4' %>
+  <% end %>
+  <% if @with_title %>
+    <h2><%= render(VehicleDisplayNameComponent.new(vehicle: @vehicle)) %></h2>
+  <% end %>
+  <% unless @vehicle.owner.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:owner) %>:</strong>
+      <%= @vehicle.owner.name %>
+      <% if @vehicle.owner == @current_user %>
+        <small class="badge bg-secondary"><%= t 'owned_by_you_badge' %></small>
+      <% end %>
+    </p>
+  <% end %>
+  <% unless @vehicle.model_year.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:model_year) %>:</strong>
+      <%= @vehicle.model_year %>
+    </p>
+  <% end %>
+  <% unless @vehicle.make.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:make) %>:</strong>
+      <%= @vehicle.make %>
+    </p>
+  <% end %>
+  <% unless @vehicle.model.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:model) %>:</strong>
+      <%= @vehicle.model %>
+    </p>
+  <% end %>
+  <% unless @vehicle.breakin.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:breakin) %>:</strong>
+      <%= t 'miles', miles: number_with_delimiter(@vehicle.breakin) %>
+    </p>
+  <% end %>
+  <% unless @vehicle.miles_per_year.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:miles_per_year) %>:</strong>
+      <%= t 'miles_per_year', miles_per_year: number_with_delimiter(@vehicle.miles_per_year) %>
+    </p>
+  <% end %>
+  <% unless @vehicle.current_tires.nil? %>
+    <p>
+      <strong><%= Vehicle.human_attribute_name(:current_tires) %>:</strong>
+      <%= link_to @vehicle.current_tires.display_name, @vehicle.current_tires %>
+    </p>
+  <% end %>
+</div>

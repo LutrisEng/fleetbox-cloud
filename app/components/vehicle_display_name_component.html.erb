@@ -1,0 +1,10 @@
+<%= @vehicle.display_name %>
+<span class="small text-secondary">
+  &middot;
+  <% if @vehicle.vin %>
+    <%= Vehicle.human_attribute_name(:vin) %>:
+    <strong><%= @vehicle.vin %></strong>
+    &middot;
+  <% end %>
+  <%= t 'miles', miles: number_with_delimiter(@vehicle.odometer) %>
+</span>
