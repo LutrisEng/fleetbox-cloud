@@ -27,7 +27,7 @@
         <%= render(VehicleDisplayNameComponent.new(vehicle:)) %>
       <% end %>
       <% card.with_body do %>
-        <%= render(VehicleComponent.new(vehicle:, current_user:, with_title: false)) %>
+        <%= render(VehicleComponent.new(vehicle:, current_user:, with_title: false, with_log: false)) %>
       <% end %>
       <% card.with_footer do %>
         <div class="btn-group">
