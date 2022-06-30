@@ -154,6 +154,7 @@ en:
       vehicles: Vehicles
       tire_sets: Tire Sets
       shops: Shops
+      admin: Admin Console
     account: "Account"
   login:
     continue_to_login: "Continue to login"
