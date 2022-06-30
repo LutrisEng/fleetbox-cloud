@@ -7,6 +7,11 @@
     )
   %>
 </div>
+<div class="small text-muted">
+  <% if @log_item.odometer_reading %>
+    <%= t 'miles', miles: @log_item.odometer_reading.reading %>
+  <% end %>
+</div>
 <ul class="small text-muted mb-0">
   <% @log_item.line_items.each do |line_item| %>
     <li><%= render(LineItemPreviewComponent.new(line_item:, mini: true)) %></li>

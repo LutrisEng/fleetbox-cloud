@@ -50,4 +50,5 @@
       <%= link_to @vehicle.current_tires.display_name, @vehicle.current_tires %>
     </p>
   <% end %>
+  <%= render(MaintenanceLogComponent.new(vehicle: @vehicle, log_items: @vehicle.log_items)) %>
 </div>

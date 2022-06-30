@@ -1,0 +1,16 @@
+<div id="log_items" class="list-group">
+  <% if @create %>
+    <a href="<%= new_vehicle_log_item_path(@vehicle) %>" class="list-group-item list-group-item-action list-group-item-primary d-flex">
+      <span><%= t 'log_item.create.title' %></span>
+      <span class="flex-grow-1"></span>
+      <i class="bi bi-plus-circle"></i>
+    </a>
+  <% end %>
+  <% @log_items.inverse_chrono.each do |log_item| %>
+    <a href="<%= vehicle_log_item_path(@vehicle, log_item) %>" class="list-group-item list-group-item-action d-flex">
+      <span><%= render(LogItemPreviewComponent.new(log_item:)) %></span>
+      <span class="flex-grow-1"></span>
+      <i class="bi bi-caret-right-fill text-muted align-self-center"></i>
+    </a>
+  <% end %>
+</div>

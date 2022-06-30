@@ -12,12 +12,4 @@
         vehicle: @vehicle.display_name %>
 </h1>
 
-<div id="log_items" class="list-group">
-  <% @log_items.inverse_chrono.each do |log_item| %>
-    <a href="<%= vehicle_log_item_path(@vehicle, log_item) %>" class="list-group-item list-group-item-action">
-      <%= render(LogItemPreviewComponent.new(log_item:)) %>
-    </a>
-  <% end %>
-</div>
-
-<%= link_to "New log item", new_vehicle_log_item_path(@vehicle) %>
+<%= render(MaintenanceLogComponent.new(vehicle: @vehicle, log_items: @log_items)) %>

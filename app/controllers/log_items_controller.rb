@@ -77,7 +77,6 @@ class LogItemsController < ApplicationController
 
   def set_vehicle
     @vehicle = policy_scope(Vehicle).find_by(uuid: params[:vehicle_uuid])
-    authorize @vehicle
   end
 
   def set_log_item
