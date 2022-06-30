@@ -10,7 +10,7 @@ class LogItemsController < ApplicationController
 
   before_action :set_vehicle
   before_action :set_log_item, only: SET_ACTIONS
-  before_action :set_shops, only: %i[new edit]
+  before_action :set_shops, only: %i[new edit update]
 
   # GET /vehicles/1/log_items or /log_items.json
   def index
