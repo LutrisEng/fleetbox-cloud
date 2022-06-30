@@ -1,0 +1,25 @@
+<strong><%= @line_item_field.type.display_name %></strong>:
+<% if @line_item_field.value %>
+  <% case @line_item_field.data_type %>
+  <% when 'string' %>
+    <%= @line_item_field.string_value %>
+  <% when 'tireSet' %>
+    <% if @link %>
+      <%= link_to @line_item_field.tire_set_value.display_name, tire_set_path(@line_item_field.tire_set_value) %>
+    <% else %>
+      <%= @line_item_field.tire_set_value.display_name %>
+    <% end %>
+  <% when 'boolean' %>
+    <% if @line_item_field.boolean_value %>
+      <%= t 'yes' %>
+    <% else %>
+      <%= t 'no' %>
+    <% end %>
+  <% when 'decimal' %>
+    <%= @line_item_field.decimal_value %>
+  <% else %>
+    <%= t 'line_item_field.show.unknown_value' %>
+  <% end %>
+<% else %>
+  <%= t 'line_item_field.show.no_value' %>
+<% end %>

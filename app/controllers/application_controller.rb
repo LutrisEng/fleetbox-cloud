@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :navbar_items, :current_navbar_item, :displayable_time,
-                :display_time, :convert_for_datetime_field
+                :convert_for_datetime_field
 
   before_action :authorize_miniprofiler
 
@@ -68,10 +68,6 @@ class ApplicationController < ActionController::Base
     else
       time&.in_time_zone(Time.zone)
     end
-  end
-
-  def display_time(time, **options)
-    I18n.l(displayable_time(time), **options) if time
   end
 
   def convert_for_datetime_field(time)

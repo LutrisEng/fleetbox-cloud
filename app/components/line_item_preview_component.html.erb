@@ -1,0 +1,12 @@
+<% if @mini %>
+  <%= @line_item.type.display_name %>
+<% else %>
+  <strong><%= @line_item.type.display_name %></strong>
+<% end %>
+<% unless @mini %>
+  <ul class="small text-muted mb-0">
+    <% @line_item.line_item_fields.each do |line_item_field| %>
+      <li><%= render(LineItemFieldPreviewComponent.new(line_item_field:, link: @link)) %></li>
+    <% end %>
+  </ul>
+<% end %>

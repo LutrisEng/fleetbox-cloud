@@ -8,7 +8,7 @@
   </ol>
 </nav>
 
-<%= render @log_item %>
+<%= render(LogItemComponent.new(log_item: @log_item)) %>
 
 <div>
   <%= link_to "Edit this log item", edit_vehicle_log_item_path(@vehicle, @log_item) %> |

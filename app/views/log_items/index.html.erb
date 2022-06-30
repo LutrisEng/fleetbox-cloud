@@ -12,19 +12,12 @@
         vehicle: @vehicle.display_name %>
 </h1>
 
-<p>
-  <%= link_to t('vehicle.link.vehicle_back', vehicle: @vehicle.display_name), vehicle_path(@vehicle) %>
-</p>
-
-<ul id="log_items">
+<div id="log_items" class="list-group">
   <% @log_items.inverse_chrono.each do |log_item| %>
-    <li>
-      <%= render log_item %>
-      <p>
-        <%= link_to "Show this log item", vehicle_log_item_path(@vehicle, log_item) %>
-      </p>
-    </li>
+    <a href="<%= vehicle_log_item_path(@vehicle, log_item) %>" class="list-group-item list-group-item-action">
+      <%= render(LogItemPreviewComponent.new(log_item:)) %>
+    </a>
   <% end %>
-</ul>
+</div>
 
 <%= link_to "New log item", new_vehicle_log_item_path(@vehicle) %>

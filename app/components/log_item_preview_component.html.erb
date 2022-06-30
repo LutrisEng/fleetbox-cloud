@@ -1,0 +1,14 @@
+<strong><%= @log_item.display_name %></strong>
+<div class="text-muted">
+  <%=
+    helpers.display_time(
+      @log_item.performed_at,
+      format: if @log_item.include_time then :date_and_time else :date_only end
+    )
+  %>
+</div>
+<ul class="small text-muted mb-0">
+  <% @log_item.line_items.each do |line_item| %>
+    <li><%= render(LineItemPreviewComponent.new(line_item:, mini: true)) %></li>
+  <% end %>
+</ul>

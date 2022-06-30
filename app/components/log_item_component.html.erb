@@ -1,0 +1,38 @@
+<div id="<%= dom_id @log_item %>">
+  <h2><%= @log_item.display_name %></h2>
+
+  <% unless @log_item.shop.nil? %>
+    <p>
+      <%= t 'log_item.show.performed_by', shop: @log_item.shop.name %>
+    </p>
+  <% end %>
+
+  <% unless @log_item.performed_at.nil? %>
+    <p>
+      <%=
+        t 'log_item.show.performed_at',
+          date: helpers.display_time(
+            @log_item.performed_at,
+            format: if @log_item.include_time then :date_and_time else :date_only end
+          )
+      %>
+    </p>
+  <% end %>
+
+  <% if @log_item.odometer_reading_reading %>
+    <p>
+      <%=
+        t 'log_item.show.miles_at_time_of_service',
+          miles: @log_item.odometer_reading_reading
+      %>
+    </p>
+  <% end %>
+
+  <div id="line_items" class="list-group">
+    <% @log_item.line_items.each do |line_item| %>
+      <a href="#" class="list-group-item list-group-item-action">
+        <%= render(LineItemPreviewComponent.new(line_item:, mini: false, link: false)) %>
+      </a>
+    <% end %>
+  </div>
+</div>
