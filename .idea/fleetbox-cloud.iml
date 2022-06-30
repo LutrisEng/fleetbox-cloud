@@ -125,6 +125,31 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="activeadmin (vbundled(2.13.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/vendor" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/activeadmin-2.13.1/docs" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="activejob (vbundled(7.0.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -227,6 +252,25 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/addressable-2.8.0/data" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/addressable-2.8.0/spec" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/addressable-2.8.0/tasks" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="arbre (vbundled(1.5.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/arbre-1.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/arbre-1.5.0/docs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/arbre-1.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/arbre-1.5.0/docs" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/arbre-1.5.0/docs" />
         </excluded>
       </library>
     </orderEntry>
@@ -804,6 +848,58 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="formtastic (vbundled(4.0.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/sample" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/sample" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/sample" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic-4.0.0/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="formtastic_i18n (vbundled(0.7.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic_i18n-0.7.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic_i18n-0.7.0/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic_i18n-0.7.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/formtastic_i18n-0.7.0/config" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="fugit (vbundled(1.5.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -851,6 +947,25 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/good_job-3.0.0/exe" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="has_scope (vbundled(0.8.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/has_scope-0.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/has_scope-0.8.0/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/has_scope-0.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/has_scope-0.8.0/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/has_scope-0.8.0/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -957,6 +1072,22 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="inherited_resources (vbundled(1.13.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/inherited_resources-1.13.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/inherited_resources-1.13.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/inherited_resources-1.13.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/inherited_resources-1.13.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="jar_wrapper (vbundled(0.1.8)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1037,6 +1168,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="jquery-rails (vbundled(4.5.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/vendor" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jquery-rails-4.5.0/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="json (vbundled(2.6.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1072,6 +1224,77 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/jwt-2.4.1/.github" />
         </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-1.2.2/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-actionview (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-actionview-1.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-actionview-1.2.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-activerecord (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-activerecord-1.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-activerecord-1.2.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-core (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/kaminari-core-1.2.2/config" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -2021,6 +2244,34 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="ransack (vbundled(3.2.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/bug_report_templates" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/bug_report_templates" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/ransack-3.2.1/bug_report_templates" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rash_alt (vbundled(0.4.12)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2147,6 +2398,20 @@
         <JAVADOC />
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/reline-0.3.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="responders (vbundled(3.0.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/responders-3.0.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/responders-3.0.1/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2635,24 +2900,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="turbo-rails (vbundled(1.1.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/app" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/config" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/app" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/turbo-rails-1.1.1/config" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="tzinfo (vbundled(2.0.4)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2917,6 +3164,12 @@
   <component name="RailsGeneratorsCache">
     <option name="generators">
       <list>
+        <option value="active_admin:assets" />
+        <option value="active_admin:devise" />
+        <option value="active_admin:install" />
+        <option value="active_admin:page" />
+        <option value="active_admin:resource" />
+        <option value="active_admin:webpacker" />
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
         <option value="application_record" />
@@ -2926,14 +3179,20 @@
         <option value="controller" />
         <option value="erb:component" />
         <option value="fixture_validation" />
+        <option value="formtastic:form" />
+        <option value="formtastic:input" />
+        <option value="formtastic:install" />
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
         <option value="haml:component" />
         <option value="helper" />
+        <option value="inherited_resources_controller" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
@@ -2944,6 +3203,8 @@
         <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
         <option value="rspec:component" />
         <option value="rspec:policy" />
         <option value="scaffold" />
@@ -2967,6 +3228,12 @@
     </option>
     <option name="myGenerators">
       <list>
+        <option value="active_admin:assets" />
+        <option value="active_admin:devise" />
+        <option value="active_admin:install" />
+        <option value="active_admin:page" />
+        <option value="active_admin:resource" />
+        <option value="active_admin:webpacker" />
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
         <option value="application_record" />
@@ -2976,14 +3243,20 @@
         <option value="controller" />
         <option value="erb:component" />
         <option value="fixture_validation" />
+        <option value="formtastic:form" />
+        <option value="formtastic:input" />
+        <option value="formtastic:install" />
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
         <option value="haml:component" />
         <option value="helper" />
+        <option value="inherited_resources_controller" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
@@ -2994,6 +3267,8 @@
         <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
         <option value="rspec:component" />
         <option value="rspec:policy" />
         <option value="scaffold" />
@@ -3321,18 +3596,6 @@
               <RakeTaskImpl id="storage">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="tmp:storage:clear" id="clear" />
-                </subtasks>
-              </RakeTaskImpl>
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl id="turbo">
-            <subtasks>
-              <RakeTaskImpl description="Install Turbo into the app" fullCommand="turbo:install" id="install" />
-              <RakeTaskImpl id="install">
-                <subtasks>
-                  <RakeTaskImpl description="Install Turbo into the app with asset pipeline" fullCommand="turbo:install:importmap" id="importmap" />
-                  <RakeTaskImpl description="Install Turbo into the app with webpacker" fullCommand="turbo:install:node" id="node" />
-                  <RakeTaskImpl description="Switch on Redis and use it in development" fullCommand="turbo:install:redis" id="redis" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>

@@ -79,6 +79,9 @@ gem 'memory_profiler', '~> 1.0.0'
 gem 'rack-mini-profiler', '~> 3.0.0'
 gem 'stackprof', '~> 0.2.19'
 
+# Add an admin dashboard [https://activeadmin.info/]
+gem 'activeadmin', '~> 2.13.1'
+
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
   gem 'debug', '~> 1.5.0', platforms: %i[mri mingw x64_mingw]

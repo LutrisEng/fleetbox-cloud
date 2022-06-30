@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   mount Lookbook::Engine, at: '/lookbook'
 
   resources :tire_sets, param: :uuid

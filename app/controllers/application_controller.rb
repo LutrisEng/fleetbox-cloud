@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def navbar_items
-    [
+    items = [
       {
         id: :vehicles,
         href: vehicles_path
@@ -56,6 +56,8 @@ class ApplicationController < ActionController::Base
         href: tire_sets_path
       }
     ]
+    items.push(id: :admin, href: '/admin') if current_user&.admin
+    items
   end
 
   def current_navbar_item; end
@@ -86,5 +88,13 @@ class ApplicationController < ActionController::Base
 
   def transform_performed_at(params)
     params[:performed_at] = convert_from_datetime_field(params[:performed_at]) if params[:performed_at]
+  end
+
+  def authenticate_admin_user!
+    if current_user&.admin
+      true
+    else
+      false
+    end
   end
 end

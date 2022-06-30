@@ -9,7 +9,7 @@ class ApplicationPolicy
   end
 
   def admin?
-    user.admin
+    user&.admin
   end
 
   def owner?
