@@ -8,8 +8,10 @@ class VersionComponentTest < ViewComponent::TestCase
   def test_default
     render_preview(:default)
 
+    assert_text('fleetbox-cloud')
     assert_text(FLEETBOX_VERSION)
-    assert_text(FLEETBOX_COMMIT)
+    assert_link('view source code', href: "https://github.com/lutriseng/fleetbox-cloud/tree/#{FLEETBOX_COMMIT}")
+    assert_text("#{FLEETBOX_VERSION}, test environment (view source code)")
     assert_text('This program is free software')
     assert_text(Time.current.year.to_s)
   end
