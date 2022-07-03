@@ -3,10 +3,9 @@
 require 'test_helper'
 
 class LineItemPreviewComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(LineItemPreviewComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+  def test_renders_fixture
+    render_inline(LineItemPreviewComponent.new(line_item: line_items(:pipers_car_factory_transmission_fluid_filter)))
+
+    assert_text('Transmission fluid filter replaced')
   end
 end

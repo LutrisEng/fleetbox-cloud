@@ -11,6 +11,9 @@
   <% if @log_item.odometer_reading %>
     <%= t 'miles', miles: @log_item.odometer_reading.reading %>
   <% end %>
+  <% if @log_item.shop %>
+    <%= @log_item.shop.name %>
+  <% end %>
 </div>
 <ul class="small text-muted mb-0">
   <% @log_item.line_items.each do |line_item| %>
