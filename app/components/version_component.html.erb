@@ -1,11 +1,11 @@
-<blockquote class="row">
-  <p>
-    <code><%= FLEETBOX_VERSION %></code> (<a href="https://github.com/lutriseng/fleetbox-cloud/tree/<%= FLEETBOX_COMMIT %>"><%= t :view_source %></a>)
-    <br />
-    Copyright &copy; <%= Time.current.year %> Lutris Inc
-  </p>
+<div class="row small text-muted">
+  <blockquote class="col-md-6">
+    <p>
+      <code><%= FLEETBOX_VERSION %></code> (<a href="https://github.com/lutriseng/fleetbox-cloud/tree/<%= FLEETBOX_COMMIT %>"><%= t :view_source %></a>)
+      <br />
+      Copyright &copy; <%= Time.current.year %> Lutris Inc
+    </p>
 
-  <div class="small text-muted col-md-6">
     <p>
       This program is free software: you can redistribute it and/or modify
       it under the terms of the GNU Affero General Public License as published by
@@ -25,12 +25,20 @@
       along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
     </p>
 
+    <p>
+      This license does not imply that the use of this service is free
+      of charge, only that the software powering it is freely available
+      in source form.
+    </p>
+  </blockquote>
+
+  <div class="col-md-6">
     <% if FLEETBOX_LICENSE %>
       <%= render(AccordionComponent.new) do |c| %>
         <% c.with_item(expanded: true, title: t(:show_full_license)) do %>
-          <pre><code><%= FLEETBOX_LICENSE %></code></pre>
+          <blockquote><pre><code><%= FLEETBOX_LICENSE %></code></pre></blockquote>
         <% end %>
       <% end %>
     <% end %>
   </div>
-</blockquote>
+</div>
