@@ -194,3 +194,4 @@ en:
     show:
       unknown_value: "Unknown value"
       no_value: "No value"
+  show_full_license: "GNU Affero General Public License version 3"
