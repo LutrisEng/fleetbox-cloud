@@ -491,6 +491,7 @@ DEPENDENCIES
   image_processing (~> 1.12.2)
   importmap-rails (~> 1.1.2)
   jbuilder (~> 2.11.5)
+  kramdown (~> 2.4.0)
   kredis (~> 1.2.0)
   lookbook (~> 0.9.1)
   memory_profiler (~> 1.0.0)

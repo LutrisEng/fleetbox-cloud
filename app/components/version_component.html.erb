@@ -1,42 +1,42 @@
-<div class="row small text-muted">
-  <blockquote class="col-md-6">
-    <p>
-      <code><%= FLEETBOX_VERSION %></code>, <code><%= Rails.env %></code> environment (<a href="https://github.com/lutriseng/fleetbox-cloud/tree/<%= FLEETBOX_COMMIT %>"><%= t :view_source %></a>)
-      <br />
-      Copyright &copy; <%= Time.current.year %> Lutris Inc
-    </p>
-
-    <p>
-      This program is free software: you can redistribute it and/or modify
-      it under the terms of the GNU Affero General Public License as published by
-      the Free Software Foundation, either version 3 of the License, or
-      (at your option) any later version.
-    </p>
-
-    <p>
-      This program is distributed in the hope that it will be useful,
-      but WITHOUT ANY WARRANTY; without even the implied warranty of
-      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-      GNU Affero General Public License for more details.
-    </p>
-
-    <p>
-      You should have received a copy of the GNU Affero General Public License
-      along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
-    </p>
-
-    <p>
-      This license does not imply that the use of this service is free
-      of charge, only that the software powering it is freely available
-      in source form.
-    </p>
-  </blockquote>
-
+<div class="row small text-muted mb-4">
   <div class="col-md-6">
+    <blockquote>
+      <p>
+        <code><%= FLEETBOX_VERSION %></code>, <code><%= Rails.env %></code> environment (<a href="https://github.com/lutriseng/fleetbox-cloud/tree/<%= FLEETBOX_COMMIT %>"><%= t :view_source %></a>)
+        <br />
+        Copyright &copy; <%= Time.current.year %> Lutris Inc
+      </p>
+
+      <p>
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU Affero General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+      </p>
+
+      <p>
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU Affero General Public License for more details.
+      </p>
+
+      <p>
+        You should have received a copy of the GNU Affero General Public License
+        along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
+      </p>
+
+      <p>
+        This license does not imply that the use of this service is free
+        of charge, only that the software powering it is freely available
+        in source form.
+      </p>
+    </blockquote>
+
     <% if FLEETBOX_LICENSE %>
       <%= render(AccordionComponent.new) do |c| %>
-        <% c.with_item(expanded: true, title: t(:show_full_license)) do %>
-          <blockquote><pre><code><%= FLEETBOX_LICENSE %></code></pre></blockquote>
+        <% c.with_item(expanded: false, title: t(:show_full_license)) do %>
+          <blockquote><%= sanitize FLEETBOX_LICENSE_HTML %></blockquote>
         <% end %>
       <% end %>
     <% end %>
