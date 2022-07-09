@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
         level: 'info'
       )
       Sentry.set_user(id: @current_user.id, email: @current_user.email)
+      @current_user
     else
       Sentry.add_breadcrumb Sentry::Breadcrumb.new(
         category: 'auth',
@@ -47,6 +48,7 @@ class ApplicationController < ActionController::Base
         level: 'info'
       )
       Sentry.set_user({})
+      nil
     end
   end
 
