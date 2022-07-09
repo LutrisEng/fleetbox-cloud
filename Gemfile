@@ -92,12 +92,12 @@ gem 'sentry-ruby', '~> 5.3.1'
 # Use New Relic to keep track of performance [https://newrelic.com]
 gem 'newrelic_rpm', '~> 8.8.0'
 
+# Report on N+1 queries to improve optimization [https://github.com/flyerhzm/bullet]
+gem 'bullet', '~> 7.0.2'
+
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
   gem 'debug', '~> 1.5.0', platforms: %i[mri mingw x64_mingw]
-
-  # Report on N+1 queries to improve optimization [https://github.com/flyerhzm/bullet]
-  gem 'bullet', '~> 7.0.2'
 end
 
 group :development do
