@@ -10,7 +10,7 @@ unless Rails.env.development? || Rails.env.test?
     # We recommend adjusting this value in production.
     config.traces_sample_rate = 1.0
 
-    config.release = FLEETBOX_VERSION
+    config.release = FLEETBOX_COMMIT
     config.environment = Rails.env
   end
 end
