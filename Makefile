@@ -81,7 +81,7 @@ endif
 
 .PHONY: version.txt
 version.txt:
-	echo "fleetbox-cloud $(VERSION)" > version.txt
+	echo "fleetbox-cloud@$(VERSION)" > version.txt
 
 .PHONY: commit.txt
 commit.txt:

@@ -30,10 +30,23 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return unless current_user_session
-
-    @current_user ||= User.find_or_create_by(email: current_user_session['info']['email']) do |user|
-      user.name = current_user_session['info']['name']
+    if current_user_session
+      @current_user ||= User.find_or_create_by(email: current_user_session['info']['email']) do |user|
+        user.name = current_user_session['info']['name']
+      end
+      Sentry.add_breadcrumb Sentry::Breadcrumb.new(
+        category: 'auth',
+        message: "Authenticated user #{@current_user.id} (email #{@current_user.email}) through session (#{current_user_session.as_json})",
+        level: 'info'
+      )
+      Sentry.set_user(id: @current_user.id, email: @current_user.email)
+    else
+      Sentry.add_breadcrumb Sentry::Breadcrumb.new(
+        category: 'auth',
+        message: 'Request is missing a session',
+        level: 'info'
+      )
+      Sentry.set_user({})
     end
   end
 

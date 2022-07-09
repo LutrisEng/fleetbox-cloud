@@ -85,6 +85,10 @@ gem 'activeadmin', '~> 2.13.1'
 # Compile Markdown to HTML [https://kramdown.gettalong.org/]
 gem 'kramdown', '~> 2.4.0'
 
+# Use Sentry to track errors [https://sentry.io]
+gem 'sentry-ruby', '~> 5.3.1'
+gem 'sentry-rails', '~> 5.3.1'
+
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
   gem 'debug', '~> 1.5.0', platforms: %i[mri mingw x64_mingw]

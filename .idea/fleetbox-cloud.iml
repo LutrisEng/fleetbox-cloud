@@ -2704,6 +2704,56 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="sentry-rails (vbundled(5.3.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-rails-5.3.1/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sentry-ruby (vbundled(5.3.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sentry-ruby-core (vbundled(5.3.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-ruby-core-5.3.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-ruby-core-5.3.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-ruby-core-5.3.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-ruby-core-5.3.1/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/sentry-ruby-core-5.3.1/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="smart_properties (vbundled(1.17.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
