@@ -47,8 +47,11 @@ class TireSet < ApplicationRecord
 
   def odometer
     # Bullet chokes up on only conditionally using certain relations
-    previous_bullet_value = Bullet.enable?
-    Bullet.enable = false
+    previous_bullet_value = false
+    if Rails.env.development? || Rails.env.test?
+      previous_bullet_value = Bullet.enable?
+      Bullet.enable = false
+    end
 
     counter = 0
     mounted_on = nil
@@ -93,7 +96,7 @@ class TireSet < ApplicationRecord
     counter += mounted_on.odometer - mounted_at if mounted_at && mounted_on
     counter + (base_miles || 0)
   ensure
-    Bullet.enable = previous_bullet_value
+    Bullet.enable = previous_bullet_value if Rails.env.development? || Rails.env.test?
   end
 
   def specs
