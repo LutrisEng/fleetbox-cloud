@@ -86,8 +86,11 @@ gem 'activeadmin', '~> 2.13.1'
 gem 'kramdown', '~> 2.4.0'
 
 # Use Sentry to track errors [https://sentry.io]
-gem 'sentry-ruby', '~> 5.3.1'
 gem 'sentry-rails', '~> 5.3.1'
+gem 'sentry-ruby', '~> 5.3.1'
+
+# Use New Relic to keep track of performance [https://newrelic.com]
+gem 'newrelic_rpm', '~> 8.8.0'
 
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]

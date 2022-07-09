@@ -1728,6 +1728,33 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="newrelic_rpm (vbundled(8.8.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/recipes" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/recipes" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/newrelic_rpm-8.8.0/recipes" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="nio4r (vbundled(2.5.8)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
