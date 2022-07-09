@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles or /vehicles.json
   def index
-    @vehicles = policy_scope(Vehicle)
+    @vehicles = policy_scope(Vehicle).includes(:photo_attachment, :owner)
   end
 
   # GET /vehicles/1 or /vehicles/1.json

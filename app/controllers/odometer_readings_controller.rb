@@ -14,7 +14,7 @@ class OdometerReadingsController < ApplicationController
   # GET /vehicles/1/odometer_readings or /vehicles/1/odometer_readings.json
   def index
     @odometer_reading = OdometerReading.new(vehicle: @vehicle, performed_at: current_user.now) if policy(@vehicle).edit?
-    @odometer_readings = policy_scope(OdometerReading).merge(@vehicle.odometer_readings)
+    @odometer_readings = policy_scope(OdometerReading).merge(@vehicle.odometer_readings).includes(:log_item)
   end
 
   # GET /vehicles/1/odometer_readings/1/edit

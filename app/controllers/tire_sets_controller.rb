@@ -12,7 +12,7 @@ class TireSetsController < ApplicationController
 
   # GET /tire_sets or /tire_sets.json
   def index
-    @tire_sets = policy_scope(TireSet)
+    @tire_sets = policy_scope(TireSet).includes(:owner)
   end
 
   # GET /tire_sets/1 or /tire_sets/1.json

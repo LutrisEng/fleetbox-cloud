@@ -46,6 +46,10 @@ class TireSet < ApplicationRecord
   end
 
   def odometer
+    # Bullet chokes up on only conditionally using certain relations
+    previous_bullet_value = Bullet.enable?
+    Bullet.enable = false
+
     counter = 0
     mounted_on = nil
     mounted_at = nil
@@ -75,11 +79,21 @@ class TireSet < ApplicationRecord
         counter += mounted_on.odometer
       end
 
-      mounted_at = log_item.odometer_reading&.reading || log_item.vehicle.odometer_readings.closest_to(log_item.performed_at)&.reading || 0
+      mounted_at = log_item
+                   .odometer_reading
+                     &.reading ||
+                   log_item
+                   .vehicle
+                   .odometer_readings
+                   .closest_to(log_item.performed_at)
+                     &.reading ||
+                   0
       mounted_on = log_item.vehicle
     end
     counter += mounted_on.odometer - mounted_at if mounted_at && mounted_on
     counter + (base_miles || 0)
+  ensure
+    Bullet.enable = previous_bullet_value
   end
 
   def specs

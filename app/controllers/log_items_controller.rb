@@ -18,7 +18,9 @@ class LogItemsController < ApplicationController
   end
 
   # GET /vehicles/1/log_items/1 or /log_items/1.json
-  def show; end
+  def show
+    set_log_item_with_includes({ line_items: :line_item_fields })
+  end
 
   # GET /vehicles/1/log_items/new
   def new
@@ -81,9 +83,13 @@ class LogItemsController < ApplicationController
     @vehicle = policy_scope(Vehicle).find_by(uuid: params[:vehicle_uuid])
   end
 
-  def set_log_item
-    @log_item = policy_scope(LogItem).merge(@vehicle.log_items).find_by(uuid: params[:uuid])
+  def set_log_item_with_includes(includes)
+    @log_item = policy_scope(LogItem).merge(@vehicle.log_items).includes(includes).find_by(uuid: params[:uuid])
     authorize @log_item
+  end
+
+  def set_log_item
+    set_log_item_with_includes []
   end
 
   def set_shops
