@@ -982,6 +982,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="graphql (vbundled(2.0.11)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphql-2.0.11/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphql-2.0.11/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="has_scope (vbundled(0.8.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -3316,6 +3330,20 @@
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
+        <option value="graphql:enum" />
+        <option value="graphql:input" />
+        <option value="graphql:install" />
+        <option value="graphql:install:mutation_root" />
+        <option value="graphql:interface" />
+        <option value="graphql:loader" />
+        <option value="graphql:mutation" />
+        <option value="graphql:mutation_create" />
+        <option value="graphql:mutation_delete" />
+        <option value="graphql:mutation_update" />
+        <option value="graphql:object" />
+        <option value="graphql:relay" />
+        <option value="graphql:scalar" />
+        <option value="graphql:union" />
         <option value="haml:component" />
         <option value="helper" />
         <option value="inherited_resources_controller" />
@@ -3381,6 +3409,20 @@
         <option value="generator" />
         <option value="good_job:install" />
         <option value="good_job:update" />
+        <option value="graphql:enum" />
+        <option value="graphql:input" />
+        <option value="graphql:install" />
+        <option value="graphql:install:mutation_root" />
+        <option value="graphql:interface" />
+        <option value="graphql:loader" />
+        <option value="graphql:mutation" />
+        <option value="graphql:mutation_create" />
+        <option value="graphql:mutation_delete" />
+        <option value="graphql:mutation_update" />
+        <option value="graphql:object" />
+        <option value="graphql:relay" />
+        <option value="graphql:scalar" />
+        <option value="graphql:union" />
         <option value="haml:component" />
         <option value="helper" />
         <option value="inherited_resources_controller" />

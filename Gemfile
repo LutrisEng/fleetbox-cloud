@@ -95,6 +95,9 @@ gem 'newrelic_rpm', '~> 8.8.0'
 # Report on N+1 queries to improve optimization [https://github.com/flyerhzm/bullet]
 gem 'bullet', '~> 7.0.2'
 
+# Use the graphql gem to expose a GraphQL API [https://graphql-ruby.org/]
+gem 'graphql', '~> 2.0.11'
+
 group :development, :test do
   # Add debugging support [https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem]
   gem 'debug', '~> 1.5.0', platforms: %i[mri mingw x64_mingw]
