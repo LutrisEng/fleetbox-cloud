@@ -130,6 +130,10 @@ class TireSet < ApplicationRecord
     user_display_name || generate_display_name
   end
 
+  def gid_class_name
+    'tire_set'
+  end
+
   private
 
   def spec_maybe(spec)

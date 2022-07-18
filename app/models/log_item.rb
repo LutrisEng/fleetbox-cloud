@@ -54,4 +54,8 @@ class LogItem < ApplicationRecord
   def shop_uuid=(new_uuid)
     self.shop = Shop.find_by(uuid: new_uuid)
   end
+
+  def gid_class_name
+    'log_item'
+  end
 end

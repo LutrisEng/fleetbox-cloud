@@ -107,4 +107,47 @@ class ApplicationRecord < ActiveRecord::Base
   def generate_uuid!
     self.uuid = SecureRandom.uuid
   end
+
+  def gid_class_name
+    raise StandardError, "#{self.class} missing gid_class_name"
+  end
+
+  def self.gid_class_name_to_class(class_name)
+    case class_name
+    when 'vehicle'
+      Vehicle
+    when 'user'
+      User
+    when 'line_item'
+      LineItem
+    when 'line_item_field'
+      LineItemField
+    when 'log_item'
+      LogItem
+    when 'odometer_reading'
+      OdometerReading
+    when 'shop'
+      Shop
+    when 'tire_set'
+      TireSet
+    when 'warranty'
+      Warranty
+    else
+      raise StandardError, "Invalid GID class name: #{class_name}"
+    end
+  end
+
+  def gid
+    "#{gid_class_name}:#{uuid}"
+  end
+
+  def self.find_gid(gid)
+    class_name = gid.split(':')[0]
+    raise StandardError, 'Invalid GID, missing class name' if class_name.blank?
+
+    klass = ApplicationRecord.gid_class_name_to_class(class_name)
+
+    uuid = gid.delete_prefix("#{class_name}:")
+    klass.find_by(uuid:)
+  end
 end

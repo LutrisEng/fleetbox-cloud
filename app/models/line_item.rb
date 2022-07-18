@@ -87,4 +87,8 @@ class LineItem < ApplicationRecord
   def type=(new_type)
     self.type_id = new_type.id
   end
+
+  def gid_class_name
+    'line_item'
+  end
 end

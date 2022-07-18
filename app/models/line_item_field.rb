@@ -154,4 +154,8 @@ class LineItemField < ApplicationRecord
       errors.add(:line_item, 'line item has invalid type')
     end
   end
+
+  def gid_class_name
+    'line_item_field'
+  end
 end

@@ -5,4 +5,8 @@ class Shop < ApplicationRecord
   belongs_to :owner, class_name: 'User', optional: false
 
   owner_from_record
+
+  def gid_class_name
+    'shop'
+  end
 end

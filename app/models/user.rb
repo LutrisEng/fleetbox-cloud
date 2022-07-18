@@ -50,4 +50,8 @@ class User < ApplicationRecord
   def can_create_vehicle?
     vehicles.count < max_vehicles
   end
+
+  def gid_class_name
+    'user'
+  end
 end

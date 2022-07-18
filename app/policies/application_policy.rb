@@ -65,7 +65,7 @@ class ApplicationPolicy
 
   class OwnerScope < Scope
     def resolve
-      if user.admin
+      if user&.admin
         scope.all
       else
         scope.where_owner(user)

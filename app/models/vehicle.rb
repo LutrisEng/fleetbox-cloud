@@ -62,4 +62,8 @@ class Vehicle < ApplicationRecord
   def remove_photo=(should_remove)
     photo.purge_later if should_remove && should_remove != 0 && should_remove != '0'
   end
+
+  def gid_class_name
+    'vehicle'
+  end
 end
