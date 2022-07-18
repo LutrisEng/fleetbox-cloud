@@ -982,6 +982,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="graphiql-rails (vbundled(1.8.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.1.0/gems/graphiql-rails-1.8.0/config" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="graphql (vbundled(2.0.11)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

@@ -96,6 +96,7 @@ gem 'newrelic_rpm', '~> 8.8.0'
 gem 'bullet', '~> 7.0.2'
 
 # Use the graphql gem to expose a GraphQL API [https://graphql-ruby.org/]
+gem 'graphiql-rails', '~> 1.8.0'
 gem 'graphql', '~> 2.0.11'
 
 group :development, :test do
